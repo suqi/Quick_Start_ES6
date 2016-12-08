@@ -54,7 +54,7 @@ source_parsers = {
 master_doc = 'index'
 
 # General information about the project.
-project = u'Python_Quick_Start'
+project = u'Quick_Start_ES6'
 copyright = u'2016, hsz'
 author = u'hsz'
 
@@ -211,7 +211,7 @@ html_static_path = ['_static']
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Python_Quick_Startdoc'
+htmlhelp_basename = 'Quick_Start_ES6doc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -233,7 +233,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'Python_Quick_Start.tex', u'Python_Quick_Start Documentation',
+    (master_doc, 'Quick_Start_ES6.tex', u'Quick_Start_ES6 Documentation',
      u'hsz', 'manual'),
 ]
 
@@ -263,7 +263,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'Python_Quick_Start', u'Python_Quick_Start Documentation',
+    (master_doc, 'Quick_Start_ES6', u'Quick_Start_ES6 Documentation',
      [author], 1)
 ]
 
@@ -277,8 +277,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'Python_Quick_Start', u'Python_Quick_Start Documentation',
-     author, 'Python_Quick_Start', 'One line description of project.',
+    (master_doc, 'Quick_Start_ES6', u'Quick_Start_ES6 Documentation',
+     author, 'Quick_Start_ES6', 'One line description of project.',
      'Miscellaneous'),
 ]
 
@@ -300,10 +300,10 @@ html_logo = "my_logo.png"
 # theme further.
 html_theme_options = {
     # Navigation bar title. (Default: ``project`` value)
-    'navbar_title': "Python_Quick_Start",
+    'navbar_title': "Quick_Start_ES6",
 
     # Tab name for entire site. (Default: "Site")
-    'navbar_site_name': "Python_Quick_Start",
+    'navbar_site_name': "Quick_Start_ES6",
 
     # A list of tuples containing pages or urls to link to.
     # Valid tuples should be in the following forms:
@@ -365,7 +365,7 @@ html_theme_options = {
     'bootstrap_version': "3",
 }
 
-url_doc_root = 'https://github.com/hsz1273327/Python_Quick_Start/blob/master/ipynbs/'
+url_doc_root = 'https://github.com/hsz1273327/Quick_Start_ES6/blob/master/ipynbs/'
 def setup(app):
     app.add_config_value('recommonmark_config', {
             'url_resolver': lambda url: url_doc_root + url,
