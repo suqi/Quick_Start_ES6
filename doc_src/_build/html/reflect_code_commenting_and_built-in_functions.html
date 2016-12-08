@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>自省,注释和内置函数 &mdash; Python_Quick_Start mit 文档</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.6/lumen/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'mit',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Python_Quick_Start mit 文档" href="index.html" />
+    <link rel="next" title="函数" href="function.html" />
+    <link rel="prev" title="控制语句和异常处理" href="Logic_control_statement_and_Error_handler.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><span><img src="_static/my_logo.png"></span>
+          Python_Quick_Start</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="http://blog.hszofficial.site/">Home</a></li>
+                <li><a href="http://blog.hszofficial.site/about/">About</a></li>
+                <li><a href="http://blog.hszofficial.site/series/">Series</a></li>
+                <li><a href="http://blog.hszofficial.site/collection/">Collections</a></li>
+                <li><a href="http://blog.hszofficial.site/tags/">Tags</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Python_Quick_Start <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="variable_object_and_op.html">变量,对象与运算</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_object_and_op.html#id2">对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_object_and_op.html#id6">变量</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="container.html">内置容器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="container.html#id2">容器的通用操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container.html#id4">序列&#8211;字符串，列表，元组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container.html#id14">无序序列&#8211;字典和集合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container.html#id18">关于容器的小技巧</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Logic_control_statement_and_Error_handler.html">控制语句和异常处理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Logic_control_statement_and_Error_handler.html#id2">判断语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Logic_control_statement_and_Error_handler.html#id3">循环语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Logic_control_statement_and_Error_handler.html#id4">异常处理语句</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">自省,注释和内置函数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">自省</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#import">常用内置函数(不用import就可以直接使用)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">行注释</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">段注释</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="function.html">函数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id2">定义和使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id3">参数传递</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id4">多返回</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id5">递归</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id6">函数注解</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class_and_object-oriented_programming.html">类和面向对象编程</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_and_object-oriented_programming.html#id2">定义类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_and_object-oriented_programming.html#id3">继承</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_and_object-oriented_programming.html#id7">封装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_and_object-oriented_programming.html#id8">多态</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module_and_package.html">模块和包</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id2">模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id3">模块的标准写法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id4">包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#import">import 的相对引用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id6">循环引用和循环依赖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id7">模块的载入行为(科普)</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="id1">
+<h1>自省,注释和内置函数<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>自省<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>python的自省是指这种能力：检查某些事物以确定它是什么、它知道什么以及它能做什么.</p>
+<p>python的自省也算是这门语言的一个特色.python诞生之初就是作为脚本语言而存在的,它鼓励边试边写的工作模式.
+因此,它设计了几个方法来实现随时查看对象信息.</p>
+<div class="section" id="python">
+<h3>python之禅<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h3>
+<p>在交互界面输入:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">this</span>
+</pre></div>
+</div>
+<pre class="literal-block">
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than <em>right</em> now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+</pre>
+<p>可以看到一段小诗(姑且算是诗).这个是Tim
+Peters写的.用来阐述python的理念.也算是对python语言的一种自省吧</p>
+<hr class="docutils" />
+<blockquote>
+<div><p>Python之禅 by Tim Peters</p>
+<p>优美胜于丑陋（Python 以编写优美的代码为目标）</p>
+<p>明了胜于晦涩（优美的代码应当是明了的，命名规范，风格相似）</p>
+<p>简洁胜于复杂（优美的代码应当是简洁的，不要有复杂的内部实现）</p>
+<p>复杂胜于凌乱（如果复杂不可避免，那代码间也不能有难懂的关系，要保持接口简洁）</p>
+<p>扁平胜于嵌套（优美的代码应当是扁平的，不能有太多的嵌套）</p>
+<p>间隔胜于紧凑（优美的代码有适当的间隔，不要奢望一行代码解决问题）</p>
+<p>可读性很重要（优美的代码是可读的）</p>
+<p>即便假借特例的实用性之名，也不可违背这些规则（这些规则至高无上）</p>
+<p>不要包容所有错误，除非你确定需要这样做（精准地捕获异常，不写
+except:pass 风格的代码）</p>
+<p>当存在多种可能，不要尝试去猜测</p>
+<p>而是尽量找一种，最好是唯一一种明显的解决方案（如果不确定，就用穷举法）</p>
+<p>虽然这并不容易，因为你不是 Python 之父（这里的 Dutch 是指 Guido ）</p>
+<p>做也许好过不做，但不假思索就动手还不如不做（动手之前要细思量）</p>
+<p>如果你无法向人描述你的方案，那肯定不是一个好方案；反之亦然（方案测评标准）</p>
+<p>命名空间是一种绝妙的理念，我们应当多加利用（倡导与号召)</p>
+</div></blockquote>
+</div>
+<hr class="docutils" />
+<div class="section" id="help">
+<h3>help()命令<a class="headerlink" href="#help" title="永久链接至标题">¶</a></h3>
+<p>在交互环境中输入这个指令可以呼出一个新的交互框,你可以在其中输入
+&#8220;modules&#8221;, &#8220;keywords&#8221;, &#8220;symbols&#8221;, 或者 &#8220;topics&#8221;来查看各个方面包含的内容</p>
+<p>除此之外,help()同样可以让你查看对象的属性,结构,以及说明文档,如,想查看字符串的具体用法和包含的方法可以用:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="go">&gt;&gt;&gt;help(str)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dir">
+<h3>dir()命令<a class="headerlink" href="#dir" title="永久链接至标题">¶</a></h3>
+<p>可以使用内置的 dir()
+函数来检查模块（以及其它对象）的内容.包括影藏的内容也可看到.</p>
+</div>
+</div>
+<div class="section" id="import">
+<h2>常用内置函数(不用import就可以直接使用)<a class="headerlink" href="#import" title="永久链接至标题">¶</a></h2>
+<p>一些内置函数我们已经在之前看到过了,这边我们来看看还有哪些</p>
+<div class="section" id="id3">
+<h3>自省函数<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>help(obj)
+在线帮助, obj可是任何类型</li>
+<li>callable(obj)
+查看一个obj是不是可以像函数一样调用</li>
+<li>repr(obj)
+得到obj的表示字符串，可以利用这个字符串eval重建该对象的一个拷贝</li>
+<li>eval_r(str)
+表示合法的python表达式，返回这个表达式</li>
+<li>dir(obj)
+查看obj的name space中可见的name</li>
+<li>hasattr(obj,name)
+查看一个obj的name space中是否有name</li>
+<li>getattr(obj,name)
+得到一个obj的name space中的一个name</li>
+<li>setattr(obj,name,value)
+为一个obj的name space中的一个name指向vale这个object</li>
+<li>delattr(obj,name)
+从obj的name space中删除一个name</li>
+<li>vars(obj)
+返回一个object的name space。用dictionary表示</li>
+<li>locals()
+返回一个局部name space,用dictionary表示</li>
+<li>globals()
+返回一个全局name space,用dictionary表示</li>
+<li>type(obj)
+查看一个obj的类型</li>
+<li>isinstance(obj,cls)
+查看obj是不是cls的instance</li>
+<li>issubclass(subcls,supcls)
+查看subcls是不是supcls的子类</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>类型转换函数:<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>chr(i) 把一个ASCII数值,变成字符</li>
+<li>ord(i) 把一个字符或者unicode字符,变成ASCII数值</li>
+<li>oct(x) 把整数x变成八进制表示的字符串</li>
+<li>hex(x) 把整数x变成十六进制表示的字符串</li>
+<li>int(x) 转换成一个integer</li>
+<li>long(x) 转换成一个long interger</li>
+<li>float(x) 转换成一个浮点数</li>
+<li>complex(x) 转换成复数</li>
+<li>str(obj) 得到obj的字符串描述</li>
+<li>list(seq) 把一个sequence转换成一个list</li>
+<li>tuple(seq) 把一个sequence转换成一个tuple</li>
+<li>dict(),dict(list) 转换成一个dictionary</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>数学运算<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>abs(number) 返回一个数的绝对值。</li>
+<li>pow(x, y[, z]) 求幂(z为取模的可选项)</li>
+<li>divmod(num1, num2) 求出商和余数，返回一个tuple. divmod(10,3)=(3,1)</li>
+<li>round(number, ndigits) 把浮点数转变成指定小数位数的数</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>序列和无序序列操作<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>len(object) 求一个对象的子项的个数</li>
+<li>max(sq) 求最大值</li>
+<li>min(sq) 求最小值</li>
+<li>sum(list) 求序列所有值的和</li>
+<li>filter(function or None, list)
+将list的每项按照function进行筛选。function中，如果需要某个值继续存在，返回值为True，反之用False。</li>
+<li>range(start,stop, step) 左开右闭。生成一个由数组成的列表</li>
+<li>map(function, iterable_objects)
+接收一个函数和一个可迭代对象（如列表）作为参数，用函数处理每个元素，然后返回新的列表。</li>
+<li>sorted(iterable[, cmp[, key[, reverse]]]) 队集合排序</li>
+<li>enumerate(sequence [, start = 0])
+返回一个可枚举的对象,该对象的next()方法将返回一个tuple</li>
+<li>iter(o[, sentinel])
+生成一个对象的迭代器，第二个参数表示分隔符</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3>特殊操作<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>repr(object)
+把对象转换为字符串，很多时候可以通过eval(repr(object))还原对象</li>
+<li>eval(source[, globals[, locals]]) 求表达式的值</li>
+<li>excefile(object[, globals[, locals]])
+exec语句用来执行储存在字符串或文件中的Python语句.例：exec(&#8216;print(&#8220;abc&#8221;)&#8217;)
+输出&#8217;abc&#8217;</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3>逻辑判断<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>all(iterable)<ol class="arabic">
+<li>集合中的元素都为真的时候为真</li>
+<li>特别的，若为空串返回为True</li>
+</ol>
+</li>
+<li>any(iterable)<ol class="arabic">
+<li>集合中的元素有一个为真的时候为真</li>
+<li>特别的，若为空串返回为False</li>
+</ol>
+</li>
+<li>cmp(x, y) 如果x &lt; y ,返回负数；x == y, 返回0；x &gt; y,返回正数</li>
+</ul>
+</div>
+<div class="section" id="io">
+<h3>IO操作<a class="headerlink" href="#io" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>open(filename [, mode [, bufsize]])
+打开一个文件，如果文件不存在且mode为写或追加时，文件将被创建。添加‘b’到mode参数中，将对文件以二进制形式操作。添加‘+’到mode参数中，将允许对文件同时进行读写操作<ol class="arabic">
+<li>参数filename：文件名称。</li>
+<li>参数mode：&#8217;r&#8217;（读）、&#8217;w&#8217;（写）、&#8217;a&#8217;(追加).</li>
+<li>参数bufsize：如果为0表示不进行缓冲，如果为1表示进行行缓冲，如果是一个大于1的数表示缓冲区的大小.</li>
+</ol>
+</li>
+<li>input([&#8220;提示信息&#8221;) 获取用户输入,返回一个字符串</li>
+<li>print(object) 打印函数</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>行注释<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p>python中如果要注释一行,可以用<code class="docutils literal"><span class="pre">#</span></code>.下面还有两个特殊的注释语句.</p>
+<div class="section" id="coding-utf-8">
+<h3>coding:utf-8声明<a class="headerlink" href="#coding-utf-8" title="永久链接至标题">¶</a></h3>
+<p>在文件的头两行中写下</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="c1">#coding:utf-8</span>
+</pre></div>
+</div>
+<p>则声明了该模块默认编码为utf-8格式,这样就可以愉快的使用中文了,这句在python3中并不需要,因为python3已经默认是unicode了,至于2中为啥要,这是历史遗留问题</p>
+</div>
+<div class="section" id="usr-bin-env-python">
+<h3>!/usr/bin/env python<a class="headerlink" href="#usr-bin-env-python" title="永久链接至标题">¶</a></h3>
+<p>在入口文件第一行写下</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+</pre></div>
+</div>
+<p>如此一来只要给文件赋予运行权限他就可以自己调用系统中的python运行了</p>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>段注释<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<p>如果我们希望整段的注释一些内容,那么可以用<code class="docutils literal"><span class="pre">&quot;&quot;&quot;</span></code>包裹的字符串.他的行为和长字符串一样.但有一种段注释的特殊用法,就是放在对象的开头(文件,类,方法,函数等)用来作为对象的说明,也就是所谓的docstring.在Python中,对象会将它保存在<code class="docutils literal"><span class="pre">__doc__</span></code>字段下,可以用来做doctest,也可以用来生成文档.</p>
+<div class="section" id="google">
+<h3>google风格的注释<a class="headerlink" href="#google" title="永久链接至标题">¶</a></h3>
+<p>关于用来给对象做说明,我们常常需要用固定的格式来写.这里推荐使用<a class="reference external" href="http://blog.hszofficial.site/Python_Environment_Tools/Coding_Style.html#id9">谷歌风格的注释</a>.</p>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/reflect_code_commenting_and_built-in_functions.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; 版权所有 2016, hsz.<br/>
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5 创建。<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

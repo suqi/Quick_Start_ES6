@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>类和面向对象编程 &mdash; Python_Quick_Start mit 文档</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.6/lumen/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'mit',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Python_Quick_Start mit 文档" href="index.html" />
+    <link rel="next" title="模块和包" href="module_and_package.html" />
+    <link rel="prev" title="函数" href="function.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><span><img src="_static/my_logo.png"></span>
+          Python_Quick_Start</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="http://blog.hszofficial.site/">Home</a></li>
+                <li><a href="http://blog.hszofficial.site/about/">About</a></li>
+                <li><a href="http://blog.hszofficial.site/series/">Series</a></li>
+                <li><a href="http://blog.hszofficial.site/collection/">Collections</a></li>
+                <li><a href="http://blog.hszofficial.site/tags/">Tags</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Python_Quick_Start <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="variable_object_and_op.html">变量,对象与运算</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_object_and_op.html#id2">对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_object_and_op.html#id6">变量</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="container.html">内置容器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="container.html#id2">容器的通用操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container.html#id4">序列&#8211;字符串，列表，元组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container.html#id14">无序序列&#8211;字典和集合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container.html#id18">关于容器的小技巧</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Logic_control_statement_and_Error_handler.html">控制语句和异常处理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Logic_control_statement_and_Error_handler.html#id2">判断语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Logic_control_statement_and_Error_handler.html#id3">循环语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Logic_control_statement_and_Error_handler.html#id4">异常处理语句</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html">自省,注释和内置函数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html#id2">自省</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html#import">常用内置函数(不用import就可以直接使用)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html#id9">行注释</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html#id10">段注释</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="function.html">函数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id2">定义和使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id3">参数传递</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id4">多返回</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id5">递归</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id6">函数注解</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">类和面向对象编程</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">定义类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">继承</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">封装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">多态</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module_and_package.html">模块和包</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id2">模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id3">模块的标准写法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id4">包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#import">import 的相对引用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id6">循环引用和循环依赖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id7">模块的载入行为(科普)</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="id1">
+<h1>类和面向对象编程<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>提到类就不得不提面向对象编程(oop)了,类可以理解为是C中结构体的扩展,通过定义字段实现对事物的抽象达到复用的效果
+python是动态语言,它的类模型和一般的静态语言有不小得差别.这些会<a href="#id9"><span class="problematic" id="id10">`我的这篇合集 &lt;&gt;`__</span></a>中讨论.
+首先我们来看看怎么用类:</p>
+<div class="section" id="id2">
+<h2>定义类<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>基本结构:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>class 类名(父类1,父类2...):
+    x = 0 #定义变量
+
+    def y(self):#定义方法
+        代码段
+</pre></div>
+</div>
+<p>如此这样.</p>
+<blockquote>
+<div>例:</div></blockquote>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Animal</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">sex</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sex</span><span class="o">=</span><span class="n">sex</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Animal is running...&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">ani00</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s2">&quot;male&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>继承<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>继承会继承父类的属性和方法.</p>
+<div class="section" id="id4">
+<h3>构造函数的继承<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id5">
+<h4>如果子类没有定义构造函数,父类中只有一个定义了构造函数,那么父类的构造函数会被子类继承<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h4>
+<blockquote>
+<div>例</div></blockquote>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>class 动物:
+    def __init__(self,性别):
+        self.性别 = 性别
+
+    def 跑(self):
+        print(&quot;动物跑&quot;)
+    def 吃什么(self):
+        pass
+
+class 吃肉:
+    def 吃什么(self):
+        print(&quot;吃肉&quot;)
+
+class 狼(吃肉,动物):
+    pass
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>wolf = 狼(&quot;公&quot;)
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>wolf.吃什么()
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>吃肉
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h4>继承的父类中有很多有构造函数<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
+<p>如果默认的继承方式那么</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">B</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">):</span>
+    <span class="k">pass</span>
+<span class="k">class</span> <span class="nc">D</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">A</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">A</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">B</span>
+</pre></div>
+</div>
+<p>如果俩都想被继承,那么:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">E</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">A</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">B</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="n">E</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">A</span>
+<span class="n">B</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="mixin">
+<h3>多重继承与Mixin<a class="headerlink" href="#mixin" title="永久链接至标题">¶</a></h3>
+<p>python支持多重继承,但多重继承会出现法理问题(钻石调用、MRO
+查找顺序等,括弧笑),这就需要有个规范来对多重继承产生约束,一般来说python常用的规范就是一个主脉络+多个插件的Mixin方式.</p>
+<p><strong>*必须注意继承的时候是从最右的类开始的,而如果碰到同名的类,前面的会被后面的覆盖,正如对构造函数的继承机制一样,因此最好把主要继承的父类放最后,描述特点的插件放在前面,越重要的放在越前面*</strong></p>
+<p>所谓的Mixin可以理解为一个主要的父类+多个功能插件类,有点像java的接口,差别在于接口没有实现,强调的是&#8221;我是XXX&#8221;,而Mixin强调的是&#8221;我能XXX&#8221;</p>
+<p>举个例子: 如果要描述水果</p>
+<p>那很简单,父类就是水果了:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>class 水果:
+    def __init__(self,单价,产地):
+        self.单价 = 单价 #float
+        self.产地 = 产地 #str
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>class 苹果(水果):
+    pass
+
+class 橘子(水果):
+    pass
+
+class 香蕉(水果):
+    pass
+
+class 开心果(水果):
+    pass
+
+class 蛤蟆瓜(水果):
+    pass
+</pre></div>
+</div>
+<p>我们要描述它能不能送人,告诉别人怎么吃它,怎么办呢,可以定义一个方法叫可以送人,定义一个方法叫吃法咨询,然后定义不同的类对这些方法实现,作为插件让水果继承,如下:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>class 可以送人:
+    def 可以送人嘛(self):
+        return &quot;可以送人&quot;
+
+class 不可以送人:
+    def 可以送人嘛(self):
+        return &quot;不可以送人&quot;
+
+class 剥皮儿吃:
+    def 吃法(self):
+        return &quot;剥皮儿吃&quot;
+
+class 敲开壳儿吃仁儿:
+    def 吃法(self):
+        return &quot;敲开壳儿吃仁儿&quot;
+
+class 去皮儿吃肉核儿别吃:
+    def 吃法(self):
+        return &quot;去皮儿吃肉核儿别吃&quot;
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>class 苹果(可以送人,去皮儿吃肉核儿别吃,水果):
+    pass
+
+class 橘子(可以送人,去皮儿吃肉核儿别吃,水果):
+    pass
+
+class 香蕉(可以送人,剥皮儿吃,水果):
+    pass
+
+class 开心果(可以送人,敲开壳儿吃仁儿,水果):
+    pass
+
+class 蛤蟆瓜(不可以送人,去皮儿吃肉核儿别吃,水果):
+    pass
+</pre></div>
+</div>
+<p>这种就是python的Mixin了.当然了看起来还是有点复杂的</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>封装<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>封装指的是设定可访问的权限,python对它的有多种支持方式:</p>
+<blockquote>
+<div>通过命名隐藏</div></blockquote>
+<p>这种方式比较原始了,就是在定义的时候使用<code class="docutils literal"><span class="pre">__</span></code>来隐藏.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CA</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">a</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__a</span> <span class="o">=</span> <span class="n">a</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">ca</span> <span class="o">=</span> <span class="n">CA</span><span class="p">(</span><span class="s2">&quot;10&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">ca</span><span class="o">.</span><span class="n">__a</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+
+AttributeError                            Traceback (most recent call last)
+
+&lt;ipython-input-26-c727d2c7cc0d&gt; in &lt;module&gt;()
+----&gt; 1 ca.__a
+
+
+AttributeError: &#39;CA&#39; object has no attribute &#39;__a&#39;
+</pre></div>
+</div>
+<p>这样你就无法随便的访问变量了,但我们连读都度不了了呀,咋办</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">ca</span><span class="o">.</span><span class="n">_CA__a</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;10&#39;</span>
+</pre></div>
+</div>
+<p>事实上只是转换了下名字,在变量名前增加了<code class="docutils literal"><span class="pre">_+类名</span></code>而已.
+显然这种封装是不完全而且也很粗糙的.</p>
+<blockquote>
+<div>用<code class="docutils literal"><span class="pre">&#64;property</span></code>封装属性</div></blockquote>
+<p>这也是常用的封装,也相当于是声明实例变量了</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">birth</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_birth</span>
+
+    <span class="nd">@birth.setter</span>
+    <span class="k">def</span> <span class="nf">birth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_birth</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">age</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">2015</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_birth</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">birth</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">birth</span> <span class="o">=</span> <span class="n">birth</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">s2</span><span class="o">=</span><span class="n">Student</span><span class="p">(</span><span class="mi">1998</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">s2</span><span class="o">.</span><span class="n">birth</span> <span class="o">=</span><span class="mi">2000</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">s2</span><span class="o">.</span><span class="n">birth</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">2000</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">s2</span><span class="o">.</span><span class="n">age</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">15</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">s2</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">16</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+
+AttributeError                            Traceback (most recent call last)
+
+&lt;ipython-input-56-d6da85212657&gt; in &lt;module&gt;()
+----&gt; 1 s2.age = 16
+
+
+AttributeError: can&#39;t set attribute
+</pre></div>
+</div>
+<p>这样也只是给定义了的变量设了保护,如果有人往对象中添加新的属性咋办</p>
+<p>这时候就用<code class="docutils literal"><span class="pre">__slot__</span></code>限定可定义的属性</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">__slot__</span></code>限定可定义的属性</div></blockquote>
+<p>这个也是动态语言才会有的特征,类被定义好后是允许添加新属性的.<code class="docutils literal"><span class="pre">__slot__</span></code>方法也就是为了限制这一特性才设计的.</p>
+<p>注意<code class="docutils literal"><span class="pre">__slot__</span></code>只能对当前类有效,对子类是无效的</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Teacher</span><span class="p">:</span>
+    <span class="n">__slots__</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;age&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">tea1</span> <span class="o">=</span> <span class="n">Teacher</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">tea1</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;郝老师&quot;</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">tea1</span><span class="o">.</span><span class="n">sex</span> <span class="o">=</span> <span class="s2">&quot;男&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+
+AttributeError                            Traceback (most recent call last)
+
+&lt;ipython-input-61-fcac4f918012&gt; in &lt;module&gt;()
+----&gt; 1 tea1.sex = &quot;男&quot;
+
+
+AttributeError: &#39;Teacher&#39; object has no attribute &#39;sex&#39;
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>class 数学老师(Teacher):
+    pass
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>数学老师.sex = &quot;男&quot;
+</pre></div>
+</div>
+<p>那怎么继承呢</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>class 语文老师(Teacher):
+    __slots__ = ()
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>tea2 = 语文老师()
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">tea2</span><span class="o">.</span><span class="n">sex</span> <span class="o">=</span> <span class="s2">&quot;女&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+
+AttributeError                            Traceback (most recent call last)
+
+&lt;ipython-input-80-f0f7539fb460&gt; in &lt;module&gt;()
+----&gt; 1 tea2.sex = &quot;女&quot;
+
+
+AttributeError: &#39;语文老师&#39; object has no attribute &#39;sex&#39;
+</pre></div>
+</div>
+<p>如果子类中定义了<code class="docutils literal"><span class="pre">__slots__</span></code>,那么实际的slots就是父类和子类的和</p>
+</div>
+<div class="section" id="id8">
+<h2>多态<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>什么是多态? 多态来源自希腊文字(polymorphism),意思是多种形式,在java,
+C++这些静态类型语言中一般是指父类型变量可以引用子类型对象,或一个接口，多种方法,一个接口多个类实现.而python并不关心类型,
+而是关注接口(或者说协议),因此python的多态和他们的多态区别很大.</p>
+<p>python中的多态可以自动的适用于所有类别的对象类型,只要对象支持所预设的接口即可.
+当传递的对象不支持这种预期的接口,python会再运行时检测到并抛出错误.</p>
+<p>这种模式就是所谓的&#8221;Duck type&#8221;鸭子类型,即是说,一个对象有效的语义，
+不是由继承自特定的类或实现特定的接口，而是由当前方法和属性的集合决定.</p>
+<blockquote>
+<div>例:</div></blockquote>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">V</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">other</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">V</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">+</span><span class="n">other</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">+</span><span class="n">other</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">z</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">other</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">C</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">+</span><span class="n">other</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">+</span><span class="n">other</span><span class="o">.</span><span class="n">y</span><span class="p">,</span><span class="n">other</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">V</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">v</span><span class="o">+</span><span class="n">c</span><span class="p">)</span><span class="c1">#4,7</span>
+<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="o">+</span><span class="n">v</span><span class="p">)</span><span class="c1">#会报错</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+
+AttributeError                            Traceback (most recent call last)
+
+&lt;ipython-input-82-3afafbbf057c&gt; in &lt;module&gt;()
+      3
+      4 print(v+c)#4,7
+----&gt; 5 print(c+v)#会报错
+
+
+&lt;ipython-input-81-ab79601830da&gt; in __add__(self, other)
+     17         return str(self.x)+&quot;,&quot;+str(self.y)+&quot;,&quot;+str(self.z)
+     18     def __add__(self,other):
+---&gt; 19         result = C(self.x+other.x,self.y+other.y,other.z)
+     20         return result
+
+
+AttributeError: &#39;V&#39; object has no attribute &#39;z&#39;
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">cs</span> <span class="o">=</span> <span class="n">C</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">)</span>
+<span class="n">vs</span> <span class="o">=</span> <span class="n">V</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">vs</span><span class="o">+</span><span class="n">cs</span><span class="p">)</span><span class="c1">#da,eb</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">da</span><span class="p">,</span><span class="n">eb</span>
+</pre></div>
+</div>
+<p>可见当v+c时,v看到c中有x,y这两个参数,满足与其相加的要求,因此可以计算,
+而c+v时,c的加法方法需要相加对象v的z属性,明显v没有该属性,所以会报错.</p>
+<p>同时,多态也体现在vs+cs时,因为字符串也有<code class="docutils literal"><span class="pre">+</span></code>操作,所以vs+cs也可以进行,准确的说所有可<code class="docutils literal"><span class="pre">+</span></code>的类型都可以作为输入.
+动态语言的魅力也在于此,因为对参数的类型没有要求所以灵活性非常高,当然代价就是安全性了.</p>
+<p>Python没有方法重载,所谓重载是指可以定义重名方法,由输入参数的类型或者数量来作为区别
+python是动态语言,对输入参数类型没有要求而对于数量,因为有<code class="docutils literal"><span class="pre">*args</span></code>可以作为参数,也可以设定默认值,
+所以对数量也可以看做是没有要求.因为这一点python没有必要存在重载.如果有两个同名方法,那后一个会替掉前一个.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/class_and_object-oriented_programming.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; 版权所有 2016, hsz.<br/>
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5 创建。<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

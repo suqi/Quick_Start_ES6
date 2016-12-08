@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>对象 &mdash; Python_Quick_Start mit 文档</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/lumen/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'mit',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Python_Quick_Start mit 文档" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/my_logo.png"></span>
+          Python_Quick_Start</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="http://blog.hszofficial.site/">Home</a></li>
+                <li><a href="http://blog.hszofficial.site/about/">About</a></li>
+                <li><a href="http://blog.hszofficial.site/series/">Series</a></li>
+                <li><a href="http://blog.hszofficial.site/collection/">Collections</a></li>
+                <li><a href="http://blog.hszofficial.site/tags/">Tags</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Python_Quick_Start <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="simple">
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <p>Js与java不同,它是真正的面向对象编程(java是面向类型编程).</p>
+<p>其实正经说js的叫做原型编程模型</p>
+<p>JS的设计者认为对象之间的相似性可以让面向对象的继承得到简化,通过直接复制一个与自己类似的对象,稍作修改就可以实现自己的对象了,真是朴素哇</p>
+<p>我们要创建一个新的商品叫莎士比亚全集,那我们直接拿书做原型就行了</p>
+<p>如我们前面说了那么多的特殊对象,他们就是原型,使用他们的时候本质上就是用new关键字做一份原型的拷贝对象</p>
+<div class="section" id="">
+<span id="id1"></span><h1>对象<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>在python中我们想要一个对象必须先定义类,然后再对它实例化,而js中不需要</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="s1">&#39;babel-polyfill&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{}</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">hao</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">name</span><span class="o">:</span><span class="s2">&quot;郝老师&quot;</span><span class="p">,</span>
+    <span class="nx">age</span><span class="o">:</span><span class="mi">18</span><span class="p">,</span>
+    <span class="nx">eat</span><span class="p">(){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="o">+</span><span class="s2">&quot;在吃cuscus&quot;</span><span class="p">)</span>
+    <span class="p">}</span>    
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">hao</span><span class="p">.</span><span class="nx">eat</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>郝老师在吃cuscus
+
+
+
+
+
+undefined
+</pre></div>
+</div>
+<p>是不是和方便~</p>
+<p>在java或者python中我们为了使用一个公用对象不得不用什么单例模式这样的蛋疼写法,在js中就只要直接描述这个对象就行了</p>
+<p>本质上来说js的对象就是字段与值的键值对,ES6与其他语言相比不同之处在于对象的字段可以是表达式</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;郝老师&quot;</span>
+<span class="kd">let</span> <span class="nx">type</span> <span class="o">=</span> <span class="s2">&quot;human&quot;</span>
+<span class="kd">let</span> <span class="nx">郝老师</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">name</span><span class="p">,</span>
+    <span class="nx">type</span><span class="p">,</span>
+    <span class="p">[</span><span class="nx">type</span> <span class="o">===</span> <span class="s2">&quot;human&quot;</span><span class="o">?</span><span class="s2">&quot;age&quot;</span><span class="o">:</span><span class="s2">&quot;year&quot;</span><span class="p">]</span><span class="o">:</span><span class="mi">18</span><span class="p">,</span>
+    <span class="nx">eat</span><span class="p">(){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="o">+</span><span class="s2">&quot;在吃cuscus&quot;</span><span class="p">)</span>
+    <span class="p">}</span>    
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">郝老师</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>{ name: &#39;郝老师&#39;, type: &#39;human&#39;, age: 18, eat: [Function: eat] }
+</pre></div>
+</div>
+<p>上面的例子中有几个知识点:</p>
+<ul class="simple">
+<li>字段上文引用赋值
+像name这种字段它如果不赋值,那就会在上文中找有没有这个变量,有的话就给这个字段附上相同的值,这个特性之所以不再上面讲是因为最好别用,容易出歧义</li>
+<li><code class="docutils literal"><span class="pre">[]</span></code>包裹的表达式字段,这个倒是个一个很酷的特性</li>
+</ul>
+<div class="section" id="">
+<span id="id2"></span><h2>对象属性的可枚举性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>对象的每个属性都有一个描述对象（Descriptor），用来控制该属性的行为。Object.getOwnPropertyDescriptor方法可以获取该属性的描述对象。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="mi">123</span> <span class="p">};</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyDescriptor</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="n">value</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+  <span class="n">writable</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+  <span class="n">enumerable</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+  <span class="n">configurable</span><span class="p">:</span> <span class="n">true</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>enumerable就是他的可枚举性,如果该属性为false，就表示某些操作会忽略当前属性。其中有:</p>
+<ul class="simple">
+<li>for...in 循环：只遍历对象自身的和继承的可枚举的属性</li>
+<li>Object.keys()：返回对象自身的所有可枚举的属性的键名</li>
+<li>JSON.stringify()：只串行化对象自身的可枚举的属性</li>
+<li>Object.assign()：只拷贝对象自身的可枚举的属性</li>
+<li>Reflect.enumerate()：返回所有for...in循环会遍历的属性</li>
+</ul>
+</div>
+<div class="section" id="object">
+<span id="object"></span><h2>Object对象的方法:<a class="headerlink" href="#object" title="永久链接至标题">¶</a></h2>
+<div class="section" id="object-is-x-y">
+<span id="object-is-x-y"></span><h3>Object.is(x,y)<a class="headerlink" href="#object-is-x-y" title="永久链接至标题">¶</a></h3>
+<p>该方法用来代替<code class="docutils literal"><span class="pre">==</span></code>和<code class="docutils literal"><span class="pre">===</span></code>,来判断两个对象严格相等,其中主要与<code class="docutils literal"><span class="pre">===</span></code>不同之处在于:</p>
+<ul class="simple">
+<li>+0不等于-o</li>
+<li>NaN等于NaN</li>
+</ul>
+</div>
+<div class="section" id="object-assign-target-source">
+<span id="object-assign-target-source"></span><h3>Object.assign(target,...source)<a class="headerlink" href="#object-assign-target-source" title="永久链接至标题">¶</a></h3>
+<p>Object.assign方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）。如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。Object.assign只拷贝自身属性，不可枚举的属性（enumerable为false）和继承的属性不会被拷贝。Object.assign方法实行的是浅拷贝，而不是深拷贝。也就是说，如果源对象某个属性的值是对象，那么目标对象拷贝得到的是这个对象的引用。</p>
+<div class="section" id="">
+<span id="id3"></span><h4>用处:<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<ul class="simple">
+<li>为对象添加属性和方法</li>
+<li>克隆对象</li>
+<li>合并多个对象</li>
+<li>为属性指定默认值</li>
+</ul>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h3>对象属性遍历<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>有6种方式可以用来遍历对象的属性:</p>
+<p>方法|是否遍历父原型|是否遍历symbol|是否遍历不可枚举
+&#8212;|&#8212;|&#8212;|&#8212;
+for...in|是|否|否
+Object.keys(obj)|否|否|否
+Object.getOwnPropertyNames(obj)|否|否|是
+Object.getOwnPropertySymbols(obj)|否|是|否
+Reflect.ownKeys(obj)|否|是|是
+Reflect.enumerate(obj)|是|否|否</p>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h1>类<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>准确的讲js是没有类的,或者说类和对象是同一级别的</p>
+<p>在ES6之前的标准中定义类一般是用所谓的构造函数实现的,这边稍微写下ES6之前推荐的类写法:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Cat</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">color</span><span class="p">){</span>
+　　　　<span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span>
+　　　　<span class="k">this</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">color</span>
+　　　　<span class="k">this</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s2">&quot;猫科动物&quot;</span>
+　　　　<span class="k">this</span><span class="p">.</span><span class="nx">eat</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;吃老鼠&quot;</span><span class="p">)}</span>
+       <span class="k">this</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span>
+            <span class="k">return</span> <span class="s2">&quot;&lt;&quot;</span><span class="o">+</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="o">+</span><span class="k">this</span><span class="p">.</span><span class="nx">color</span><span class="o">+</span><span class="s2">&quot;&gt;&quot;</span>
+        <span class="p">}</span>
+
+　　<span class="p">}</span>
+<span class="nx">Cat</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span>
+            <span class="k">return</span> <span class="s2">&quot;&lt;&quot;</span><span class="o">+</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="o">+</span><span class="k">this</span><span class="p">.</span><span class="nx">color</span><span class="o">+</span><span class="s2">&quot;&gt;&quot;</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>function () {
+       return &quot;&lt;&quot; + this.name + this.color + &quot;&gt;&quot;;
+}
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">cat1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cat</span><span class="p">(</span><span class="s2">&quot;大毛&quot;</span><span class="p">,</span><span class="s2">&quot;黄色&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>TypeError: Cannot set property &#39;toString&#39; of undefined
+
+    at new Cat (evalmachine.&lt;anonymous&gt;:10:32)
+
+    at evalmachine.&lt;anonymous&gt;:3:12
+
+    at Object.exports.runInThisContext (vm.js:54:17)
+
+    at run ([eval]:192:19)
+
+    at onMessage ([eval]:63:41)
+
+    at emitTwo (events.js:87:13)
+
+    at process.emit (events.js:172:7)
+
+    at handleMessage (internal/child_process.js:695:10)
+
+    at Pipe.channel.onread (internal/child_process.js:440:11)
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">cat1</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Cat { name: &#39;大毛&#39;, color: &#39;黄色&#39;, type: &#39;猫科动物&#39;, eat: [Function] }
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">createpoint</span> <span class="o">=</span>  <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">){</span>
+    <span class="kd">let</span> <span class="nx">point</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">){</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">y</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">add</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">that</span><span class="p">){</span>
+            <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="o">+</span><span class="nx">that</span><span class="p">.</span><span class="nx">x</span>
+            <span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span><span class="o">+</span><span class="nx">that</span><span class="p">.</span><span class="nx">y</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nx">point</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="c1">//protopye中定义类方法和重载一些方法</span>
+    <span class="nx">point</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="s1">&#39;(&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">point</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">p1</span> <span class="o">=</span> <span class="nx">createpoint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">p2</span> <span class="o">=</span> <span class="nx">createpoint</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">p1</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>point { x: 1, y: 2, add: [Function] }
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">p1</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">p2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>point { x: 4, y: 6, add: [Function] }
+</pre></div>
+</div>
+<div class="section" id="es6">
+<span id="es6"></span><h2>ES6中的标准类写法<a class="headerlink" href="#es6" title="永久链接至标题">¶</a></h2>
+<p>ES6中引入了class关键字专门用来定义类:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Point</span> <span class="p">{</span>
+
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">toString</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">&#39;(&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>上面代码定义了一个“类”，可以看到里面有一个constructor方法，这就是构造方法，而this关键字则代表实例对象。</p>
+<p>Point类除了构造方法，还定义了一个toString方法。注意，定义&#8217;类&#8217;的方法的时候，前面不需要加上function这个保留字，直接把函数定义放进去了就可以了。另外，方法之间不需要逗号分隔，加了会报错。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Point</span> <span class="p">{</span>
+
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">toString</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">&#39;(&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">typeof</span> <span class="nx">Point</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;function&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">Point</span> <span class="o">===</span> <span class="nx">Point</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">constructor</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">true</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">point</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">point</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Point { x: 1, y: 2 }
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">point</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nx">Point</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">constructor</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">true</span>
+</pre></div>
+</div>
+<p>上面代码表明，类的数据类型就是函数，类本身就指向构造函数。</p>
+<p>构造函数的prototype属性，在ES6的“类”上面继续存在。事实上，类的所有方法都定义在类的prototype属性上面。</p>
+<p>在类的实例上面调用方法，其实就是调用原型上的方法。</p>
+<p>由于类的方法（除constructor以外）都定义在prototype对象上面，所以类的新方法可以添加在prototype对象上面。Object.assign方法可以很方便地一次向类添加多个方法。</p>
+<p>类的内部所有定义的方法，都是不可枚举的（enumerable）。</p>
+<p>实例的属性除非显式定义在其本身（即定义在this对象上），否则都是定义在原型上（即定义在class上）。类的所有实例共享一个原型对象</p>
+</div>
+<div class="section" id="class">
+<span id="class"></span><h2>Class表达式<a class="headerlink" href="#class" title="永久链接至标题">¶</a></h2>
+<p>与函数一样，Class也可以使用表达式的形式定义。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">MyClass</span> <span class="o">=</span> <span class="kr">class</span> <span class="nx">cls</span><span class="p">{</span>
+  <span class="nx">getClassName</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">cls</span><span class="p">.</span><span class="nx">name</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<p>上面代码使用表达式定义了一个类。需要注意的是，这个类的名字是MyClass而不是cls，cls只在Class的内部代码可用，指代当前类。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">inst</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyClass</span><span class="p">();</span>
+<span class="nx">inst</span><span class="p">.</span><span class="nx">getClassName</span><span class="p">()</span> <span class="c1">// Me</span>
+<span class="nx">cls</span><span class="p">.</span><span class="nx">name</span> <span class="c1">// Referen</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>ReferenceError: Me is not defined
+
+    at evalmachine.&lt;anonymous&gt;:5:1
+
+    at Object.exports.runInThisContext (vm.js:54:17)
+
+    at run ([eval]:192:19)
+
+    at onMessage ([eval]:63:41)
+
+    at emitTwo (events.js:87:13)
+
+    at process.emit (events.js:172:7)
+
+    at handleMessage (internal/child_process.js:686:10)
+
+    at Pipe.channel.onread (internal/child_process.js:440:11)
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">inst</span><span class="p">.</span><span class="nx">name</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">undefined</span>
+</pre></div>
+</div>
+<p>如果Class内部没用到的话，可以省略Me.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">person</span> <span class="o">=</span> <span class="k">new</span> <span class="kr">class</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">sayName</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}(</span><span class="s2">&quot;张三&quot;</span><span class="p">);</span>
+
+<span class="nx">person</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span> <span class="c1">// &quot;张三&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>张三
+
+
+
+
+
+undefined
+</pre></div>
+</div>
+<p>上面代码中，person是一个立即执行的Class的实例。</p>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h2>封装<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>ES6允许使用Class的取值函数（getter）和存值函数(setter)对某个属性设置存值函数和取值函数，拦截该属性的存取行为。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">MyClass</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+  <span class="nx">get</span> <span class="nx">prop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">&#39;getter&#39;</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">set</span> <span class="nx">prop</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;setter: &#39;</span><span class="o">+</span><span class="nx">value</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">inst</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyClass</span><span class="p">();</span>
+
+<span class="nx">inst</span><span class="p">.</span><span class="nx">prop</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>setter: 123
+
+
+
+
+
+123
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">inst</span><span class="p">.</span><span class="nx">prop</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;getter&#39;</span>
+</pre></div>
+</div>
+<p>存值函数和取值函数是设置在属性的descriptor对象上的。</p>
+<div class="section" id="">
+<span id="id7"></span><h3>静态方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>类相当于实例的原型，所有在类中定义的方法，都会被实例继承。如果在一个方法前，加上static关键字，就表示该方法不会被实例继承，而是直接通过类来调用，这就称为“静态方法”。与python中一样,静态方法无法被实例使用</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Foo</span> <span class="p">{</span>
+  <span class="kr">static</span> <span class="nx">classMethod</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">Foo</span><span class="p">.</span><span class="nx">classMethod</span><span class="p">()</span> <span class="c1">// &#39;hello&#39;</span>
+
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Foo</span><span class="p">();</span>
+<span class="nx">foo</span><span class="p">.</span><span class="nx">classMethod</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>hello
+
+
+
+TypeError: foo.classMethod is not a function
+
+    at evalmachine.&lt;anonymous&gt;:25:5
+
+    at Object.exports.runInThisContext (vm.js:54:17)
+
+    at run ([eval]:192:19)
+
+    at onMessage ([eval]:63:41)
+
+    at emitTwo (events.js:87:13)
+
+    at process.emit (events.js:172:7)
+
+    at handleMessage (internal/child_process.js:686:10)
+
+    at Pipe.channel.onread (internal/child_process.js:440:11)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id8"></span><h2>继承<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>ES6中的继承采用extend关键字实现</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">B</span> <span class="kr">extends</span> <span class="nx">A</span> <span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>extends关键字后面可以跟多种类型的值。只要是一个有prototype属性的函数，就能被B继承。由于函数都有prototype属性，因此A可以是任意函数</p>
+<div class="section" id="super">
+<span id="super"></span><h3>super()方法<a class="headerlink" href="#super" title="永久链接至标题">¶</a></h3>
+<p>和python一样,js也有super()方法来构造父类实例(相当于python中的<code class="docutils literal"><span class="pre">super().__init__(self,*args)</span></code>),
+ES6的继承机制是这样:</p>
+<ol class="simple">
+<li>先创造父类的实例对象this（所以必须先调用super方法）</li>
+<li>然后再用子类的构造函数修改this</li>
+</ol>
+</div>
+<div class="section" id="object-getprototypeof">
+<span id="object-getprototypeof"></span><h3>Object.getPrototypeOf()<a class="headerlink" href="#object-getprototypeof" title="永久链接至标题">¶</a></h3>
+<p>Object.getPrototypeOf方法可以用来从子类上获取父类。</p>
+</div>
+<div class="section" id="prototypeproto">
+<span id="prototypeproto"></span><h3>类的prototype属性和<strong>proto</strong>属性<a class="headerlink" href="#prototypeproto" title="永久链接至标题">¶</a></h3>
+<p>大多数浏览器中，每一个对象都有<strong>proto</strong>属性，指向对应的构造函数的prototype属性。Class作为构造函数的语法糖，同时有prototype属性和<strong>proto</strong>属性，因此同时存在两条继承链。</p>
+<p>（1）子类的<strong>proto</strong>属性，表示构造函数的继承，总是指向父类。</p>
+<p>（2）子类prototype属性的<strong>proto</strong>属性，表示方法的继承，总是指向父类的prototype属性。</p>
+<p>他们之间的关系可以看这张图:</p>
+<p><img alt="js继承" src="../_images/jsextend.png" /></p>
+</div>
+<div class="section" id="mixin">
+<span id="mixin"></span><h3>Mixin模式的实现<a class="headerlink" href="#mixin" title="永久链接至标题">¶</a></h3>
+<p>Mixin模式指的是，将多个类的接口“混入”（mix in）另一个类。它在ES6的实现如下。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">copyProperties</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="nx">source</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">key</span> <span class="k">of</span> <span class="nx">Reflect</span><span class="p">.</span><span class="nx">ownKeys</span><span class="p">(</span><span class="nx">source</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="nx">key</span> <span class="o">!==</span> <span class="s2">&quot;constructor&quot;</span>
+      <span class="o">&amp;&amp;</span> <span class="nx">key</span> <span class="o">!==</span> <span class="s2">&quot;prototype&quot;</span>
+      <span class="o">&amp;&amp;</span> <span class="nx">key</span> <span class="o">!==</span> <span class="s2">&quot;name&quot;</span>
+    <span class="p">)</span> <span class="p">{</span>
+      <span class="kd">let</span> <span class="nx">desc</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyDescriptor</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">key</span><span class="p">);</span>
+      <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">desc</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">mix</span><span class="p">(...</span><span class="nx">mixins</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">class</span> <span class="nx">Mix</span> <span class="p">{}</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">mixin</span> <span class="k">of</span> <span class="nx">mixins</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">copyProperties</span><span class="p">(</span><span class="nx">Mix</span><span class="p">,</span> <span class="nx">mixin</span><span class="p">);</span>
+    <span class="nx">copyProperties</span><span class="p">(</span><span class="nx">Mix</span><span class="p">.</span><span class="nx">prototype</span><span class="p">,</span> <span class="nx">mixin</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">Mix</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">DistributedEdit</span> <span class="kr">extends</span> <span class="nx">mix</span><span class="p">(</span><span class="nx">Loggable</span><span class="p">,</span> <span class="nx">Serializable</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/ES6语法/对象,类与面向对象编程.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; 版权所有 2016, hsz.<br/>
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5 创建。<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

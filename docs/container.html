@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>内置容器 &mdash; Python_Quick_Start mit 文档</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.6/lumen/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'mit',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Python_Quick_Start mit 文档" href="index.html" />
+    <link rel="next" title="控制语句和异常处理" href="Logic_control_statement_and_Error_handler.html" />
+    <link rel="prev" title="变量,对象与运算" href="variable_object_and_op.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><span><img src="_static/my_logo.png"></span>
+          Python_Quick_Start</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="http://blog.hszofficial.site/">Home</a></li>
+                <li><a href="http://blog.hszofficial.site/about/">About</a></li>
+                <li><a href="http://blog.hszofficial.site/series/">Series</a></li>
+                <li><a href="http://blog.hszofficial.site/collection/">Collections</a></li>
+                <li><a href="http://blog.hszofficial.site/tags/">Tags</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Python_Quick_Start <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="variable_object_and_op.html">变量,对象与运算</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_object_and_op.html#id2">对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_object_and_op.html#id6">变量</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">内置容器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">容器的通用操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">序列&#8211;字符串，列表，元组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">无序序列&#8211;字典和集合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id18">关于容器的小技巧</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Logic_control_statement_and_Error_handler.html">控制语句和异常处理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Logic_control_statement_and_Error_handler.html#id2">判断语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Logic_control_statement_and_Error_handler.html#id3">循环语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Logic_control_statement_and_Error_handler.html#id4">异常处理语句</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html">自省,注释和内置函数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html#id2">自省</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html#import">常用内置函数(不用import就可以直接使用)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html#id9">行注释</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html#id10">段注释</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="function.html">函数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id2">定义和使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id3">参数传递</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id4">多返回</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id5">递归</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id6">函数注解</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class_and_object-oriented_programming.html">类和面向对象编程</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_and_object-oriented_programming.html#id2">定义类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_and_object-oriented_programming.html#id3">继承</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_and_object-oriented_programming.html#id7">封装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_and_object-oriented_programming.html#id8">多态</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module_and_package.html">模块和包</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id2">模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id3">模块的标准写法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id4">包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#import">import 的相对引用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id6">循环引用和循环依赖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id7">模块的载入行为(科普)</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="id1">
+<h1>内置容器<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>python的自带容器非常简单基础,按是否有序可以分为序列和无序序列两种</p>
+<p>容器之所以是容器,就是因为他们可以存放单独的数据或者结构化数据,我们来看看他们内部的样子,以字典为例:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">dic1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s2">&quot;b&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">dic1</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">4297979304</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">dic1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;c&quot;</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">dic1</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">4297980944</span>
+</pre></div>
+</div>
+<p>可见其实这些容器内存放的也是引用而已.</p>
+<div class="section" id="id2">
+<h2>容器的通用操作<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>对于容器,有些操作是通用的,比如: + ### 取长度(容量)</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s2">&quot;b&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">2</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first rubric" id="id3">函数式编程工具</p>
+</li>
+</ul>
+<p>函数式编程工具往往都是对容器中的数据操作,这些操作包括<code class="docutils literal"><span class="pre">map</span></code>,<code class="docutils literal"><span class="pre">reduce</span></code>,<code class="docutils literal"><span class="pre">filter</span></code>等,这些工具在<a href="#id19"><span class="problematic" id="id20">`我的这个合集中 &lt;&gt;`__</span></a>有详细讲解,这里暂不细讲.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,{</span><span class="mi">1</span><span class="p">:</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s2">&quot;b&quot;</span><span class="p">}))</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>序列&#8211;字符串，列表，元组<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>序列除了字符串外都是非常灵活的容器,内容可以是任何类型,并且内部元素类型并不需要一样.
+这一组都有一个共性,就是内容有顺序,可以切片或者按位获取内容</p>
+<div class="section" id="id5">
+<h3>通用操作<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<ul>
+<li><p class="first rubric" id="id6">取值和切片</p>
+</li>
+</ul>
+<p>python 用<code class="docutils literal"><span class="pre">[]</span></code>来取值和切片</p>
+<p>比如<code class="docutils literal"><span class="pre">[1]</span></code>代表取第一位的值(序列中为第2个元素).<code class="docutils literal"><span class="pre">[-1]</span></code>代表最后一个元素,而当<code class="docutils literal"><span class="pre">[]</span></code>中有两个被<code class="docutils literal"><span class="pre">:</span></code>分割开得数时就成了切片,比如<code class="docutils literal"><span class="pre">[2:4]</span></code>代表取从第2位到第3位的元素组成一个与原来序列相同类型的新序列</p>
+<p><strong>练习:</strong></p>
+<p>从矩阵[[1,2,3,4,5],[0,9,8,7,6]]中取出前两位组成的2x2矩阵</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">]]</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="mi">2</span><span class="p">],</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="mi">2</span><span class="p">]]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first rubric" id="enumerate">使用enumerate遍历序列</p>
+</li>
+</ul>
+<p>可以用</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>for i,v in enumerate(s):
+</pre></div>
+</div>
+<p>来遍历一个序列,i为序号,v为值,这种方式长用于挑选数据,这也是最推荐的方式</p>
+<p>例:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">enumerate</span><span class="p">(</span><span class="s2">&quot;asdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="s2">&quot;asdf&quot;</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first rubric" id="reversed">使用<code class="docutils literal"><span class="pre">reversed</span></code>翻转序列</p>
+</li>
+</ul>
+<p>事实上<code class="docutils literal"><span class="pre">reversed</span></code>除了针对序列,还可以操作等差数列生成器xrange</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="nb">xrange</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>字符串<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>字符串就是把字符按顺序串联.不过和C不同,事实上python没有字符char这个类型,
+所以python中所谓字符就是只有一位的字符串啦.</p>
+<p>字符串可以用<code class="docutils literal"><span class="pre">&quot;&quot;</span></code>或者<code class="docutils literal"><span class="pre">''</span></code>来定义.如果字符串很长要跨行也可以用<code class="docutils literal"><span class="pre">&quot;&quot;&quot;</span> <span class="pre">&quot;&quot;&quot;</span></code>或者<code class="docutils literal"><span class="pre">'''</span> <span class="pre">'''</span></code>来定义.</p>
+<p>字符串一旦赋值就无法更改.</p>
+<blockquote>
+<div>字符串的方法:</div></blockquote>
+<p>字符串处理算是python强项,除了自带方法和自带String模块外,还可以用正则表达式处理.
+这边先看前两种,正则表达式会作为番外篇</p>
+<ul>
+<li><p class="first">字符串中字符大小写的变换： S.lower() #小写 S.upper() #大写
+S.swapcase() #大小写互换 S.capitalize() #首字母大写
+String.capwords(S)
+#这是模块中的方法。它把S用split()函数分开，然后用capitalize()把首字母变成大写，最后用join()合并到一起
+S.title() #只有首字母大写，其余为小写，模块中没有这个方法</p>
+</li>
+<li><p class="first">字符串在输出时的对齐：</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">S</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">width</span><span class="p">,[</span><span class="n">fillchar</span><span class="p">])</span>    <span class="c1">#输出width个字符，S左对齐，不足部分用fillchar填充，默认的为空格。</span>
+<span class="n">S</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="n">width</span><span class="p">,[</span><span class="n">fillchar</span><span class="p">])</span> <span class="c1">#右对齐</span>
+<span class="n">S</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="p">[</span><span class="n">fillchar</span><span class="p">])</span> <span class="c1">#中间对齐</span>
+<span class="n">S</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">width</span><span class="p">)</span> <span class="c1">#把S变成width长，并在右对齐，不足部分用0补足</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">字符串中的搜索和替换：</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">S</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">substr</span><span class="p">,</span> <span class="p">[</span><span class="n">start</span><span class="p">,</span> <span class="p">[</span><span class="n">end</span><span class="p">]])</span> <span class="c1">#返回S中出现substr的第一个字母的标号，如果S中没有substr则返回-1。start和end作用就相当于在S[start:end]中搜索</span>
+<span class="n">S</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">substr</span><span class="p">,</span> <span class="p">[</span><span class="n">start</span><span class="p">,</span> <span class="p">[</span><span class="n">end</span><span class="p">]])</span> <span class="c1">#与find()相同，只是在S中没有substr时，会返回一个运行时错误</span>
+<span class="n">S</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="n">substr</span><span class="p">,</span> <span class="p">[</span><span class="n">start</span><span class="p">,</span> <span class="p">[</span><span class="n">end</span><span class="p">]])</span> <span class="c1">#返回S中最后出现的substr的第一个字母的标号，如果S中没有substr则返回-1，也就是说从右边算起的第一次出现的substr的首字母标号</span>
+<span class="n">S</span><span class="o">.</span><span class="n">rindex</span><span class="p">(</span><span class="n">substr</span><span class="p">,</span> <span class="p">[</span><span class="n">start</span><span class="p">,</span> <span class="p">[</span><span class="n">end</span><span class="p">]])</span>
+<span class="n">S</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">substr</span><span class="p">,</span> <span class="p">[</span><span class="n">start</span><span class="p">,</span> <span class="p">[</span><span class="n">end</span><span class="p">]])</span> <span class="c1">#计算substr在S中出现的次数</span>
+<span class="n">S</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">oldstr</span><span class="p">,</span> <span class="n">newstr</span><span class="p">,</span> <span class="p">[</span><span class="n">count</span><span class="p">])</span> <span class="c1">#把S中的oldstar替换为newstr，count为替换次数。这是替换的通用形式，还有一些函数进行特殊字符的替换</span>
+<span class="n">S</span><span class="o">.</span><span class="n">strip</span><span class="p">([</span><span class="n">chars</span><span class="p">])</span> <span class="c1">#把S中前后chars中有的字符全部去掉，可以理解为把S前后chars替换为None</span>
+<span class="n">S</span><span class="o">.</span><span class="n">lstrip</span><span class="p">([</span><span class="n">chars</span><span class="p">])</span>
+<span class="n">S</span><span class="o">.</span><span class="n">rstrip</span><span class="p">([</span><span class="n">chars</span><span class="p">])</span>
+<span class="n">S</span><span class="o">.</span><span class="n">expandtabs</span><span class="p">([</span><span class="n">tabsize</span><span class="p">])</span> <span class="c1">#把S中的tab字符替换没空格，每个tab替换为tabsize个空格，默认是8个</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">字符串的分割和组合：</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">S</span><span class="o">.</span><span class="n">split</span><span class="p">([</span><span class="n">sep</span><span class="p">,</span> <span class="p">[</span><span class="n">maxsplit</span><span class="p">]])</span> <span class="c1">#以sep为分隔符，把S分成一个list。maxsplit表示分割的次数。默认的分割符为空白字符</span>
+<span class="n">S</span><span class="o">.</span><span class="n">rsplit</span><span class="p">([</span><span class="n">sep</span><span class="p">,</span> <span class="p">[</span><span class="n">maxsplit</span><span class="p">]])</span>
+<span class="n">S</span><span class="o">.</span><span class="n">splitlines</span><span class="p">([</span><span class="n">keepends</span><span class="p">])</span> <span class="c1">#把S按照行分割符分为一个list，keepends是一个bool值，如果为真每行后而会保留行分割符。</span>
+<span class="n">S</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="c1">#把seq代表的序列──字符串序列，用S连接起来</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">字符串的mapping，这一功能包含两个函数：</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>String.maketrans(from, to) #返回一个256个字符组成的翻译表，其中from中的字符被一一对应地转换成to，所以from和to必须是等长的。
+S.translate(table[,deletechars]) # 使用上面的函数产后的翻译表，把S进行翻译，并把deletechars中有的字符删掉。需要注意的是，如果S为unicode字符串，那么就不支持 deletechars参数，可以使用把某个字符翻译为None的方式实现相同的功能。此外还可以使用codecs模块的功能来创建更加功能强大的翻译表。
+</pre></div>
+</div>
+</li>
+<li><p class="first">字符串还有一对编码和解码的函数：</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>S.encode([encoding,[errors]]) # 其中encoding可以有多种值，比如gb2312 gbk gb18030 bz2 zlib big5 bzse64等都支持。errors默认值为&quot;strict&quot;，意思是UnicodeError。可能的值还有&#39;ignore&#39;, &#39;replace&#39;, &#39;xmlcharrefreplace&#39;, &#39;backslashreplace&#39; 和所有的通过codecs.register_error注册的值。这一部分内容涉及codecs模块，不是特明白
+
+S.decode([encoding,[errors]]) #字符串的测试函数，这一类函数在string模块中没有，这些函数返回的都是bool值：
+
+S.startwith(prefix[,start[,end]]) #是否以prefix开头
+S.endwith(suffix[,start[,end]]) #以suffix结尾
+S.isalnum() #是否全是字母和数字，并至少有一个字符
+S.isalpha() #是否全是字母，并至少有一个字符
+S.isdigit() #是否全是数字，并至少有一个字符
+S.isspace() #是否全是空白字符，并至少有一个字符
+S.islower() #S中的字母是否全是小写
+S.isupper() #S中的字母是否便是大写
+S.istitle() #S是否是首字母大写的
+</pre></div>
+</div>
+</li>
+<li><p class="first">字符串类型转换函数，这几个函数只在string模块中有：</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>string.atoi(s[,base]) #base默认为10，如果为0,那么s就可以是012或0x23这种形式的字符串，如果是16那么s就只能是0x23或0X12这种形式的字符串
+string.atol(s[,base]) #转成long
+string.atof(s[,base]) #转成float
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="section" id="id8">
+<h4>字符串拼接<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<p>字符串有两种拼接方式,<code class="docutils literal"><span class="pre">+</span></code>和<code class="docutils literal"><span class="pre">join</span></code>方法,一般来说是join方法更加推荐,因为它的效率比<code class="docutils literal"><span class="pre">+</span></code>高很多,而且语义更加明确</p>
+</div>
+<div class="section" id="id9">
+<h4>格式化字符串<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h4>
+<p>格式化字符串更加推荐的是用format方法,<code class="docutils literal"><span class="pre">format()</span></code>方法是用来代替<code class="docutils literal"><span class="pre">%d</span></code>这种格式化字符串方法的(后者在python3中已经无法使用了).它的好处是更加直观好理解.而且它还要记许多的格式化标记</p>
+<p>format方法有4种使用方法:</p>
+<ul class="simple">
+<li>位置占位符</li>
+</ul>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="s2">&quot;{}是{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;一&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;一是1&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>使用键值对</li>
+</ul>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="s2">&quot;{a:}是{b:}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="s2">&quot;一&quot;</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;一是1&#39;</span>
+</pre></div>
+</div>
+<p>看到:后面是可以使用格式化标识的</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="s2">&quot;{a:}是{b:0.3f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="s2">&quot;pi&quot;</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;pi是3.142&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>使用属性</li>
+</ul>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="o">=</span><span class="n">age</span>
+
+    <span class="k">def</span> <span class="nf">toString</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;{self.name}今年{self.age}岁&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">xiaoming</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;XM&quot;</span><span class="p">,</span><span class="mi">18</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">xiaoming</span><span class="o">.</span><span class="n">toString</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;XM今年18岁&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>使用元组</li>
+</ul>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">point</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="s2">&quot;X={0[0]};Y={0[1]}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;X=1;Y=3&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>列表<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>列表实际就是动态数组,他的内部元素不定类型,不定长度,可以随时天删改查,所以用起来灵活方便,但效率不高,定义方式有两种:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">b</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>列表属于可变数据类型,它的内部其实</p>
+<div class="section" id="id11">
+<h4>列表的方法:<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h4>
+<ul class="simple">
+<li>cmp(list1, list2) 比较两个列表的元素</li>
+<li>len(list) 列表元素个数</li>
+<li>max(list) 返回列表元素最大值</li>
+<li>min(list) 返回列表元素最小值</li>
+<li>list(seq) 将元组转换为列表</li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h4>列表的常用方法:<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
+<ul>
+<li><p class="first">list.append(obj) 在列表末尾添加新的对象</p>
+</li>
+<li><p class="first">list.count(obj) 统计某个元素在列表中出现的次数</p>
+</li>
+<li><p class="first">list.extend(seq)
+在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表）</p>
+</li>
+<li><p class="first">list.index(obj) 从列表中找出某个值第一个匹配项的索引位置</p>
+</li>
+<li><p class="first">list.insert(index, obj) 将对象插入列表</p>
+</li>
+<li><p class="first">list.pop(obj=list[-1])
+移除列表中的一个元素（默认最后一个元素），并且返回该元素的值</p>
+</li>
+<li><p class="first">list.remove(obj) 移除列表中某个值的第一个匹配项</p>
+</li>
+<li><p class="first">list.reverse() 反向列表中元素</p>
+</li>
+<li><p class="first">list.sort([func]) 对原列表进行排序</p>
+<blockquote>
+<div><p>黑科技 列表解析</p>
+</div></blockquote>
+</li>
+</ul>
+<p>所谓列表解析就是在列表中写入代码段,吧代码段生成的结果放入列表中.</p>
+<p>例:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+
+range()等差数列生成器
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">,</span><span class="n">step</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>等差数列生成器在2.7返回的是一个真的等差&#8221;数列&#8221;,然而<code class="docutils literal"><span class="pre">xrange()</span></code>和3.0+的<code class="docutils literal"><span class="pre">range()</span></code>返回的是一个等差数列生成器这点需要注意</p>
+<p>事实上python中字典,集合,列表都有解析,同时还有生成器,以及相关的<code class="docutils literal"><span class="pre">map</span></code>函数,<code class="docutils literal"><span class="pre">filter</span></code>内容过滤器等.
+这块内容很多,所以后面会单独拿出来讲</p>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>元组<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<p>元祖是不可变的列表,它的定义比较奇怪,它用<code class="docutils literal"><span class="pre">,</span></code>来辨识</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span><span class="mi">4</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="nb">tuple</span>
+</pre></div>
+</div>
+<p>当然也可以用更加优雅的方式定义(虽然我觉得这没啥必要):</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>b=tuple((11,&quot;sf&quot;))
+
+元组内置函数
+</pre></div>
+</div>
+<ul class="simple">
+<li>cmp(tuple1, tuple2) 比较两个元组元素。</li>
+<li>len(tuple) 计算元组元素个数。</li>
+<li>max(tuple) 返回元组中元素最大值。</li>
+<li>min(tuple) 返回元组中元素最小值。</li>
+<li>tuple(seq) 将列表转换为元组。</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id14">
+<h2>无序序列&#8211;字典和集合<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<p>无序序列内容同样可以是任何类型,并且内部元素类型并不需要一样.
+无序序列自然内部没有有序的索引,但同样可以用<code class="docutils literal"><span class="pre">for</span> <span class="pre">...</span> <span class="pre">in</span> <span class="pre">...</span></code>语句来遍历</p>
+<div class="section" id="id15">
+<h3>字典<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+<p>字典是python中唯一的映射类型,其中的每个元素都由key,value两部分组成</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">d1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s2">&quot;b&quot;</span><span class="p">}</span>
+<span class="n">d1</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;c&quot;</span>
+</pre></div>
+</div>
+<div class="section" id="id16">
+<h4>字典的方法:<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h4>
+<ul class="simple">
+<li>adict.clear() 删除字典中的所有项或元素；</li>
+<li>adict.copy() 返回一个字典浅拷贝的副本；</li>
+<li>adict.fromkeys(seq, val=None)
+创建并返回一个新字典，以seq中的元素做该字典的键，val做该字典中所有键对应的初始值（默认为None）；</li>
+<li>adict.get(key, default = None)
+返回字典中key对应的值，若key不存在字典中，则返回default的值（default默认为None）；</li>
+<li>adict.has_key(key) 如果key在字典中，返回True，否则返回False。 现在用
+in 、 not in；</li>
+<li>adict.items() 返回一个包含所有（键，值）元祖的列表；</li>
+<li>adict.keys() 返回所有的keys形成的列表</li>
+<li>adict.pop(key[,default])
+和get方法相似。如果字典中存在key，删除并返回key对应的vuale；如果key不存在，且没有给出default的值，则引发keyerror异常；</li>
+<li>adict.popitem() 和pop类似,只是返回一个(key,value)的元组</li>
+<li>adict.setdefault(key, default=None)
+和set()方法相似，但如果字典中不存在Key键，由 adict[key] = default
+为它赋值；</li>
+<li>adict.update(bdict) 将字典bdict的键值对添加到字典adict中。</li>
+<li>adict.values() 返回一个包含字典所有value的列表；</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id17">
+<h3>集合<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<p>集合可以看做是字典的特例(只有键没有值的字典)</p>
+<p>集合的特性是内容中不会有重复,利用这一特性可以为列表去重</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>&gt; a = [&quot;a&quot;,&quot;b&quot;,&quot;a&quot;,&quot;c&quot;]
+&gt; b = set(a)
+&gt; print b
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id18">
+<h2>关于容器的小技巧<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div>解压序列赋值给多个变量</div></blockquote>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;ACME&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mf">91.1</span><span class="p">,</span> <span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span> <span class="p">]</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">,</span> <span class="n">shares</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">date</span> <span class="o">=</span> <span class="n">data</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">,</span> <span class="n">shares</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">date</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>(&#39;ACME&#39;, 50, 91.1, (2012, 12, 21))
+
+
+
+解压可迭代对象赋值给多个变量(python2不支持)
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>record = (&#39;Dave&#39;, &#39;dave@example.com&#39;, &#39;773-555-1212&#39;, &#39;847-555-1212&#39;)
+name, email, *phone_numbers = record
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">phone_numbers</span>
+</pre></div>
+</div>
+<pre class="literal-block">
+('Dave', <a class="reference external" href="mailto:'dave&#37;&#52;&#48;example&#46;com">'dave<span>&#64;</span>example<span>&#46;</span>com</a>', ['773-555-1212', '847-555-1212'])
+
+
+
+匿名通配符<code class="docutils literal"><span class="pre">_</span></code>
+</pre>
+<p>有的时候我们并不关心一些变量是什么,那么,可以用<code class="docutils literal"><span class="pre">_</span></code>将其值丢弃</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">s</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>练习:</strong></p>
+<p>利用列表的解压求列表[2,3,4,5,6,7]各个元素的积</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>def mul(l):
+    a,*lnext=l
+    if lnext:
+        return a*mul(lnext)
+    else:
+        return a
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">mul</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">5040</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="mi">6</span><span class="o">*</span><span class="mi">7</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">5040</span>
+</pre></div>
+</div>
+<p>这道题利用了递归的思想,后面也会讲到</p>
+<blockquote>
+<div>字典的运算</div></blockquote>
+<p><strong>问题</strong>
+怎样在数据字典中执行一些计算操作(比如求最小值、最大值、排序等等)？</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">prices</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s1">&#39;ACME&#39;</span><span class="p">:</span> <span class="mf">45.23</span><span class="p">,</span>
+   <span class="s1">&#39;AAPL&#39;</span><span class="p">:</span> <span class="mf">612.78</span><span class="p">,</span>
+   <span class="s1">&#39;IBM&#39;</span><span class="p">:</span> <span class="mf">205.55</span><span class="p">,</span>
+   <span class="s1">&#39;HPQ&#39;</span><span class="p">:</span> <span class="mf">37.20</span><span class="p">,</span>
+   <span class="s1">&#39;FB&#39;</span><span class="p">:</span> <span class="mf">10.75</span>
+   <span class="p">}</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">min_price</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">prices</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">prices</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+<span class="c1"># min_price is (10.75, &#39;FB&#39;)</span>
+<span class="n">max_price</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">prices</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">prices</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+<span class="c1"># max_price is (612.78, &#39;AAPL&#39;)</span>
+<span class="n">prices_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">prices</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">prices</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">min_price</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">10.75</span><span class="p">,</span> <span class="s1">&#39;FB&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">max_price</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">612.78</span><span class="p">,</span> <span class="s1">&#39;AAPL&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">prices_sorted</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="mf">10.75</span><span class="p">,</span> <span class="s1">&#39;FB&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="mf">37.2</span><span class="p">,</span> <span class="s1">&#39;HPQ&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="mf">45.23</span><span class="p">,</span> <span class="s1">&#39;ACME&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="mf">205.55</span><span class="p">,</span> <span class="s1">&#39;IBM&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="mf">612.78</span><span class="p">,</span> <span class="s1">&#39;AAPL&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>这题利用了<code class="docutils literal"><span class="pre">min</span></code>,<code class="docutils literal"><span class="pre">max</span></code>,<code class="docutils literal"><span class="pre">sort</span></code>对键值对元组默认排序比较只看第一个元素的特点</p>
+<blockquote>
+<div>查找两字典的相同点</div></blockquote>
+<p><strong>问题</strong> 怎样在两个字典中寻寻找相同点(比如相同的键、相同的值等等)？</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;x&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;y&#39;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;z&#39;</span> <span class="p">:</span> <span class="mi">3</span>
+    <span class="p">}</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;w&#39;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s1">&#39;x&#39;</span> <span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+        <span class="s1">&#39;y&#39;</span> <span class="p">:</span> <span class="mi">2</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">b</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="c1">#相同的key</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">-</span> <span class="n">b</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="c1">#a中有b中没有的</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;z&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">b</span><span class="o">.</span><span class="n">items</span><span class="p">()</span><span class="c1">#找到健值都相同的</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/container.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; 版权所有 2016, hsz.<br/>
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5 创建。<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>值对象 &mdash; Python_Quick_Start mit 文档</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/lumen/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'mit',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Python_Quick_Start mit 文档" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/my_logo.png"></span>
+          Python_Quick_Start</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="http://blog.hszofficial.site/">Home</a></li>
+                <li><a href="http://blog.hszofficial.site/about/">About</a></li>
+                <li><a href="http://blog.hszofficial.site/series/">Series</a></li>
+                <li><a href="http://blog.hszofficial.site/collection/">Collections</a></li>
+                <li><a href="http://blog.hszofficial.site/tags/">Tags</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Python_Quick_Start <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="simple">
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="">
+<span id="id1"></span><h1>值对象<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>Js是动态弱类型语言,值只有那么几种类型:</p>
+<p>Js内置类型大概就这么7种:</p>
+<ul class="simple">
+<li>Number    数值型</li>
+<li>String    字符串型</li>
+<li>Bool      布尔型</li>
+<li>null      空值类型</li>
+<li>undefined 未定义类型</li>
+<li>object    对象类型</li>
+<li>Symbol    标志位类型</li>
+</ul>
+<p>我们可以用typeof函数来辨识一个值得类型,不过值得注意的是<code class="docutils literal"><span class="pre">function</span></code>也是typeof的一种可能的返回值.然而function是object</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">typeof</span><span class="p">(()</span><span class="o">=&gt;</span><span class="p">{</span>
+    <span class="k">return</span> <span class="mi">1</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;function&#39;</span>
+</pre></div>
+</div>
+<div class="section" id="number">
+<span id="number"></span><h2>Number<a class="headerlink" href="#number" title="永久链接至标题">¶</a></h2>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="mi">123</span> <span class="c1">// 整数123</span>
+<span class="mf">0.456</span> <span class="c1">// 浮点数0.456</span>
+<span class="mf">1.2345e3</span><span class="c1">// 科学计数法表示1.2345x1000，等同于1234.5</span>
+<span class="o">-</span><span class="mi">99</span><span class="c1">// 负数</span>
+<span class="kc">NaN</span> <span class="c1">// NaN表示Not a Number，当无法计算结果时用NaN表示,NaN这个特殊的Number与所有其他值都不相等，包括它自己</span>
+<span class="kc">Infinity</span> <span class="c1">// Infinity表示无限大，当数值超过了JavaScript的Number所能表示的最大值时，就表示为Infinity</span>
+<span class="mb">0b111110111</span> <span class="c1">//二进制数</span>
+<span class="mo">0o767</span>     <span class="c1">//八进制数</span>
+<span class="mh">0xfa223</span>   <span class="c1">//16进制数</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">1024547</span>
+</pre></div>
+</div>
+<div class="section" id="number">
+<span id="id2"></span><h3>Number类型的坑:<a class="headerlink" href="#number" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>** 浮点数计算**</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">false</span>
+</pre></div>
+</div>
+<p>注意,这是因为我们的浮点数并没有设定精度,大家肯定都觉得本该是true呀,其实本来就该是错的(IEEE 754),浮点数必须有精度!一个解决方案是全部化成整数在算,另一呢...js就别做计算了吧</p>
+<ul class="simple">
+<li>** NaN**</li>
+</ul>
+<p>它表示不是一个数...但他自己确是数值类型,而且NaN不等于NaN...很矛盾哇</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">typeof</span><span class="p">(</span><span class="kc">NaN</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;number&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">==</span> <span class="kc">NaN</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">false</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;asdf&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">NaN</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kc">NaN</span> <span class="o">===</span> <span class="kc">NaN</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">false</span>
+</pre></div>
+</div>
+<p>所以如果你要判断一个变量是不是NaN你得使用函数:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">isNaN</span><span class="p">(</span><span class="s2">&quot;xxx&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nb">isNaN</span><span class="p">(</span><span class="s2">&quot;xxx&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">true</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Infinity</li>
+</ul>
+<p>和NaN类似,要检查一个值是否<strong><em>非无穷</em></strong>可以使用函数isFinite()</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nb">isFinite</span><span class="p">(</span><span class="kc">Infinity</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">false</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nb">isFinite</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">true</span>
+</pre></div>
+</div>
+<div class="section" id="es6">
+<span id="es6"></span><h4>ES6中的新方法和属性<a class="headerlink" href="#es6" title="永久链接至标题">¶</a></h4>
+<ul>
+<li><p class="first">Number.isFinite()</p>
+<p>与isFinite()的区别在于，传统方法先调用Number()将非数值的值转为数值，再进行判断，这个新方法只对数值有效，非数值一律返回false。</p>
+</li>
+<li><p class="first">Number.isNaN()</p>
+<p>与isNaN()的区别在于，传统方法先调用Number()将非数值的值转为数值，再进行判断，这个新方法只对数值有效，非数值一律返回false。</p>
+</li>
+<li><p class="first">Number.isInteger()</p>
+<p>用来判断一个值是否为整数。需要注意的是，在JavaScript内部，整数和浮点数是同样的储存方法，所以3和3.0被视为同一个值。</p>
+</li>
+<li><p class="first">Number.EPSILON/Number.EPSILON.toFixed(20)</p>
+<p>极小的常量Number.EPSILON,引入一个这么小的量的目的，在于为浮点数计算，设置一个误差范围。我们知道浮点数计算是不精确的。但是如果这个误差能够小于Number.EPSILON，我们就可以认为得到了正确结果。因此，Number.EPSILON的实质是一个可以接受的误差范围。</p>
+</li>
+<li><p class="first">安全整数Number.MAX_SAFE_INTEGER和Number.MIN_SAFE_INTEGER和Number.isSafeInteger()
+JavaScript能够准确表示的整数范围在-2^53到2^53之间（不含两个端点），超过这个范围，无法精确表示这个值。Number.MAX_SAFE_INTEGER和Number.MIN_SAFE_INTEGER这两个常量，用来表示这个范围的上下限。<code class="docutils literal"><span class="pre">Number.isSafeInteger()</span></code>则是用来判断一个整数是否落在这个范围之内。</p>
+</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Number</span><span class="p">.</span><span class="nx">isInteger</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span> <span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Number</span><span class="p">.</span><span class="nx">isInteger</span><span class="p">(</span><span class="mf">25.0</span><span class="p">))</span> <span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Number</span><span class="p">.</span><span class="nx">isInteger</span><span class="p">(</span><span class="mf">25.1</span><span class="p">))</span> <span class="c1">// false</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">true</span>
+<span class="n">true</span>
+<span class="n">false</span>
+
+
+
+
+
+<span class="n">undefined</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">-</span> <span class="mf">0.3</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;0.00000000000000005551&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">-</span> <span class="mf">0.3</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">Number</span><span class="p">.</span><span class="nx">EPSILON</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">true</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="math">
+<span id="math"></span><h3>数值运算和Math对象<a class="headerlink" href="#math" title="永久链接至标题">¶</a></h3>
+<p>js默认提供了多种通用的运算符用来做数值运算</p>
+<p>运算符|意义
+&#8212;|&#8212;
++|加法
+-|减法
+*|乘法
+/|除法
+%|求余
+**|乘方</p>
+<p>并且提供了赋值运算:</p>
+<p>运算符|意义
+&#8212;|&#8212;
+=|赋值
++=|自己加上后一个数
+-=|自己减去后一个数
+*=|自己乘后一个数
+/=|自己除后一个数
+%=|自己与后一个数求余</p>
+<p>Math对象类似python的标准库math,提供了一些不太常用的基本数值计算方法和通用的常数</p>
+<p>常数:</p>
+<p>属性| 描述
+&#8212;|&#8212;
+E   |返回算术常量 e，即自然对数的底数（约等于2.718）。
+LN2 |返回 2 的自然对数（约等于0.693）。
+LN10    |返回 10 的自然对数（约等于2.302）。
+LOG2E   |返回以 2 为底的 e 的对数（约等于 1.414）。
+LOG10E| 返回以 10 为底的 e 的对数（约等于0.434）。
+PI  |返回圆周率（约等于3.14159）。
+SQRT1_2 |返回返回 2 的平方根的倒数（约等于 0.707）。
+SQRT2   |返回 2 的平方根（约等于 1.414）。</p>
+<p>方法:</p>
+<p>方法| 描述
+&#8212;|&#8212;
+random()|   返回 0 ~ 1 之间的随机数。
+fround(x)|方法返回一个数的单精度浮点数形式。
+round(x)    |把数四舍五入为最接近的整数。
+trunc(x)|方法用于去除一个数的小数部分，返回整数部分
+abs(x)  |返回数的绝对值。
+sign(x)|方法用来判断一个数到底是正数、负数、还是零。它会返回五种值。<br>参数为正数，返回+1；<br>参数为负数，返回-1；<br>参数为0，返回0；<br>参数为-0，返回-0;<br>其他值，返回NaN。
+ceil(x)|    对数进行上舍入。
+floor(x)    |对数进行下舍入。
+max(x,y)    |返回 x 和 y 中的最高值。
+min(x,y)    |返回 x 和 y 中的最低值。
+cos(x)  |返回数的余弦。
+sin(x)| 返回数的正弦。
+tan(x)  |返回角的正切。
+acos(x)|    返回数的反余弦值。
+asin(x)|    返回数的反正弦值。
+atan(x)|    以介于 -PI/2 与 PI/2 弧度之间的数值来返回 x 的反正切值。
+atan2(y,x)| 返回从 x 轴到点 (x,y) 的角度（介于 -PI/2 与 PI/2 弧度之间）。
+sinh(x)| 返回x的双曲正弦（hyperbolic sine）
+cosh(x) |返回x的双曲余弦（hyperbolic cosine）
+tanh(x) |返回x的双曲正切（hyperbolic tangent）
+asinh(x) |返回x的反双曲正弦（inverse hyperbolic sine）
+acosh(x) |返回x的反双曲余弦（inverse hyperbolic cosine）
+atanh(x) |返回x的反双曲正切（inverse hyperbolic tangent）
+pow(x,y)    |返回 x 的 y 次幂。
+sqrt(x)|    返回数的平方根。
+hypot(...args)|方法返回所有参数的平方和的平方根
+cbrt(x)|方法用于计算一个数的立方根
+exp(x)  |返回 e 的指数。
+log(x)  |返回数的自然对数（底为e）。
+expm1(x)|返回Math.exp(x) - 1
+log1p(x)|方法返回1 + x的自然对数，即Math.log(1 + x)。如果x小于-1，返回NaN。
+log10(x)|返回以10为底的x的对数。如果x小于0，则返回NaN
+log2(x)|返回以2为底的x的对数。如果x小于0，则返回NaN。
+clz32(x)|返回一个数的32位无符号整数形式有多少个前导0。
+imul(x,y)|方法返回两个数以32位带符号整数形式相乘的结果，返回的也是一个32位的带符号整数。
+toSource()  |返回该对象的源代码。[兼容性]
+valueOf()   |返回 Math 对象的原始值。</p>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h3>类型转换<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>Number()函数,将一个值转变为10进制数值类型</p>
+<p>虽然js早期版本提供了Number(),parseInt()和parseFloat()三种用来将对象值转换为数值类型的方法,但因为</p>
+<ul class="simple">
+<li>为了好记</li>
+<li>为了与python统一记</li>
+<li>适应ES6中没有后两种全局方法,而是在Number对象中新增了同名方法</li>
+</ul>
+<p>我们就只搞第一个</p>
+<p><code class="docutils literal"><span class="pre">Number()</span></code>的转换特点如下:</p>
+<ul class="simple">
+<li>布尔值       true变成1,false变成0</li>
+<li>数值型       原来是啥还是啥</li>
+<li>null        变成0</li>
+<li>undefined   NaN</li>
+<li>字符串<ul>
+<li>只包含数字(包括前面有正负号的情况)    去掉前置的0转换成十进制整数</li>
+<li>包括<code class="docutils literal"><span class="pre">.</span></code>符号,其他都是数              去掉前置的0转换成十进制浮点数数</li>
+<li>包含<code class="docutils literal"><span class="pre">0xf</span></code>,<code class="docutils literal"><span class="pre">0b和0x</span></code>字样            作为16进制数转换成10进制数</li>
+<li>空字符串                          0</li>
+<li>包括其他的字符                     NaN</li>
+</ul>
+</li>
+<li>对象         调用valueOf()方法再转值,没有的话再试toString()方法</li>
+<li>Symbol      babel-node直接报错<code class="docutils literal"><span class="pre">TypeError</span></code></li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nb">Number</span><span class="p">(</span><span class="s2">&quot;1.23&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mf">1.23</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nb">Number</span><span class="p">(</span><span class="nx">Symbol</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>TypeError: Cannot convert a Symbol value to a number
+
+    at Number (native)
+
+    at evalmachine.&lt;anonymous&gt;:3:1
+
+    at Object.exports.runInThisContext (vm.js:54:17)
+
+    at run ([eval]:192:19)
+
+    at onMessage ([eval]:63:41)
+
+    at emitTwo (events.js:87:13)
+
+    at process.emit (events.js:172:7)
+
+    at handleMessage (internal/child_process.js:686:10)
+
+    at Pipe.channel.onread (internal/child_process.js:440:11)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>字符串<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>字符串是以单引号&#8217;或双引号&#8221;括起来的任意文本，比如&#8217;abc&#8217;，&#8221;xyz&#8221;等等。请注意，&#8217;&#8216;或&#8221;&#8220;本身只是一种表示方式，不是字符串的一部分，因此，字符串&#8217;abc&#8217;只有a，b，c这3个字符。</p>
+<p>和python中一样,js的字符串也是不可变值</p>
+<p>字符串对象的默认属性和方法:</p>
+<p>属性  |描述
+&#8212;|&#8212;
+length  |字符串的长度</p>
+<p>字符串的运算符:</p>
+<p>运算符|描述
+&#8212;|&#8212;
++|字符串连接</p>
+<p>字符串对象方法:</p>
+<p>方法  |描述
+&#8212;|&#8212;
+anchor(anchorname)  |创建 HTML 锚。
+big()   |用大号字体显示字符串。
+small() |使用小字号来显示字符串。
+blink() |显示闪动字符串。
+bold()  |使用粗体显示字符串。
+italics()   |使用斜体显示字符串。
+fixed() |以打字机文本显示字符串。
+strike()|   使用删除线来显示字符串。
+sub()   |把字符串显示为下标。
+sup()   |把字符串显示为上标。
+toLocaleLowerCase() |把字符串转换为小写。
+toLocaleUpperCase()|把字符串转换为大写。
+toLowerCase()   |把字符串转换为小写。
+toUpperCase()   |把字符串转换为大写。
+toSource()  |代表对象的源代码。[兼容性]
+toString()  |返回字符串。
+valueOf()   |返回某个字符串对象的原始值。
+fontcolor(color)    |使用指定的颜色来显示字符串。
+fontsize(size)  |使用指定的尺寸来显示字符串。
+lastIndexOf(searchvalue [,fromindex])   |从后向前搜索字符串。
+link(url)   |将字符串显示为链接。
+localeCompare(target)   |用本地特定的顺序来比较两个字符串。
+match(searchvalue/regexp)   |找到一个或多个正则表达式的匹配。
+replace(regexp/substr,replacement)  |替换与正则表达式匹配的子串。
+search(regexp)  |检索与正则表达式相匹配的值。
+slice(start,end)|   提取字符串的片断，并在新的字符串中返回被提取的部分。
+concat(stringX,stringX,...,stringX) |连接字符串。
+split(separator[,howmany])  |把字符串分割为字符串数组。howmany可指定返回的数组的最大长度。如果设置了该参数，返回的子串不会多于这个参数指定的数组。如果没有设置该参数，整个字符串都会被分割，不考虑它的长度。
+substr(start[,length])  |从起始索引号提取字符串中指定数目的字符。length参数表示子串中的字符数。必须是数值。如果省略了该参数，那么返回从 stringObject 的开始位置到结尾的字串
+substring(start[,stop])|    提取字符串中两个指定的索引号之间的字符。stop参数比要提取的子串的最后一个字符在 stringObject 中的位置多 1。如果省略该参数，那么返回的子串会一直到字符串的结尾。
+codePointAt(index)|返回在指定的位置的字符的 Unicode 编码
+repeat(n)|返回字符串重复n次的字符串
+includes(searchvalue [,fromindex])|返回布尔值，表示是否找到了参数字符串。
+startsWith(searchvalue [,fromindex])|返回布尔值，表示参数字符串是否在源字符串的头部
+endsWith(searchvalue [,fromindex])|返回布尔值，表示参数字符串是否在源字符串的尾部。
+indexOf(searchvalue [,fromindex])|返回某个指定的字符串值在字符串中首次出现的位置,不存在则返回-1</p>
+<div class="section" id="unicodeutf-16">
+<span id="unicodeutf-16"></span><h3>unicode和utf-16编码支持<a class="headerlink" href="#unicodeutf-16" title="永久链接至标题">¶</a></h3>
+<p>ES6允许采用<code class="docutils literal"><span class="pre">\u{xxxx}</span></code>形式表示一个字符，其中“xxxx”表示字符的码点</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="s1">&#39;\u{1F680}&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;🚀&#39;</span>
+</pre></div>
+</div>
+<p>JavaScript内部，字符以UTF-16的格式储存，每个字符固定为2个字节。对于那些需要4个字节储存的字符（Unicode码点大于0xFFFF的字符），JavaScript会认为它们是两个字符。</p>
+<p>codePointAt方法会正确返回32位的UTF-16字符的码点。对于那些两个字节储存的常规字符，它的返回结果与charCodeAt方法相同。</p>
+<p>codePointAt方法返回的是码点的十进制值，如果想要十六进制的值，可以使用toString方法转换一下。</p>
+<p>&#8216;𠮷&#8217;是一个典型的4字节存储字符,我们以它举例</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s1">&#39;𠮷a&#39;</span>
+<span class="nx">s</span><span class="p">.</span><span class="nx">codePointAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">// 134071</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">134071</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">s</span><span class="p">.</span><span class="nx">codePointAt</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// 57271</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">57271</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">s</span><span class="p">.</span><span class="nx">codePointAt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">97</span>
+</pre></div>
+</div>
+<p>同样的,要把一个4字节的utf-16字符从码点返回,我们可以用<code class="docutils literal"><span class="pre">String.fromCodePoint</span></code>,注意,这个是String对象的方法,不是字符串对象的</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nb">String</span><span class="p">.</span><span class="nx">fromCodePoint</span><span class="p">(</span><span class="mh">0x20BB7</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;𠮷&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h3>字符串查找<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>可以用于字符串查找的方法有:</p>
+<ul>
+<li><p class="first">includes(searchvalue [,fromindex])</p>
+<p>返回布尔值，表示是否找到了参数字符串。</p>
+</li>
+<li><p class="first">startsWith(searchvalue [,fromindex])</p>
+<p>返回布尔值，表示参数字符串是否在源字符串的头部</p>
+</li>
+<li><p class="first">endsWith(searchvalue [,fromindex])</p>
+<p>返回布尔值，表示参数字符串是否在源字符串的尾部。</p>
+</li>
+<li><p class="first">indexOf(searchvalue [,fromindex])</p>
+<p>返回某个指定的字符串值在字符串中首次出现的位置,不存在则返回-1</p>
+</li>
+</ul>
+<p>这四个方法都支持第二个参数，表示开始搜索的位置。使用第二个参数n时，endsWith的行为与其他两个方法有所不同。它针对前n个字符，而其他两个方法针对从第n个位置直到字符串结束。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s1">&#39;Hello world!&#39;</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span> <span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span> <span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span> <span class="c1">// false</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;llo&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">true</span>
+<span class="n">true</span>
+<span class="n">false</span>
+<span class="mi">2</span>
+
+
+
+
+
+<span class="n">undefined</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h3>重复字符串<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>repeat()方法可以返回一个由原字符串重复好几次的新字符串</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="s1">&#39;ni&#39;</span><span class="o">+</span><span class="s1">&#39;coni&#39;</span><span class="p">.</span><span class="nx">repeat</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;niconiconi&#39;</span>
+</pre></div>
+</div>
+<p>这个方法如果接收</p>
+<ul>
+<li><p class="first">负数或者Infinity，</p>
+<p>会报错</p>
+</li>
+<li><p class="first">0到-1之间的小数,NaN</p>
+<p>等同于0</p>
+</li>
+<li><p class="first">字符串</p>
+<p>先转成数字再判断</p>
+</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h3>模板字符串<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>不用再羡慕python中字符创的format()方法了,ES6中有了模板字符串,它使用``包裹,使用<code class="docutils literal"><span class="pre">${varname}</span></code>表示占位字符,而并不需要再用format()这样的方法来做占位符的匹配,占位字符会自己与作用域中的变量匹配</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">temple</span> <span class="o">=</span> <span class="sb">`</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">今年</span><span class="si">${</span><span class="nx">age</span><span class="si">}</span><span class="sb">岁啦 `</span>
+<span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;小亮&quot;</span>
+<span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">27</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">temple</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;小亮今年27岁啦 &#39;</span>
+</pre></div>
+</div>
+<p>如果模板字符串中的变量没有声明，将报错,如果要用模板本身,可以用包裹字符串的对象构建一个Fuction对象,来实现</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="s1">&#39;return &#39;</span> <span class="o">+</span> <span class="s1">&#39;`Hello ${name}!`&#39;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">func</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nx">str</span><span class="p">);</span>
+<span class="nx">func</span><span class="p">(</span><span class="s1">&#39;Jack&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;Hello Jack!&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">temple</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span>
+    <span class="k">return</span> <span class="sb">`hello </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">!`</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">temple</span><span class="p">(</span><span class="s1">&#39;jack&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;hello jack!&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id8"></span><h3>类型转换<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>类似number,把一个其他对象转换成字符串的方式是使用String()函数</p>
+<p>它的规则是:</p>
+<ul class="simple">
+<li>有toString()则调用它</li>
+<li>值是null则返回&#8221;null&#8221;</li>
+<li>值是undefined则返回&#8221;undefined&#8221;</li>
+</ul>
+</div>
+</div>
+<div class="section" id="">
+<span id="id9"></span><h2>布尔值<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>布尔值只有true、false两种值，要么是true，要么是false，可以直接用true、false表示布尔值</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kc">true</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">true</span>
+</pre></div>
+</div>
+<p>和python类似,js也提供了大量的假值</p>
+<p>假值| 类型
+&#8212;|&#8212;
+0|Number
+NaN|Number
+&#8216;&#8217;|String
+false|Boolean
+null|Object
+undefined|Undefined</p>
+<p>这之外的值都是真值</p>
+</div>
+<div class="section" id="null">
+<span id="null"></span><h2>null<a class="headerlink" href="#null" title="永久链接至标题">¶</a></h2>
+<p>null表示一个“空”的值，它和0以及空字符串&#8217;&#8216;不同，0是一个数值，&#8217;&#8216;表示长度为0的字符串，而null表示“空”。</p>
+<p>在其他语言中，也有类似JavaScript的null的表示，例如Java也用null，Swift用nil，Python用None表示。但是，在JavaScript中，还有一个和null类似的undefined，它表示“未定义”。</p>
+<p>JavaScript的设计者希望用null表示一个空的值</p>
+<p><strong>但注意</strong></p>
+<p>typeof(null)返回的是object,只是因为事实上null应当表示一个空的对象指针.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kc">null</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">null</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">typeof</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;object&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="undefined">
+<span id="undefined"></span><h2>undefined<a class="headerlink" href="#undefined" title="永久链接至标题">¶</a></h2>
+<p>undefined表示值未定义。它既是值得类型,也是这个类型唯一的值.事实证明，这并没有什么卵用。大多数情况下，我们都应该用null.undefined仅仅在判断函数参数是否传递的情况下有用.</p>
+</div>
+<div class="section" id="object">
+<span id="object"></span><h2>object<a class="headerlink" href="#object" title="永久链接至标题">¶</a></h2>
+<p>这个比较特殊,object是特殊的默认类型,可以说除了其他外的所有对象都是object类型.对象是引用类型，如果变量x表示一个对象，当执行var y = x;语句后，实际上y和x指向的是同一个对象。所以，当你通过y改变对象的值，这种变化也会反映到x上。</p>
+<p>在js中对象很容易创建,只要使用大括号,像python中写字典一样就行了</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">typeof</span><span class="p">({})</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;object&#39;</span>
+</pre></div>
+</div>
+<p>就像python中的运算符一样,每个object都有几个对应的方法和属性,后面会详细讲</p>
+<p>在后面面向对象的部分我们会详细解析Object对象</p>
+</div>
+<div class="section" id="symbol-ecmascript-6">
+<span id="symbol-ecmascript-6"></span><h2>symbol(参考自ECMAScript 6 入门一书)<a class="headerlink" href="#symbol-ecmascript-6" title="永久链接至标题">¶</a></h2>
+<p>这个是ES6新增的类型,作用就一个,给一个对象做个唯一标识.</p>
+<p>JS中对象属性名都是字符串，这容易造成属性名的冲突。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin模式），新方法的名字就有可能与现有方法产生冲突。如果有一种机制，保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。这就是ES6引入Symbol的原因。</p>
+<p>Symbol值通过Symbol函数生成。这就是说，对象的属性名现在可以有两种类型，一种是原来就有的字符串，另一种就是新增的Symbol类型。凡是属性名属于Symbol类型，就都是独一无二的，可以保证不会与其他属性名产生冲突。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">typeof</span><span class="p">(</span><span class="nx">Symbol</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;symbol&#39;</span>
+</pre></div>
+</div>
+<p>Symbol函数可以接受一个字符串作为参数，表示对Symbol实例的描述(可以理解为注释或者标签)，主要是为了在控制台显示，或者转为字符串时，比较容易区分。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">s1</span> <span class="o">=</span> <span class="nx">Symbol</span><span class="p">(</span><span class="s2">&quot;is s1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">s2</span> <span class="o">=</span> <span class="nx">Symbol</span><span class="p">(</span><span class="s2">&quot;is s2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">s1</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Symbol(is s1)
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">s2</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Symbol(is s2)
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">s1</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;Symbol(is s1)&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">s2</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;Symbol(is s2)&#39;</span>
+</pre></div>
+</div>
+<p>上面代码中，s1和s2是两个Symbol值。如果不加参数，它们在控制台的输出都是Symbol()，不利于区分。有了参数以后，就等于为它们加上了描述，输出的时候就能够分清，到底是哪一个值。</p>
+<p><strong>注意</strong>，Symbol函数的参数只是表示对当前Symbol值的描述，因此相同参数的Symbol函数的返回值是不相等的。</p>
+<p>Symbol值不能与其他类型的值进行运算，会报错。
+但可以用<code class="docutils literal"><span class="pre">toString()</span></code>方法返回字符串,也可以用<code class="docutils literal"><span class="pre">Boolean()</span></code>函数或者作为判断表达式的内容转变为布尔值,它的意义是&#8221;存在&#8221;或者&#8221;非空&#8221;</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nb">Boolean</span><span class="p">(</span><span class="nx">s1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">true</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nx">s1</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;true&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">true</span>
+
+
+
+
+
+<span class="n">undefined</span>
+</pre></div>
+</div>
+<p>Symbol的特点是不会重复,这样可以避免不小心重写覆盖,的主要用法:</p>
+<ul class="simple">
+<li>作为对象中的属性(在面向对象部分详细讲用法)</li>
+<li>作为常量</li>
+</ul>
+<blockquote>
+<div>例1</div></blockquote>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">log</span><span class="p">(</span><span class="nx">level</span><span class="p">,</span><span class="nx">msg</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">level</span><span class="p">,</span><span class="nx">msg</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="nx">log</span><span class="p">.</span><span class="nx">levels</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">DEBUG</span><span class="o">:</span> <span class="nx">Symbol</span><span class="p">(</span><span class="s1">&#39;debug&#39;</span><span class="p">),</span>
+  <span class="nx">INFO</span><span class="o">:</span> <span class="nx">Symbol</span><span class="p">(</span><span class="s1">&#39;info&#39;</span><span class="p">),</span>
+  <span class="nx">WARN</span><span class="o">:</span> <span class="nx">Symbol</span><span class="p">(</span><span class="s1">&#39;warn&#39;</span><span class="p">),</span>
+<span class="p">}</span>
+<span class="nx">log</span><span class="p">(</span><span class="nx">log</span><span class="p">.</span><span class="nx">levels</span><span class="p">.</span><span class="nx">DEBUG</span><span class="p">,</span> <span class="s1">&#39;debug message&#39;</span><span class="p">)</span>
+<span class="nx">log</span><span class="p">(</span><span class="nx">log</span><span class="p">.</span><span class="nx">levels</span><span class="p">.</span><span class="nx">INFO</span><span class="p">,</span> <span class="s1">&#39;info message&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Symbol(debug) &#39;debug message&#39;
+Symbol(info) &#39;info message&#39;
+
+
+
+
+
+undefined
+</pre></div>
+</div>
+<blockquote>
+<div>例2</div></blockquote>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">COLOR_RED</span>    <span class="o">=</span> <span class="nx">Symbol</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">COLOR_GREEN</span>  <span class="o">=</span> <span class="nx">Symbol</span><span class="p">(</span><span class="s2">&quot;green&quot;</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">getComplement</span><span class="p">(</span><span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nx">COLOR_RED</span><span class="o">:</span>
+      <span class="k">return</span> <span class="nx">COLOR_GREEN</span><span class="p">;</span>
+    <span class="k">case</span> <span class="nx">COLOR_GREEN</span><span class="o">:</span>
+      <span class="k">return</span> <span class="nx">COLOR_RED</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Undefined color&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">getComplement</span><span class="p">(</span><span class="nx">COLOR_GREEN</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">Symbol</span><span class="p">(</span><span class="n">red</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>常量使用Symbol值最大的好处，就是其他任何值都不可能有相同的值了，因此可以保证上面的switch语句会按设计的方式工作。</p>
+<blockquote>
+<div>实例：消除魔术字符串</div></blockquote>
+<p>魔术字符串指的是，在代码之中多次出现、与代码形成强耦合的某一个具体的字符串或者数值。风格良好的代码，应该尽量消除魔术字符串，该由含义清晰的变量代替。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">getArea</span><span class="p">(</span><span class="nx">shape</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">area</span> <span class="o">=</span> <span class="mi">0</span>
+
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">shape</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="s1">&#39;Triangle&#39;</span><span class="o">:</span> <span class="c1">// 魔术字符串</span>
+      <span class="nx">area</span> <span class="o">=</span> <span class="p">.</span><span class="mi">5</span> <span class="o">*</span> <span class="nx">options</span><span class="p">.</span><span class="nx">width</span> <span class="o">*</span> <span class="nx">options</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span>
+      <span class="k">break</span>
+    <span class="cm">/* ... more code ... */</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">area</span>
+<span class="p">}</span>
+
+<span class="nx">getArea</span><span class="p">(</span><span class="s1">&#39;Triangle&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">width</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nx">height</span><span class="o">:</span> <span class="mi">100</span> <span class="p">})</span> <span class="c1">// 魔术字符串</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">5000</span>
+</pre></div>
+</div>
+<p>上面代码中，字符串“Triangle”就是一个魔术字符串。它多次出现，与代码形成“强耦合”，不利于将来的修改和维护。</p>
+<p>常用的消除魔术字符串的方法，就是把它写成一个变量。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">shapeType</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">triangle</span><span class="o">:</span> <span class="s1">&#39;Triangle&#39;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">getArea</span><span class="p">(</span><span class="nx">shape</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">area</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">shape</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nx">shapeType</span><span class="p">.</span><span class="nx">triangle</span><span class="o">:</span>
+      <span class="nx">area</span> <span class="o">=</span> <span class="p">.</span><span class="mi">5</span> <span class="o">*</span> <span class="nx">options</span><span class="p">.</span><span class="nx">width</span> <span class="o">*</span> <span class="nx">options</span><span class="p">.</span><span class="nx">height</span>
+      <span class="k">break</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">area</span>
+<span class="p">}</span>
+
+<span class="nx">getArea</span><span class="p">(</span><span class="nx">shapeType</span><span class="p">.</span><span class="nx">triangle</span><span class="p">,</span> <span class="p">{</span> <span class="nx">width</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nx">height</span><span class="o">:</span> <span class="mi">100</span> <span class="p">})</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">5000</span>
+</pre></div>
+</div>
+<p>上面代码中，我们把“Triangle”写成shapeType对象的triangle属性，这样就消除了强耦合。</p>
+<p>如果仔细分析，可以发现shapeType.triangle等于哪个值并不重要，只要确保不会跟其他shapeType属性的值冲突即可。因此，这里就很适合改用Symbol值。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">shapeType</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">triangle</span><span class="o">:</span> <span class="nx">Symbol</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">getArea</span><span class="p">(</span><span class="nx">shape</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">area</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">shape</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nx">shapeType</span><span class="p">.</span><span class="nx">triangle</span><span class="o">:</span>
+      <span class="nx">area</span> <span class="o">=</span> <span class="p">.</span><span class="mi">5</span> <span class="o">*</span> <span class="nx">options</span><span class="p">.</span><span class="nx">width</span> <span class="o">*</span> <span class="nx">options</span><span class="p">.</span><span class="nx">height</span>
+      <span class="k">break</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">area</span>
+<span class="p">}</span>
+
+<span class="nx">getArea</span><span class="p">(</span><span class="nx">shapeType</span><span class="p">.</span><span class="nx">triangle</span><span class="p">,</span> <span class="p">{</span> <span class="nx">width</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nx">height</span><span class="o">:</span> <span class="mi">100</span> <span class="p">})</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">5000</span>
+</pre></div>
+</div>
+<div class="section" id="symbol-for-symbol-keyfor">
+<span id="symbol-for-symbol-keyfor"></span><h3>Symbol.for()和Symbol.keyFor()<a class="headerlink" href="#symbol-for-symbol-keyfor" title="永久链接至标题">¶</a></h3>
+<p>有时，我们希望重新使用同一个Symbol值，Symbol.for方法可以做到这一点。它接受一个字符串作为参数，然后搜索有没有以该参数作为名称的Symbol值。如果有，就返回这个Symbol值，否则就新建并返回一个以该字符串为名称的Symbol值。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">s1</span> <span class="o">=</span> <span class="nx">Symbol</span><span class="p">.</span><span class="k">for</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">s2</span> <span class="o">=</span> <span class="nx">Symbol</span><span class="p">.</span><span class="k">for</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+
+<span class="nx">s1</span> <span class="o">===</span> <span class="nx">s2</span> 
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">true</span>
+</pre></div>
+</div>
+<p>上面代码中，s1和s2都是Symbol值，但是它们都是同样参数的Symbol.for方法生成的，所以实际上是同一个值。</p>
+<p>Symbol.for()与Symbol()这两种写法，都会生成新的Symbol。它们的区别是，前者会被登记在全局环境中供搜索，后者不会。Symbol.for()不会每次调用就返回一个新的Symbol类型的值，而是会先检查给定的key是否已经存在，如果不存在才会新建一个值。比如，如果你调用Symbol.for(&#8220;cat&#8221;)30次，每次都会返回同一个Symbol值，但是调用Symbol(&#8220;cat&#8221;)30次，会返回30个不同的Symbol值。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">Symbol</span><span class="p">.</span><span class="k">for</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span> <span class="o">===</span> <span class="nx">Symbol</span><span class="p">.</span><span class="k">for</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">true</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">Symbol</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span> <span class="o">===</span> <span class="nx">Symbol</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">false</span>
+</pre></div>
+</div>
+<p>上面代码中，由于Symbol()写法没有登记机制，所以每次调用都会返回一个不同的值。</p>
+<p>Symbol.keyFor方法返回一个已登记的Symbol类型值的key。</p>
+<p>需要注意的是，Symbol.for为Symbol值登记的名字，是全局环境的，可以在不同的iframe或service worker中取到同一个值。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">iframe</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;iframe&#39;</span><span class="p">);</span>
+<span class="nx">iframe</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nb">String</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">iframe</span><span class="p">);</span>
+
+<span class="nx">iframe</span><span class="p">.</span><span class="nx">contentWindow</span><span class="p">.</span><span class="nx">Symbol</span><span class="p">.</span><span class="k">for</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span> <span class="o">===</span> <span class="nx">Symbol</span><span class="p">.</span><span class="k">for</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span>
+<span class="c1">// true</span>
+</pre></div>
+</div>
+<p>上面代码中，iframe窗口生成的Symbol值，可以在主页面得到。</p>
+</div>
+<div class="section" id="symbol-es611symbol">
+<span id="symbol-es611symbol"></span><h3>除了定义自己使用的Symbol值以外，ES6还提供了11个内置的Symbol值，指向语言内部使用的方法。<a class="headerlink" href="#symbol-es611symbol" title="永久链接至标题">¶</a></h3>
+<div class="section" id="symbol-hasinstance">
+<span id="symbol-hasinstance"></span><h4>Symbol.hasInstance<a class="headerlink" href="#symbol-hasinstance" title="永久链接至标题">¶</a></h4>
+<p><strong>babel未实现</strong></p>
+<p>对象的<code class="docutils literal"><span class="pre">Symbol.hasInstance</span></code>属性，指向一个内部方法。当其他对象使用<code class="docutils literal"><span class="pre">instanceof</span></code>运算符，判断是否为该对象的实例时，会调用这个方法。比如，<code class="docutils literal"><span class="pre">foo</span> <span class="pre">instanceof</span> <span class="pre">Foo</span></code>在语言内部，实际调用的是<code class="docutils literal"><span class="pre">Foo[Symbol.hasInstance](foo)</span></code></p>
+</div>
+<div class="section" id="symbol-isconcatspreadable">
+<span id="symbol-isconcatspreadable"></span><h4>Symbol.isConcatSpreadable<a class="headerlink" href="#symbol-isconcatspreadable" title="永久链接至标题">¶</a></h4>
+<p><strong>babel未实现</strong></p>
+<p>对象的<code class="docutils literal"><span class="pre">Symbol.isConcatSpreadable</span></code>属性等于一个布尔值，表示该对象使用<code class="docutils literal"><span class="pre">Array.prototype.concat()</span></code>时，是否可以展开。</p>
+</div>
+<div class="section" id="symbol-species">
+<span id="symbol-species"></span><h4>Symbol.species<a class="headerlink" href="#symbol-species" title="永久链接至标题">¶</a></h4>
+<p><strong>babel未实现</strong></p>
+<p>对象的Symbol.species属性，指向一个方法。该对象作为构造函数创造实例时，会调用这个方法。即如果this.constructor[Symbol.species]存在，就会使用这个属性作为构造函数，来创造新的实例对象。</p>
+<p>Symbol.species属性默认的读取器如下。</p>
+</div>
+<div class="section" id="symbol-match">
+<span id="symbol-match"></span><h4>Symbol.match<a class="headerlink" href="#symbol-match" title="永久链接至标题">¶</a></h4>
+<p><strong>babel未实现</strong></p>
+<p>对象的<code class="docutils literal"><span class="pre">Symbol.match</span></code>属性，指向一个函数。当执行<code class="docutils literal"><span class="pre">str.match(myObject)</span></code>时，如果该属性存在，会调用它，返回该方法的返回值。</p>
+</div>
+<div class="section" id="symbol-replace">
+<span id="symbol-replace"></span><h4>Symbol.replace<a class="headerlink" href="#symbol-replace" title="永久链接至标题">¶</a></h4>
+<p><strong>babel未实现</strong></p>
+<p>对象的Symbol.replace属性，指向一个方法，当该对象被String.prototype.replace方法调用时，会返回该方法的返回值。</p>
+</div>
+<div class="section" id="symbol-search">
+<span id="symbol-search"></span><h4>Symbol.search<a class="headerlink" href="#symbol-search" title="永久链接至标题">¶</a></h4>
+<p><strong>babel未实现</strong></p>
+<p>对象的Symbol.search属性，指向一个方法，当该对象被String.prototype.search方法调用时，会返回该方法的返回值。</p>
+</div>
+<div class="section" id="symbol-split">
+<span id="symbol-split"></span><h4>Symbol.split<a class="headerlink" href="#symbol-split" title="永久链接至标题">¶</a></h4>
+<p><strong>babel未实现</strong>
+对象的Symbol.split属性，指向一个方法，当该对象被String.prototype.split方法调用时，会返回该方法的返回值。</p>
+</div>
+<div class="section" id="symbol-iterator">
+<span id="symbol-iterator"></span><h4>Symbol.iterator<a class="headerlink" href="#symbol-iterator" title="永久链接至标题">¶</a></h4>
+<p><strong>babel未实现</strong></p>
+<p>对象的Symbol.iterator属性，指向该对象的默认遍历器方法，即该对象进行for...of循环时，会调用这个方法，返回该对象的默认遍历器，详细介绍参见《Iterator和for...of循环》一章。</p>
+</div>
+<div class="section" id="symbol-toprimitive">
+<span id="symbol-toprimitive"></span><h4>Symbol.toPrimitive<a class="headerlink" href="#symbol-toprimitive" title="永久链接至标题">¶</a></h4>
+<p><strong>babel未实现</strong></p>
+<p>对象的Symbol.toPrimitive属性，指向一个方法。该对象被转为原始类型的值时，会调用这个方法，返回该对象对应的原始类型值。</p>
+<p>Symbol.toPrimitive被调用时，会接受一个字符串参数，表示当前运算的模式，一共有三种模式。</p>
+<p>Number：该场合需要转成数值
+String：该场合需要转成字符串
+Default：该场合可以转成数值，也可以转成字符串</p>
+</div>
+<div class="section" id="symbol-tostringtag">
+<span id="symbol-tostringtag"></span><h4>Symbol.toStringTag<a class="headerlink" href="#symbol-tostringtag" title="永久链接至标题">¶</a></h4>
+<p><strong>babel未实现</strong></p>
+<p>对象的Symbol.toStringTag属性，指向一个方法。在该对象上面调用Object.prototype.toString方法时，如果这个属性存在，它的返回值会出现在toString方法返回的字符串之中，表示对象的类型。也就是说，这个属性可以用来定制[object Object]或[object Array]中object后面的那个字符串。</p>
+<p>ES6新增内置对象的Symbol.toStringTag属性值如下。</p>
+<ul class="simple">
+<li>JSON[Symbol.toStringTag]：&#8217;JSON&#8217;</li>
+<li>Math[Symbol.toStringTag]：&#8217;Math&#8217;</li>
+<li>Module对象M[Symbol.toStringTag]：&#8217;Module&#8217;</li>
+<li>ArrayBuffer.prototype[Symbol.toStringTag]：&#8217;ArrayBuffer&#8217;</li>
+<li>DataView.prototype[Symbol.toStringTag]：&#8217;DataView&#8217;</li>
+<li>Map.prototype[Symbol.toStringTag]：&#8217;Map&#8217;</li>
+<li>Promise.prototype[Symbol.toStringTag]：&#8217;Promise&#8217;</li>
+<li>Set.prototype[Symbol.toStringTag]：&#8217;Set&#8217;</li>
+<li>%TypedArray%.prototype[Symbol.toStringTag]：&#8217;Uint8Array&#8217;等</li>
+<li>WeakMap.prototype[Symbol.toStringTag]：&#8217;WeakMap&#8217;</li>
+<li>WeakSet.prototype[Symbol.toStringTag]：&#8217;WeakSet&#8217;</li>
+<li>%MapIteratorPrototype%[Symbol.toStringTag]：&#8217;Map Iterator&#8217;</li>
+<li>%SetIteratorPrototype%[Symbol.toStringTag]：&#8217;Set Iterator&#8217;</li>
+<li>%StringIteratorPrototype%[Symbol.toStringTag]：&#8217;String Iterator&#8217;</li>
+<li>Symbol.prototype[Symbol.toStringTag]：&#8217;Symbol&#8217;</li>
+<li>Generator.prototype[Symbol.toStringTag]：&#8217;Generator&#8217;</li>
+<li>GeneratorFunction.prototype[Symbol.toStringTag]：&#8217;GeneratorFunction&#8217;</li>
+</ul>
+</div>
+<div class="section" id="symbol-unscopables">
+<span id="symbol-unscopables"></span><h4>Symbol.unscopables<a class="headerlink" href="#symbol-unscopables" title="永久链接至标题">¶</a></h4>
+<p><strong>babel未实现</strong></p>
+<p>对象的Symbol.unscopables属性，指向一个对象。该对象指定了使用with关键字时，哪些属性会被with环境排除。</p>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id10"></span><h2>局部变量和全局变量&#8211;变量的作用域<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>js的作用域基本可以分为这么几块:</p>
+<ul class="simple">
+<li>全局变量(无包裹)</li>
+<li>局部变量(被函数包裹)</li>
+<li>块级变量(被{}包裹)</li>
+</ul>
+<p>而声明变量的关键字有三个:</p>
+<p>关键字|说明
+&#8212;|&#8212;
+变量 var  |     在Js中用<code class="docutils literal"><span class="pre">var</span></code>定义的变量是局部变量,而不用<code class="docutils literal"><span class="pre">var</span></code>则是全局变量(不建议不加声明)
+不可变量 const  |  const是不变量,也就是常说的常量,类似scala的val,一旦赋值就不可变
+块级作用域  let |变量在ES6中新增了命令let,它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。let并不支持变量提升,当然了我也不支持,变量本来就因该先声明再操作.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">Pi</span><span class="o">=</span><span class="mf">3.14</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">round</span><span class="p">(</span><span class="nx">r</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">R</span> <span class="o">=</span> <span class="nx">r</span>
+    <span class="k">return</span> <span class="nx">Pi</span><span class="o">*</span><span class="nx">R</span><span class="o">*</span><span class="nx">R</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mf">12.56</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">R</span><span class="c1">//R是局域变量,</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>ReferenceError: R is not defined
+
+    at evalmachine.&lt;anonymous&gt;:3:1
+
+    at Object.exports.runInThisContext (vm.js:54:17)
+
+    at run ([eval]:192:19)
+
+    at onMessage ([eval]:63:41)
+
+    at emitTwo (events.js:87:13)
+
+    at process.emit (events.js:172:7)
+
+    at handleMessage (internal/child_process.js:686:10)
+
+    at Pipe.channel.onread (internal/child_process.js:440:11)
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/ES6语法/值对象与运算.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; 版权所有 2016, hsz.<br/>
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5 创建。<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

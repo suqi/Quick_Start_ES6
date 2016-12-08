@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>工作流工具链 &mdash; Python_Quick_Start mit 文档</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/lumen/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'mit',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Python_Quick_Start mit 文档" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/my_logo.png"></span>
+          Python_Quick_Start</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="http://blog.hszofficial.site/">Home</a></li>
+                <li><a href="http://blog.hszofficial.site/about/">About</a></li>
+                <li><a href="http://blog.hszofficial.site/series/">Series</a></li>
+                <li><a href="http://blog.hszofficial.site/collection/">Collections</a></li>
+                <li><a href="http://blog.hszofficial.site/tags/">Tags</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Python_Quick_Start <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="simple">
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="">
+<span id="id1"></span><h1>工作流工具链<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>node.js是服务于web工程的,而web工程涉及到的文件种类多,特点不一,属于管理比较复杂的,因此需要一套工具链来做自动化构建,这边只举2个工具来说</p>
+<div class="section" id="webpack">
+<span id="webpack"></span><h2>模块打包器webpack<a class="headerlink" href="#webpack" title="永久链接至标题">¶</a></h2>
+<p>webpack可以处理带有依赖关系的模块，生成一系列表示这些模块的静态资源。它不止可以处理js依赖,更加可以整合各种前端资源</p>
+<p>webpack 本身只支持处理 JavaScript，但可以通过加载器来把别的资源转为 JavaScript。因此，每个资源都被当作一个模块。</p>
+<div class="section" id="">
+<span id="id2"></span><h3>安装<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>webpack的安装依然是靠npm,推荐项目安装,一个项目一个,不会打架,但第一个我们只是做个演示,就用全局的webpack来演示好了,</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>npm install webpack -g
+</pre></div>
+</div>
+<blockquote>
+<div>例1:一个最简单的例子</div></blockquote>
+<p>文件结构</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>ex1\-index.html
+   |
+   |-src\
+   |    |-ex1.js
+   |-bin\
+</pre></div>
+</div>
+<blockquote>
+<div>例子开始</div></blockquote>
+<ul>
+<li><p class="first">编写代码</p>
+<p>ex1.js:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>      <span class="n">document</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;It works.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>index.html:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>     &lt;head&gt;
+          &lt;meta charset=&quot;utf-8&quot;&gt;
+     &lt;/head&gt;
+     &lt;body&gt;
+          &lt;script type=&quot;text/javascript&quot; src=&quot;bin/bundle.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+     &lt;/body&gt;
+</pre></div>
+</div>
+</li>
+</ul>
+<ul class="simple">
+<li>编译绑定</li>
+</ul>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>webpack ./src/ex1.js ./bin/bundle.js
+</pre></div>
+</div>
+<ul class="simple">
+<li>打开html文件试试,如果正确可以显示 <code class="docutils literal"><span class="pre">it</span> <span class="pre">works</span></code></li>
+</ul>
+<ul class="simple">
+<li>修改文件,人为的把文件拆了....</li>
+</ul>
+<p>content.js:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">module</span><span class="o">.</span><span class="n">exports</span> <span class="o">=</span> <span class="s2">&quot;It works from content.js.&quot;</span>
+</pre></div>
+</div>
+<p>更新ex1.js:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">document</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">require</span><span class="p">(</span><span class="s2">&quot;./content.js&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>再编译</li>
+</ul>
+<div class="highlight-shell"><div class="highlight"><pre><span></span> webpack ./src/ex1.js ./bin/bundle.js
+</pre></div>
+</div>
+<ul class="simple">
+<li>打开html,正确的话可以看到</li>
+</ul>
+<p><code class="docutils literal"><span class="pre">It</span> <span class="pre">works</span> <span class="pre">from</span> <span class="pre">content.js.</span></code></p>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h3>加载器<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>webpack的特色就是加载器了,各种资源通过加载器处理和整合,比如css,图片等</p>
+<blockquote>
+<div>例2:利用加载器</div></blockquote>
+<ul>
+<li><p class="first">在之前的例子根目录下安装我们的第一个加载器</p>
+<p>npm install css-loader style-loader</p>
+</li>
+<li><p class="first">增加一个文件style.css</p>
+</li>
+</ul>
+<div class="highlight-css"><div class="highlight"><pre><span></span><span class="nt">body</span> <span class="p">{</span>
+    <span class="nb">background</span><span class="o">:</span> <span class="nb">yellow</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>更新ex1.js</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./style.css&quot;</span><span class="p">)</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./content.js&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>再编译下</li>
+</ul>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>webpack ./src/ex1.js ./bin/bundle.js --module-bind <span class="s1">&#39;css=style!css&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>打开html文件就可以看到背景变黄的效果了</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h3>配置文件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>既然都到这个地步了哪有还要这么长的命令才能编译的道理,webpack提供了利用配置文件默认编译的方法</p>
+<p>一个配置文件<code class="docutils literal"><span class="pre">webpack.config.js</span></code>形如这样:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">entry</span><span class="o">:</span> <span class="s2">&quot;./src/ex1.js&quot;</span><span class="p">,</span><span class="c1">//入口文件</span>
+    <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;./bin/&quot;</span><span class="p">,</span><span class="c1">//出口文件位置</span>
+        <span class="nx">filename</span><span class="o">:</span> <span class="s2">&quot;bundle.js&quot;</span><span class="c1">//出口文件名</span>
+    <span class="p">},</span>
+    <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">loaders</span><span class="o">:</span> <span class="p">[</span><span class="c1">//加载器</span>
+            <span class="p">{</span> <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.css$/</span><span class="p">,</span> <span class="nx">loader</span><span class="o">:</span> <span class="s2">&quot;style!css&quot;</span> <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>这样例1的项目我们只要用</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="sb">`webpack`</span>
+</pre></div>
+</div>
+<p>命令就可以默认编译了</p>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h3>更友好的输出<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>如果项目变得越来越大，编译耗时将会越来越长。所以，我们希望能够展示一些进度条，同时增加颜色……</p>
+<p>这些需求可以通过以下命令来实现</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ webpack --progress --colors
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h3>监控模式<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>我们并不希望每一个变更都需要去手动编译，则可以通过以下命令来改善。</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ webpack --progress --colors --watch
+</pre></div>
+</div>
+<p>这样，webpack 会缓存未变更的模块而输出变更的模块。</p>
+<p>开启 webpack 监控模式后，webpack 会给所有文件添加用于编译的文件监控。如果有任何变更，将会触发编译。当缓存开启时，webpack 会在内存中保存所有模块内容并在没变更时直接重用。</p>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h3>静态服务器<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>开发前端我们更加希望每次修改的效果可以直接在浏览器中显示,简单的办法就是使用<code class="docutils literal"><span class="pre">webpack-dev-server</span></code>作为静态服务器</p>
+<p>安装:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>npm install --save-dev webpack-dev-server
+</pre></div>
+</div>
+<p>配置<code class="docutils literal"><span class="pre">package.json</span></code>:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span>{
+  &quot;scripts&quot;: {
+    &quot;build&quot;: &quot;webpack&quot;,
+    &quot;dev&quot;: &quot;webpack-dev-server --devtool eval --progress --colors --hot --content-base build&quot;
+  }
+  ...
+}
+</pre></div>
+</div>
+<p>当你在命令行里运行 npm run dev 的时候他会执行 dev 属性里的值。这是这些指令的意思：</p>
+<ul class="simple">
+<li>webpack-dev-server - 在 localhost:8080 建立一个 Web 服务器</li>
+<li>&#8211;devtool eval - 为你的代码创建源地址。当有任何报错的时候可以让你更加精确地定位到文件和行号</li>
+<li>&#8211;progress - 显示合并代码进度</li>
+<li>&#8211;colors - Yay，命令行中显示颜色！</li>
+<li>&#8211;content-base build - 指向设置的输出目录</li>
+</ul>
+<p>总的来说，当你运行 npm run dev 的时候，会启动一个 Web 服务器，然后监听文件修改，然后自动重新合并你的代码。真的非常简洁！</p>
+<p>当运行 webpack-dev-server 的时候，它会监听你的文件修改。当项目重新合并之后，会通知浏览器刷新。为了能够触发这样的行为，你需要把你的 index.html 放到 build/ 文件夹下，然后做这样的修改：</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">/&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;bundle.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="es6">
+<span id="es6"></span><h3>与ES6结合<a class="headerlink" href="#es6" title="永久链接至标题">¶</a></h3>
+<p>到了最关键的部分了,webpack怎么添加ES6支持呢?</p>
+<blockquote>
+<div>例3:添加ES6支持</div></blockquote>
+<ol>
+<li><p class="first">安装<code class="docutils literal"><span class="pre">babel-loader</span></code>等必要模块</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span> npm install babel-loader babel-preset-es2015 --save-dev
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">webpack.config.js</span></code>实现ES6支持</p>
+<p>目前有两种方式:</p>
+<ul>
+<li><p class="first">修改文件名为<code class="docutils literal"><span class="pre">webpack.config.babel.js</span></code>,这种方式可以让babel先编译,你只要有babel-loader和babel-core这俩包就行</p>
+</li>
+<li><p class="first">用babel-node首先它用 package.json 里定义的 scripts 来代替 webpack 命令。可以看到它完全使用了 babel-node 命令代替 node 。比如：</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>  ```javascript
+  {
+    &quot;scripts&quot;: {
+      &quot;bundle&quot;: &quot;babel-node tools/run bundle&quot;,
+      ...
+    }
+  }
+  ```
+</pre></div>
+</div>
+<p>这样就可以用 npm run bundle 来执行相应的任务了。这个命令会会先调用 tools/run.js，然后调用 tools/bundle.js，然后加载 tools/webpack.config.js 。整个流程中的所有文件都是用 ES6 和 ES7 语法写的，挺整洁漂亮。</p>
+</li>
+</ul>
+<p>推荐第一种方式,简单直接,而且不用装babel-node,我们也用第一种方式继续</p>
+</li>
+<li><p class="first">组织文件:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span> exp3\
+     |-index.html
+     |-webpack.config.babel.js
+     |-package.json
+     |=js\
+     |   |-src\
+     |   |    |-main.js
+     |   |    |-Person.js
+     |   |-bin\
+</pre></div>
+</div>
+</li>
+<li><p class="first">全局代码使用babel编译</p>
+<p>在<code class="docutils literal"><span class="pre">webpack.config.babel.js</span></code>中为js添加加载器:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">path</span> <span class="nx">from</span> <span class="s2">&quot;path&quot;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">entry</span><span class="o">:</span> <span class="s2">&quot;./js/src/main.js&quot;</span><span class="p">,</span>
+  <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;js/bin&#39;</span><span class="p">),</span>
+    <span class="nx">filename</span><span class="o">:</span> <span class="s2">&quot;bundle.js&quot;</span>
+  <span class="p">},</span>
+  <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">loaders</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nx">test</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;js/src&#39;</span><span class="p">),</span>
+        <span class="nx">loader</span><span class="o">:</span> <span class="s1">&#39;babel-loader&#39;</span><span class="p">,</span>
+        <span class="nx">query</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">presets</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;es2015&#39;</span><span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">编译</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>$ webpack
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="gulp">
+<span id="gulp"></span><h2>自动化流式构建工具gulp<a class="headerlink" href="#gulp" title="永久链接至标题">¶</a></h2>
+<p>gulp是前端开发过程中对代码进行构建的工具，是自动化项目的构建利器,前面的例子中项目也使用了gulp用于构建项目.它的话就比较像makefile了,定义task,然后通过指令执行这些task.一般来说它具体干啥呢?</p>
+<blockquote>
+<div>单独的gulp可以:</div></blockquote>
+<ol class="simple">
+<li>定义task,定义工作流</li>
+<li>像makefile一样作为项目的总入口</li>
+</ol>
+<blockquote>
+<div>配合插件一般可以做:</div></blockquote>
+<ol class="simple">
+<li>编译sass(gulp-ruby-sass)</li>
+<li>压缩css(gulp-minify-css)</li>
+<li>图片压缩(gulp-imagemin)</li>
+<li>清理档案(gulp-clean)</li>
+<li>图片快取，只有更改过得图片会进行压缩(gulp-cache)</li>
+<li>webpack构建</li>
+<li>js代码验证(gulp-eslint)</li>
+<li>js压缩(gulp-uglify)</li>
+<li>html文件压缩(gulp-minify-html)</li>
+<li>文件重命名(gulp-rename)</li>
+</ol>
+<p>还有很多其他的可以在<a class="reference external" href="http://gratimax.net/search-gulp-plugins/">官网</a>找到</p>
+<div class="section" id="">
+<span id="id8"></span><h3>安装<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>依然是npm安装,依然推荐项目安装</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>npm install gulp --save-dev
+npm install gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-eshint gulp-concat gulp-uglify gulp-imagemin gulp-clean gulp-notify gulp-rename gulp-livereload gulp-cache gulp-minify-html gulp-util --save-dev
+</pre></div>
+</div>
+<p>这样就可以将gulp和它的插件注册到package.json中了</p>
+</div>
+<div class="section" id="">
+<span id="id9"></span><h3>配置文档<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>接着是配置文档<code class="docutils literal"><span class="pre">gulpfile.js</span></code></p>
+<blockquote>
+<div>配置文档中会用到5个预设的方法和一个管道方法:</div></blockquote>
+<p>gulp 中的五大方法：</p>
+<ul>
+<li><p class="first">gulp.task(name[, deps], fn)，注册一个 gulp 任务</p>
+<ul class="simple">
+<li>name 为任务名</li>
+<li>deps 是当前定义的任务需要依赖的其他任务，为一个数组。当前定义的任务会在所有依赖的任务执行完毕后才开始执行。如果没有依赖，则可省略这个参数,一般deps中是按照数组顺序执行,但如果其中有相互依赖就会先执行子任务的依赖</li>
+<li>fn 为任务函数，我们把任务要执行的代码都写在里面。该参数也是可选的。</li>
+</ul>
+</li>
+<li><p class="first">gulp.run(...tasks)，并行运行多个 gulp 任务</p>
+</li>
+<li><p class="first">gulp.watch(glob, fn)，实时监控内容，当 glob 内容变化时，执行 fn</p>
+<ul class="simple">
+<li>watch方法可以监听变化,预设的变化有:<ul>
+<li>nomatch，在 glob 没有匹配到文件时触发</li>
+<li>ready，在匹配后即将进行自动化任务前触发</li>
+<li>error，自动化任务出错时触发</li>
+<li>end，自动化任务完成时触发</li>
+</ul>
+</li>
+<li>watcher 对象可以调用的一些方法：<ul>
+<li>watcher.end()，中断 watcher</li>
+<li>watcher.files()，返回监听的文件列表</li>
+<li>watch.add(glob[, fn])，添加文件到监听的文件列表</li>
+<li>watch.remove(fillpath)，从监听的文件列表中移除文件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">gulp.src(globs[, options])</p>
+<ul>
+<li><p class="first">glob 是目标文件的路径，返回一个可读的 stream,globs参数是文件匹配模式(类似正则表达式)，用来匹配文件路径(包括文件名)，当然这里也可以直接指定某个具体的文件路径。当有多个匹配模式时，该参数可以为一个数组
+Gulp内部使用了node-glob模块来实现其文件匹配功能。我们可以使用下面这些特殊的字符来匹配我们想要的文件：</p>
+<ul class="simple">
+<li>* 匹配文件路径中的0个或多个字符，但不会匹配路径分隔符，除非路径分隔符出现在末尾</li>
+<li>** 匹配路径中的0个或多个目录及其子目录,需要单独出现，即它左右不能有其他东西了。如果出现在末尾，也能匹配文件。</li>
+<li>? 匹配文件路径中的一个字符(不会匹配路径分隔符)</li>
+<li>[...] 匹配方括号中出现的字符中的任意一个，当方括号中第一个字符为^或!时，则表示不匹配方括号中出现的其他字符中的任意一个，类似js正则表达式中的用法</li>
+<li>!(pattern|pattern|pattern) 匹配任何与括号中给定的任一模式都不匹配的</li>
+<li>?(pattern|pattern|pattern) 匹配括号中给定的任一模式0次或1次，类似于js正则中的(pattern|pattern|pattern)?</li>
+<li>+(pattern|pattern|pattern) 匹配括号中给定的任一模式至少1次，类似于js正则中的(pattern|pattern|pattern)+</li>
+<li>*(pattern|pattern|pattern) 匹配括号中给定的任一模式0次或多次，类似于js正则中的(pattern|pattern|pattern)*</li>
+<li>&#64;(pattern|pattern|pattern) 匹配括号中给定的任一模式1次，类似于js正则中的(pattern|pattern|pattern)</li>
+</ul>
+<p>当有多种匹配模式时可以使用数组:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">gulp</span><span class="o">.</span><span class="n">src</span><span class="p">([</span><span class="s1">&#39;js/*.js&#39;</span><span class="p">,</span><span class="s1">&#39;css/*.css&#39;</span><span class="p">,</span><span class="s1">&#39;*.html&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>使用数组的方式还有一个好处就是可以很方便的使用排除模式，在数组中的单个匹配模式前加上!即是排除模式，它会在匹配的结果中排除这个匹配，要注意一点的是不能在数组中的第一个元素中使用排除模式:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>gulp.src([*.js,&#39;!b*.js&#39;]) //匹配所有js文件，但排除掉以b开头的js文件
+gulp.src([&#39;!b*.js&#39;,*.js]) //不会排除任何文件，因为排除模式不能出现在数组的第一个元素中
+</pre></div>
+</div>
+<p>此外，还可以使用展开模式。展开模式以花括号作为定界符，根据它里面的内容，会展开为多个模式，最后匹配的结果为所有展开的模式相加起来得到的结果。展开的例子如下：</p>
+<ul class="simple">
+<li>a{b,c}d 会展开为 abd,acd</li>
+<li>a{b,}c 会展开为 abc,ac</li>
+<li>a{0..3}d 会展开为 a0d,a1d,a2d,a3d</li>
+<li>a{b,c{d,e}f}g 会展开为 abg,acdfg,acefg</li>
+<li>a{b,c}d{e,f}g 会展开为 abdeg,acdeg,abdeg,abdfg</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li>gulp.dest(globs[,options])，path是输出路径，返回一个可写的 stream,options为一个可选的参数对象，通常我们不需要用到</li>
+</ul>
+<p>gulp 中的管道方法：</p>
+<ul class="simple">
+<li>pipe(), 通过管道连接操作</li>
+</ul>
+<blockquote>
+<div>它大约形如:</div></blockquote>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">//引入各种插件</span>
+<span class="kd">var</span> <span class="nx">gulp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;gulp&#39;</span><span class="p">),</span>  
+    <span class="nx">uglify</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;gulp-uglify&#39;</span><span class="p">),</span>
+    <span class="nx">clean</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;gulp-clean&#39;</span><span class="p">),</span>
+    <span class="nx">concat</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;gulp-concat&#39;</span><span class="p">),</span>
+    <span class="nx">jshint</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;gulp-jshint&quot;</span><span class="p">)</span>
+    
+<span class="c1">//定义task,参数为task名字,执行的步骤</span>
+
+<span class="c1">//webpack整理</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s2">&quot;webpack&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// run webpack</span>
+    <span class="nx">webpack</span><span class="p">({</span>
+        <span class="c1">// configuration</span>
+        <span class="nx">entry</span><span class="o">:</span> <span class="s2">&quot;./js/src/main.js&quot;</span><span class="p">,</span>
+        <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">path</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;js/bin&#39;</span><span class="p">),</span>
+          <span class="nx">filename</span><span class="o">:</span> <span class="s2">&quot;bundle.js&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">loaders</span><span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nx">test</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;js/src&#39;</span><span class="p">),</span>
+              <span class="nx">loader</span><span class="o">:</span> <span class="s1">&#39;babel-loader&#39;</span><span class="p">,</span>
+              <span class="nx">query</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">presets</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;es2015&#39;</span><span class="p">]</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">stats</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nx">gutil</span><span class="p">.</span><span class="nx">PluginError</span><span class="p">(</span><span class="s2">&quot;webpack&quot;</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>
+        <span class="nx">gutil</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;[webpack]&quot;</span><span class="p">,</span> <span class="nx">stats</span><span class="p">.</span><span class="nx">toString</span><span class="p">({</span>
+            <span class="c1">// output options</span>
+        <span class="p">}))</span>
+        <span class="nx">callback</span><span class="p">()</span>
+    <span class="p">})</span>
+<span class="p">})</span>
+
+<span class="c1">//js代码检查</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;lint&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="s1">&#39;js/src/*.js&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">eslint</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">eslint</span><span class="p">.</span><span class="nx">format</span><span class="p">())</span> 
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">eslint</span><span class="p">.</span><span class="nx">failAfterError</span><span class="p">())</span>
+<span class="p">})</span>
+
+<span class="c1">//js压缩</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;jsmini&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="s1">&#39;./js/bin/bundle.js&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">rename</span><span class="p">({</span><span class="nx">suffix</span><span class="o">:</span> <span class="s1">&#39;.min&#39;</span><span class="p">}))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">uglify</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="s1">&#39;./js/bin&#39;</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">notify</span><span class="p">({</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;jsmini task complete&#39;</span> <span class="p">}))</span>
+<span class="p">})</span>
+
+<span class="c1">//处理js文件</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;jsdeal&#39;</span><span class="p">,[</span><span class="s1">&#39;jsmini&#39;</span><span class="p">,</span> <span class="s2">&quot;webpack&quot;</span><span class="p">],</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;start dealing with js Script!&#39;</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="c1">//预设任务    </span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;clean&#39;</span><span class="p">],</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>  
+    <span class="nx">gulp</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="s1">&#39;jsdeal&#39;</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="c1">// 清理</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;clean&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>  
+  <span class="k">return</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="s1">&#39;./js/bin&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">read</span><span class="o">:</span> <span class="kc">false</span><span class="p">})</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">clean</span><span class="p">())</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="es6">
+<span id="id10"></span><h3>ES6支持<a class="headerlink" href="#es6" title="永久链接至标题">¶</a></h3>
+<p>和webpack类似,gulp的配置文件也可以通过中缀添加babel字样让它支持ES6语法,而eslint需要把配置写好,同时需要使用gulp-util包.</p>
+<p>上面的配置可以改为:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+<span class="kr">import</span> <span class="nx">gulp</span> <span class="nx">from</span> <span class="s1">&#39;gulp&#39;</span>
+<span class="kr">import</span> <span class="nx">uglify</span> <span class="nx">from</span> <span class="s1">&#39;gulp-uglify&#39;</span>
+<span class="kr">import</span> <span class="nx">clean</span> <span class="nx">from</span> <span class="s1">&#39;gulp-clean&#39;</span>
+<span class="kr">import</span> <span class="nx">eslint</span> <span class="nx">from</span> <span class="s2">&quot;gulp-eslint&quot;</span>
+<span class="kr">import</span> <span class="nx">minifyHtml</span> <span class="nx">from</span> <span class="s2">&quot;gulp-minify-html&quot;</span>
+<span class="kr">import</span> <span class="nx">notify</span> <span class="nx">from</span> <span class="s1">&#39;gulp-notify&#39;</span>
+<span class="c1">//重命名插件</span>
+<span class="kr">import</span> <span class="nx">rename</span> <span class="nx">from</span> <span class="s2">&quot;gulp-rename&quot;</span>
+<span class="kr">import</span> <span class="nx">path</span> <span class="nx">from</span> <span class="s2">&quot;path&quot;</span>
+<span class="c1">//定义task,参数为task名字,执行的步骤</span>
+<span class="c1">//html压缩</span>
+<span class="kr">import</span> <span class="nx">wpconfig</span> <span class="nx">from</span> <span class="s1">&#39;./wpconfig&#39;</span>
+<span class="kr">import</span> <span class="nx">webpack</span> <span class="nx">from</span> <span class="s1">&#39;webpack&#39;</span>
+<span class="kr">import</span> <span class="nx">gutil</span> <span class="nx">from</span> <span class="s1">&#39;gulp-util&#39;</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;htmlmini&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">rename</span><span class="p">(</span><span class="s1">&#39;index.mini.html&#39;</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">minifyHtml</span><span class="p">())</span> <span class="c1">//压缩</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="s1">&#39;./html&#39;</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">notify</span><span class="p">({</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;htmlmini task complete&#39;</span> <span class="p">}))</span>
+<span class="p">})</span>
+
+<span class="c1">//webpack整理</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s2">&quot;webpack&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">myconfig</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">wpconfig</span><span class="p">)</span>
+    <span class="c1">// run webpack</span>
+    <span class="nx">webpack</span><span class="p">(</span>
+        <span class="nx">myconfig</span>
+        <span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">stats</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nx">gutil</span><span class="p">.</span><span class="nx">PluginError</span><span class="p">(</span><span class="s2">&quot;webpack&quot;</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>
+        <span class="nx">gutil</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;[webpack]&quot;</span><span class="p">,</span> <span class="nx">stats</span><span class="p">.</span><span class="nx">toString</span><span class="p">({</span>
+            <span class="c1">// output options</span>
+        <span class="p">}))</span>
+        <span class="nx">callback</span><span class="p">()</span>
+    <span class="p">})</span>
+<span class="p">})</span>
+
+<span class="c1">//js代码检查</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;lint&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="s1">&#39;js/src/*.js&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">eslint</span><span class="p">({</span>
+        <span class="s2">&quot;parser&quot;</span><span class="o">:</span> <span class="s2">&quot;babel-eslint&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;rules&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;strict&quot;</span><span class="o">:</span> <span class="mi">0</span>
+        <span class="p">}</span>
+    <span class="p">}))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">eslint</span><span class="p">.</span><span class="nx">format</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">eslint</span><span class="p">.</span><span class="nx">failAfterError</span><span class="p">())</span>
+<span class="p">})</span>
+
+<span class="c1">//js压缩</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;jsmini&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="s1">&#39;./js/bin/bundle.js&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">rename</span><span class="p">(</span><span class="s1">&#39;bundle.mini.js&#39;</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">uglify</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="s1">&#39;./js/bin&#39;</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">notify</span><span class="p">({</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;jsmini task complete&#39;</span> <span class="p">}))</span>
+<span class="p">})</span>
+
+<span class="c1">//处理js文件</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;jsdeal&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;start dealing with js Script!&#39;</span><span class="p">)</span>
+    <span class="nx">gulp</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="s1">&#39;jsmini&#39;</span><span class="p">,</span> <span class="s2">&quot;webpack&quot;</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="c1">//预设任务</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">gulp</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="s1">&#39;jsdeal&#39;</span><span class="p">,</span><span class="s1">&#39;htmlmini&#39;</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="c1">// 清理</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;clean&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="s1">&#39;./js/bin&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">read</span><span class="o">:</span> <span class="kc">false</span><span class="p">})</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">clean</span><span class="p">())</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="node-gulp-webpack">
+<span id="node-gulp-webpack"></span><h1>将node命令,gulp,webpack结合使用<a class="headerlink" href="#node-gulp-webpack" title="永久链接至标题">¶</a></h1>
+<p>如果gulp和webpack结合使用,可以不用写webpack的配置文件,而把配置写在gulp的配置文件中,之后再package.json中把那些要运行的写在script中</p>
+<blockquote>
+<div>例4:将上面的例子使用webpack做打包,gulp做压缩,并且使用node命令执行,加上前一个部分的内容,包括测试,文档和覆盖率</div></blockquote>
+<ul class="simple">
+<li>切换到项目根目录,npm 安装各种插件</li>
+</ul>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>npm install babel-core babel-cli babel-preset-es2015 babel-polyfill babel-register --save-dev
+npm install esdoc eslint@2.x babel-eslint@6 chai mocha mochawesome isparta --save-dev
+npm install gulp gulp-eslint gulp-uglify gulp-clean gulp-notify gulp-rename gulp-minify-html gulp-util --save-dev
+npm install webpack babel-loader --save-dev
+</pre></div>
+</div>
+<ul class="simple">
+<li>写<code class="docutils literal"><span class="pre">wpconfig.js</span></code></li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">path</span> <span class="nx">from</span> <span class="s2">&quot;path&quot;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">entry</span><span class="o">:</span> <span class="s2">&quot;./js/src/main.js&quot;</span><span class="p">,</span>
+  <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;js/bin&#39;</span><span class="p">),</span>
+    <span class="nx">filename</span><span class="o">:</span> <span class="s2">&quot;bundle.js&quot;</span>
+  <span class="p">},</span>
+  <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">loaders</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nx">test</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;js/src&#39;</span><span class="p">),</span>
+        <span class="nx">loader</span><span class="o">:</span> <span class="s1">&#39;babel-loader&#39;</span><span class="p">,</span>
+        <span class="nx">query</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">presets</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;es2015&#39;</span><span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>写gulp配置文档<code class="docutils literal"><span class="pre">gulp.babel.js</span></code></li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+<span class="kr">import</span> <span class="nx">gulp</span> <span class="nx">from</span> <span class="s1">&#39;gulp&#39;</span>
+<span class="kr">import</span> <span class="nx">uglify</span> <span class="nx">from</span> <span class="s1">&#39;gulp-uglify&#39;</span>
+<span class="kr">import</span> <span class="nx">clean</span> <span class="nx">from</span> <span class="s1">&#39;gulp-clean&#39;</span>
+<span class="kr">import</span> <span class="nx">eslint</span> <span class="nx">from</span> <span class="s2">&quot;gulp-eslint&quot;</span>
+<span class="kr">import</span> <span class="nx">minifyHtml</span> <span class="nx">from</span> <span class="s2">&quot;gulp-minify-html&quot;</span>
+<span class="kr">import</span> <span class="nx">notify</span> <span class="nx">from</span> <span class="s1">&#39;gulp-notify&#39;</span>
+<span class="c1">//重命名插件</span>
+<span class="kr">import</span> <span class="nx">rename</span> <span class="nx">from</span> <span class="s2">&quot;gulp-rename&quot;</span>
+<span class="kr">import</span> <span class="nx">path</span> <span class="nx">from</span> <span class="s2">&quot;path&quot;</span>
+<span class="c1">//定义task,参数为task名字,执行的步骤</span>
+<span class="c1">//html压缩</span>
+<span class="kr">import</span> <span class="nx">wpconfig</span> <span class="nx">from</span> <span class="s1">&#39;./wpconfig&#39;</span>
+<span class="kr">import</span> <span class="nx">webpack</span> <span class="nx">from</span> <span class="s1">&#39;webpack&#39;</span>
+<span class="kr">import</span> <span class="nx">gutil</span> <span class="nx">from</span> <span class="s1">&#39;gulp-util&#39;</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;htmlmini&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">rename</span><span class="p">(</span><span class="s1">&#39;index.mini.html&#39;</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">minifyHtml</span><span class="p">())</span> <span class="c1">//压缩</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="s1">&#39;./html&#39;</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">notify</span><span class="p">({</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;htmlmini task complete&#39;</span> <span class="p">}))</span>
+<span class="p">})</span>
+
+<span class="c1">//webpack整理</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s2">&quot;webpack&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">myconfig</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">wpconfig</span><span class="p">)</span>
+    <span class="c1">// run webpack</span>
+    <span class="nx">webpack</span><span class="p">(</span>
+        <span class="nx">myconfig</span>
+        <span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">stats</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nx">gutil</span><span class="p">.</span><span class="nx">PluginError</span><span class="p">(</span><span class="s2">&quot;webpack&quot;</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>
+        <span class="nx">gutil</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;[webpack]&quot;</span><span class="p">,</span> <span class="nx">stats</span><span class="p">.</span><span class="nx">toString</span><span class="p">({</span>
+            <span class="c1">// output options</span>
+        <span class="p">}))</span>
+        <span class="nx">callback</span><span class="p">()</span>
+    <span class="p">})</span>
+<span class="p">})</span>
+
+<span class="c1">//js代码检查</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;lint&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="s1">&#39;js/src/*.js&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">eslint</span><span class="p">({</span>
+        <span class="s2">&quot;parser&quot;</span><span class="o">:</span> <span class="s2">&quot;babel-eslint&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;rules&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;strict&quot;</span><span class="o">:</span> <span class="mi">0</span>
+        <span class="p">}</span>
+    <span class="p">}))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">eslint</span><span class="p">.</span><span class="nx">format</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">eslint</span><span class="p">.</span><span class="nx">failAfterError</span><span class="p">())</span>
+<span class="p">})</span>
+
+<span class="c1">//js压缩</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;jsmini&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="s1">&#39;./js/bin/bundle.js&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">rename</span><span class="p">(</span><span class="s1">&#39;bundle.mini.js&#39;</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">uglify</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="s1">&#39;./js/bin&#39;</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">notify</span><span class="p">({</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;jsmini task complete&#39;</span> <span class="p">}))</span>
+<span class="p">})</span>
+
+<span class="c1">//处理js文件</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;jsdeal&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;start dealing with js Script!&#39;</span><span class="p">)</span>
+    <span class="nx">gulp</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="s1">&#39;jsmini&#39;</span><span class="p">,</span> <span class="s2">&quot;webpack&quot;</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="c1">//预设任务</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">gulp</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="s1">&#39;jsdeal&#39;</span><span class="p">,</span><span class="s1">&#39;htmlmini&#39;</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="c1">// 清理</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;clean&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="s1">&#39;./js/bin&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">read</span><span class="o">:</span> <span class="kc">false</span><span class="p">})</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">clean</span><span class="p">())</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>写<code class="docutils literal"><span class="pre">esdoc.json</span></code></li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;source&quot;</span><span class="o">:</span> <span class="s2">&quot;./js/src&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;destination&quot;</span><span class="o">:</span> <span class="s2">&quot;./esdoc&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;coverage&quot;</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>写<code class="docutils literal"><span class="pre">mocha.opts</span></code></li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="o">--</span><span class="nx">recursive</span>
+<span class="o">--</span><span class="nx">compilers</span> <span class="nx">js</span><span class="o">:</span><span class="nx">babel</span><span class="o">-</span><span class="nx">core</span><span class="o">/</span><span class="nx">register</span>
+<span class="o">--</span><span class="nx">reporter</span> <span class="nx">mochawesome</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">为项目文件夹增加权限</p>
+<p>sudo chmod -R 777 ex3</p>
+</li>
+<li><p class="first">写<code class="docutils literal"><span class="pre">package.json</span></code></p>
+</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;ex3&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;version&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;main&quot;</span><span class="o">:</span> <span class="s2">&quot;index.js&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;scripts&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;docs&quot;</span><span class="o">:</span> <span class="s2">&quot;esdoc -c esdoc.json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;start&quot;</span><span class="o">:</span> <span class="s2">&quot;gulp&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lint&quot;</span><span class="o">:</span> <span class="s2">&quot;gulp lint&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;test&quot;</span><span class="o">:</span><span class="s2">&quot;./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover --report text/html ./node_modules/.bin/_mocha &quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;author&quot;</span><span class="o">:</span> <span class="s2">&quot;hsz&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;license&quot;</span><span class="o">:</span> <span class="s2">&quot;ISC&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;devDependencies&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;babel-cli&quot;</span><span class="o">:</span> <span class="s2">&quot;^6.6.5&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;babel-core&quot;</span><span class="o">:</span> <span class="s2">&quot;^6.7.4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;babel-eslint&quot;</span><span class="o">:</span> <span class="s2">&quot;^6.0.2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;babel-loader&quot;</span><span class="o">:</span> <span class="s2">&quot;^6.2.4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;babel-polyfill&quot;</span><span class="o">:</span> <span class="s2">&quot;^6.7.4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;babel-preset-es2015&quot;</span><span class="o">:</span> <span class="s2">&quot;^6.6.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;babel-register&quot;</span><span class="o">:</span> <span class="s2">&quot;^6.7.2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;chai&quot;</span><span class="o">:</span> <span class="s2">&quot;^3.5.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;esdoc&quot;</span><span class="o">:</span> <span class="s2">&quot;^0.4.6&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;eslint&quot;</span><span class="o">:</span> <span class="s2">&quot;^2.7.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gulp&quot;</span><span class="o">:</span> <span class="s2">&quot;^3.9.1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gulp-clean&quot;</span><span class="o">:</span> <span class="s2">&quot;^0.3.2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gulp-eslint&quot;</span><span class="o">:</span> <span class="s2">&quot;^2.0.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gulp-minify-html&quot;</span><span class="o">:</span> <span class="s2">&quot;^1.0.6&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gulp-notify&quot;</span><span class="o">:</span> <span class="s2">&quot;^2.2.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gulp-rename&quot;</span><span class="o">:</span> <span class="s2">&quot;^1.2.2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gulp-uglify&quot;</span><span class="o">:</span> <span class="s2">&quot;^1.5.3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gulp-util&quot;</span><span class="o">:</span> <span class="s2">&quot;^3.0.7&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;isparta&quot;</span><span class="o">:</span> <span class="s2">&quot;^4.0.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mocha&quot;</span><span class="o">:</span> <span class="s2">&quot;^2.4.5&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mochawesome&quot;</span><span class="o">:</span> <span class="s2">&quot;^1.3.2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;webpack&quot;</span><span class="o">:</span> <span class="s2">&quot;^1.12.14&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>试试效果</li>
+</ul>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>npm run lint
+npm run <span class="nb">test</span>
+npm run docs
+sudo npm run start
+</pre></div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/环境搭建/工作流工具链gulp,webpack.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; 版权所有 2016, hsz.<br/>
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5 创建。<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

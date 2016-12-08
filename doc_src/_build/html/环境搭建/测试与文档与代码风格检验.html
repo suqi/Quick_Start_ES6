@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>代码风格检验 &mdash; Python_Quick_Start mit 文档</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/lumen/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'mit',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Python_Quick_Start mit 文档" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/my_logo.png"></span>
+          Python_Quick_Start</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="http://blog.hszofficial.site/">Home</a></li>
+                <li><a href="http://blog.hszofficial.site/about/">About</a></li>
+                <li><a href="http://blog.hszofficial.site/series/">Series</a></li>
+                <li><a href="http://blog.hszofficial.site/collection/">Collections</a></li>
+                <li><a href="http://blog.hszofficial.site/tags/">Tags</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Python_Quick_Start <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="simple">
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="">
+<span id="id1"></span><h1>代码风格检验<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>Javascript作为动态语言,它本身并没有类型检验,因此需要一个工具来做语法检验从而减少出错,这个工具就是<a class="reference external" href="https://github.com/eslint/eslint/"><code class="docutils literal"><span class="pre">eslint</span></code></a></p>
+<p>安装不多说了</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>npm install eslint --save-dev
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h2>使用<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<ol class="simple">
+<li>配置</li>
+</ol>
+<p>使用<code class="docutils literal"><span class="pre">node_modules/.bin/eslint</span> <span class="pre">--init</span></code>命令,回答一系列问题后就会创建一个配置文件<code class="docutils literal"><span class="pre">.eslintrc.json</span></code>文件,修改之</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>    <span class="s2">&quot;env&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;browser&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">&quot;es6&quot;</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;extends&quot;</span><span class="o">:</span> <span class="s2">&quot;eslint:recommended&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;parser&quot;</span><span class="o">:</span> <span class="s2">&quot;babel-eslint&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;parserOptions&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;ecmaFeatures&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;experimentalObjectRestSpread&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">&quot;jsx&quot;</span><span class="o">:</span> <span class="kc">true</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;sourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;module&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;plugins&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="s2">&quot;react&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;rules&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;indent&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="s2">&quot;error&quot;</span><span class="p">,</span>
+            <span class="mi">4</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;linebreak-style&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="s2">&quot;error&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;unix&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;quotes&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="s2">&quot;error&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;double&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;semi&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="s2">&quot;error&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;never&quot;</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>之后就可以使用了</p>
+<p>使用:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>node_modules/.bin/eslint frompath topath
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="api">
+<span id="api"></span><h1>api文档自动生成<a class="headerlink" href="#api" title="永久链接至标题">¶</a></h1>
+<p>python可以使用段注释自动的生成文档,但js不行,必须借助第三方工具实现,这个工具就是<code class="docutils literal"><span class="pre">esdoc</span></code></p>
+<p>安装依然是</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>npm install esdoc --save-dev
+</pre></div>
+</div>
+<p>之后使用我们看个例子</p>
+<blockquote>
+<div>例1: 用esdoc生成api文档并输出html文档</div></blockquote>
+<ol class="simple">
+<li>js文件:</li>
+</ol>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * this is MyClass.</span>
+<span class="cm"> */</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="nx">MyClass</span> <span class="p">{</span>
+  <span class="cm">/**</span>
+<span class="cm">   * @param {number} param this is param.</span>
+<span class="cm">   * @return {number} this is return.</span>
+<span class="cm">   */</span>
+  <span class="nx">method</span><span class="p">(</span><span class="nx">param</span><span class="p">){}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>看注释,使用</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">*</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+<p>包裹的注释可以成为文档,其中使用&#64;开头的行会被辨识为是有特殊意义的标签</p>
+<p>所有的标签说明可以在<a class="reference external" href="https://esdoc.org/tags.html">官网</a>找到</p>
+<p>需要注意的是:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>@param {number} param this is param.
+</pre></div>
+</div>
+<p>代表输入的形参属性,要有几个参数写几个,按顺序写,<code class="docutils literal"><span class="pre">{number}</span></code>表示类型,<code class="docutils literal"><span class="pre">param</span></code>是形参名 后面的是说明</p>
+<ol class="simple">
+<li>写配置<code class="docutils literal"><span class="pre">esdoc.json</span></code></li>
+</ol>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;source&quot;</span><span class="o">:</span> <span class="s2">&quot;./js/src&quot;</span><span class="p">,</span><span class="c1">//源文件位置</span>
+  <span class="s2">&quot;destination&quot;</span><span class="o">:</span> <span class="s2">&quot;./esdoc&quot;</span><span class="p">,</span><span class="c1">//生成文档目标文件夹</span>
+  <span class="s2">&quot;coverage&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="c1">//是否统计覆盖率</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol>
+<li><p class="first">使用</p>
+<p>esdoc -c ./esdoc.json</p>
+</li>
+</ol>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h1>断言<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>js并没有断言语句,我们可以使用<a class="reference external" href="http://chaijs.com/">chai</a>来实现断言功能</p>
+<p>安装依然是npm安装</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>npm install chai --save-dev
+</pre></div>
+</div>
+<p>chai有三种断言风格</p>
+<ul>
+<li><p class="first">Assert风格</p>
+<p>类似python中的assert语句</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">chai</span><span class="p">.</span><span class="nx">assert</span>
+
+<span class="nx">assert</span><span class="p">.</span><span class="nx">typeOf</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">)</span>
+<span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="nx">assert</span><span class="p">.</span><span class="nx">lengthOf</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nx">assert</span><span class="p">.</span><span class="nx">property</span><span class="p">(</span><span class="nx">tea</span><span class="p">,</span> <span class="s1">&#39;flavors&#39;</span><span class="p">)</span>
+<span class="nx">assert</span><span class="p">.</span><span class="nx">lengthOf</span><span class="p">(</span><span class="nx">tea</span><span class="p">.</span><span class="nx">flavors</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>这种风格代码最保守,我比较习惯用</p>
+</li>
+<li><p class="first">Expect</p>
+<p>推断方法,相对更加接近口语化,英语看来就是&#8221;我推测xxx是ooo&#8221;这样</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">expect</span> <span class="o">=</span> <span class="nx">chai</span><span class="p">.</span><span class="nx">expect</span>
+
+<span class="nx">expect</span><span class="p">(</span><span class="nx">foo</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">.</span><span class="nx">a</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">foo</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">foo</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">have</span><span class="p">.</span><span class="nx">length</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">tea</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">have</span><span class="p">.</span><span class="nx">property</span><span class="p">(</span><span class="s1">&#39;flavors&#39;</span><span class="p">).</span><span class="kd">with</span><span class="p">.</span><span class="nx">length</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>这种风格比较中庸,好像是最受欢迎的一种</p>
+</li>
+<li><p class="first">Should</p>
+<p>最口语化得一种风格,意识是&#8221;xxx应该是ooo&#8221;</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">chai</span><span class="p">.</span><span class="nx">should</span><span class="p">()</span>
+
+<span class="nx">foo</span><span class="p">.</span><span class="nx">should</span><span class="p">.</span><span class="nx">be</span><span class="p">.</span><span class="nx">a</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span>
+<span class="nx">foo</span><span class="p">.</span><span class="nx">should</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="nx">foo</span><span class="p">.</span><span class="nx">should</span><span class="p">.</span><span class="nx">have</span><span class="p">.</span><span class="nx">length</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nx">tea</span><span class="p">.</span><span class="nx">should</span><span class="p">.</span><span class="nx">have</span><span class="p">.</span><span class="nx">property</span><span class="p">(</span><span class="s1">&#39;flavors&#39;</span><span class="p">).</span><span class="kd">with</span><span class="p">.</span><span class="nx">length</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>这种风格不建议用,会修改原型</p>
+</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h1>测试框架<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>做代码测试可以使用<a class="reference external" href="http://mochajs.org/">mocha</a>来做,</p>
+<p>安装依然是npm</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>npm install mocha --save-dev
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h2>使用:<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>写测试代码:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;chai&#39;</span><span class="p">).</span><span class="nx">assert</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Array&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;#indexOf()&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should return -1 when the value is not present&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">].</span><span class="nx">indexOf</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">].</span><span class="nx">indexOf</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+    <span class="p">})</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>测试代码形如上面,用到了chai库</p>
+<ul>
+<li><p class="first">describe(des,func)方法是一个测试的描述,一般一个describe()描述一个方法或类</p>
+</li>
+<li><p class="first">it(des,func)方法则是一个测试具体的一个分支,一般一个it()描述一个方法的一种可能输入条件</p>
+</li>
+<li><p class="first">mocha支持定义钩子,可以使用的钩子有:</p>
+<ul class="simple">
+<li>before(func)定义某操作之前的操作</li>
+<li>after(func) 定义某操作之后的操作</li>
+<li>beforeEach(func)定义块内每个操作之前的操作</li>
+<li>afterEach(func) 定义块内每个操作之后的操作</li>
+</ul>
+</li>
+<li><p class="first">mocha支持测试自定义操作</p>
+<ul class="simple">
+<li>skip(des,func)跳过某测试</li>
+<li>only(des,func)只进行某操作</li>
+</ul>
+</li>
+<li><p class="first">输出为文档</p>
+<p>可以配合<code class="docutils literal"><span class="pre">mochawesome</span></code>输出测试结果为美观的文档
+安装:
+npm install mochawesome &#8211;save-dev</p>
+</li>
+<li><p class="first">测试配置</p>
+<p>mocha默认会找test文件夹下的文件做测试,我们也要在这个文件夹下写配置要使用es6则可以这样写配置<code class="docutils literal"><span class="pre">mocha.opts</span></code></p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="o">--</span><span class="nx">recursive</span>
+<span class="o">--</span><span class="nx">compilers</span> <span class="nx">js</span><span class="o">:</span><span class="nx">babel</span><span class="o">-</span><span class="nx">core</span><span class="o">/</span><span class="nx">register</span>
+<span class="o">--</span><span class="nx">reporter</span> <span class="nx">mochawesome</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">使用</p>
+<p>项目目录下直接使用<code class="docutils literal"><span class="pre">mocha</span></code>即可</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h1>测试覆盖率<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="https://github.com/douglasduteil/isparta">isparta</a>是es6标准的代码覆盖率工具,用它来做测试覆盖率统计很方便:</p>
+<p>安装:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>npm install isparta --save-dev
+</pre></div>
+</div>
+<p>安装完后只要这样用就好了</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover --report html ./node_modules/.bin/_mocha 
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h1>性能基准测试<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>在大型项目中我们有可能会希望通过对比来查看某个功能的不同实现会有怎样不同的表现,这时候就可以使用<code class="docutils literal"><span class="pre">Benchmark.js</span></code></p>
+<p>安装:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>npm install --save-dev  benchmark
+</pre></div>
+</div>
+<p>使用:</p>
+<blockquote>
+<div>例:</div></blockquote>
+<p>我们知道js中字符串相连是有两种方式的:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="s2">&quot;asdfg&quot;</span><span class="o">+</span><span class="s2">&quot;hjkl&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;asdfghjkl&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="s2">&quot;asdfg&quot;</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="s2">&quot;hjkl&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;asdfghjkl&#39;</span>
+</pre></div>
+</div>
+<p>让我么来测测哪个快</p>
+<p>待测代码 <code class="docutils literal"><span class="pre">strconcat.js</span></code>:</p>
+<div class="highlight-js"><div class="highlight"><pre><span></span><span class="kr">export</span> <span class="kd">function</span> <span class="nx">str_plus</span><span class="p">(</span><span class="nx">str1</span><span class="p">,</span><span class="nx">str2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">str1</span><span class="o">+</span><span class="nx">str2</span>
+<span class="p">}</span>
+<span class="kr">export</span> <span class="kd">function</span> <span class="nx">str_concat</span><span class="p">(</span><span class="nx">str1</span><span class="p">,</span><span class="nx">str2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">str1</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">str2</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>测试代码<code class="docutils literal"><span class="pre">strconcat.benchmark.js</span></code>:</p>
+<div class="highlight-js"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span><span class="nx">str_plus</span><span class="p">,</span><span class="nx">str_concat</span><span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;./strconcat&quot;</span>
+<span class="kr">import</span> <span class="nx">Benchmark</span> <span class="nx">from</span> <span class="s1">&#39;benchmark&#39;</span>
+<span class="kd">let</span> <span class="nx">str1</span> <span class="o">=</span> <span class="s2">&quot;asdfg&quot;</span>
+<span class="kd">let</span> <span class="nx">str2</span> <span class="o">=</span> <span class="s2">&quot;hjkl&quot;</span>
+
+<span class="kd">var</span> <span class="nx">suite</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Benchmark</span><span class="p">.</span><span class="nx">Suite</span>
+<span class="c1">// 添加测试</span>
+<span class="nx">suite</span>
+<span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">str_plus</span><span class="p">(</span><span class="nx">str1</span><span class="p">,</span><span class="nx">str2</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;concat&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">str_concat</span><span class="p">(</span><span class="nx">str1</span><span class="p">,</span><span class="nx">str2</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="c1">// 每个测试跑完后，输出信息</span>
+<span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;cycle&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">String</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">))</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;complete&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Fastest is &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="s1">&#39;fastest&#39;</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">))</span>
+<span class="p">})</span>
+<span class="c1">// 这里的 async 不是 mocha 测试那个 async 的意思，这个选项与它的时间计算有关，默认勾上就好了。</span>
+<span class="p">.</span><span class="nx">run</span><span class="p">({</span> <span class="s1">&#39;async&#39;</span><span class="o">:</span> <span class="kc">true</span> <span class="p">})</span>
+</pre></div>
+</div>
+<p>之后再直接用<code class="docutils literal"><span class="pre">babel-node</span></code>运行即可</p>
+</div>
+<div class="section" id="">
+<span id="id8"></span><h1>在交互环境中测试<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>我们同样可以在<code class="docutils literal"><span class="pre">babel-node</span></code>或者我们的<code class="docutils literal"><span class="pre">jupyter</span> <span class="pre">notebook</span></code>中做测试</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">str_plus</span><span class="p">(</span><span class="nx">str1</span><span class="p">,</span><span class="nx">str2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">str1</span><span class="o">+</span><span class="nx">str2</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">str_concat</span><span class="p">(</span><span class="nx">str1</span><span class="p">,</span><span class="nx">str2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">str1</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">str2</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">Benchmark</span> <span class="nx">from</span> <span class="s1">&#39;benchmark&#39;</span>
+<span class="kd">let</span> <span class="nx">str1</span> <span class="o">=</span> <span class="s2">&quot;asdfg&quot;</span>
+<span class="kd">let</span> <span class="nx">str2</span> <span class="o">=</span> <span class="s2">&quot;hjkl&quot;</span>
+
+<span class="kd">var</span> <span class="nx">suite</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Benchmark</span><span class="p">.</span><span class="nx">Suite</span>
+
+<span class="k">try</span><span class="p">{</span>
+    <span class="c1">// 添加测试</span>
+<span class="nx">suite</span>
+<span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">str_plus</span><span class="p">(</span><span class="nx">str1</span><span class="p">,</span><span class="nx">str2</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;concat&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">str_concat</span><span class="p">(</span><span class="nx">str1</span><span class="p">,</span><span class="nx">str2</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="c1">// 每个测试跑完后，输出信息</span>
+<span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;cycle&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">String</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">))</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;complete&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Fastest is &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="s1">&#39;fastest&#39;</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">))</span>
+<span class="p">})</span>
+<span class="c1">// 这里的 async 不是 mocha 测试那个 async 的意思，这个选项与它的时间计算有关，默认勾上就好了。</span>
+<span class="p">.</span><span class="nx">run</span><span class="p">({</span> <span class="s1">&#39;async&#39;</span><span class="o">:</span> <span class="kc">true</span> <span class="p">})</span>
+<span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Suite {
+  &#39;0&#39;: 
+   Benchmark {
+     name: &#39;+&#39;,
+     options: 
+      { async: false,
+        defer: false,
+        delay: 0.005,
+        id: undefined,
+        initCount: 1,
+        maxTime: 5,
+        minSamples: 5,
+        minTime: 0.05,
+        name: undefined,
+        onAbort: undefined,
+        onComplete: undefined,
+        onCycle: undefined,
+        onError: undefined,
+        onReset: undefined,
+        onStart: undefined },
+     async: false,
+     defer: false,
+     delay: 0.005,
+     initCount: 1,
+     maxTime: 5,
+     minSamples: 5,
+     minTime: 0.05,
+     id: 3,
+     fn: [Function],
+     stats: 
+      { moe: 0,
+        rme: 0,
+        sem: 0,
+        deviation: 0,
+        mean: 0,
+        sample: [],
+        variance: 0 },
+     times: { cycle: 0, elapsed: 0, period: 0, timeStamp: 0 },
+     _timerId: 
+      { _called: false,
+        _idleTimeout: 5,
+        _idlePrev: [Object],
+        _idleNext: [Object],
+        _idleStart: 2085575,
+        _onTimeout: [Function],
+        _repeat: null } },
+  &#39;1&#39;: 
+   Benchmark {
+     name: &#39;concat&#39;,
+     options: 
+      { async: false,
+        defer: false,
+        delay: 0.005,
+        id: undefined,
+        initCount: 1,
+        maxTime: 5,
+        minSamples: 5,
+        minTime: 0.05,
+        name: undefined,
+        onAbort: undefined,
+        onComplete: undefined,
+        onCycle: undefined,
+        onError: undefined,
+        onReset: undefined,
+        onStart: undefined },
+     async: false,
+     defer: false,
+     delay: 0.005,
+     initCount: 1,
+     maxTime: 5,
+     minSamples: 5,
+     minTime: 0.05,
+     id: 4,
+     fn: [Function],
+     stats: 
+      { moe: 0,
+        rme: 0,
+        sem: 0,
+        deviation: 0,
+        mean: 0,
+        sample: [],
+        variance: 0 },
+     times: { cycle: 0, elapsed: 0, period: 0, timeStamp: 0 } },
+  name: undefined,
+  options: { name: undefined },
+  length: 2,
+  events: { cycle: [ [Function] ], complete: [ [Function] ] },
+  running: true }
+
+
+
++ x 72,966,058 ops/sec ±3.10% (71 runs sampled)
+concat x 23,597,976 ops/sec ±2.11% (73 runs sampled)
+Fastest is +
+</pre></div>
+</div>
+<p>可见其实+运算符还是蛮好</p>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/环境搭建/测试与文档与代码风格检验.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; 版权所有 2016, hsz.<br/>
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5 创建。<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>谓词 &mdash; Python_Quick_Start mit 文档</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/lumen/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'mit',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Python_Quick_Start mit 文档" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/my_logo.png"></span>
+          Python_Quick_Start</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="http://blog.hszofficial.site/">Home</a></li>
+                <li><a href="http://blog.hszofficial.site/about/">About</a></li>
+                <li><a href="http://blog.hszofficial.site/series/">Series</a></li>
+                <li><a href="http://blog.hszofficial.site/collection/">Collections</a></li>
+                <li><a href="http://blog.hszofficial.site/tags/">Tags</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Python_Quick_Start <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="simple">
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="">
+<span id="id1"></span><h1>谓词<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>这个貌似没在啥书上看到,只是我自己的总结,我把所有与bool值有关的表达式称做谓词,这种表达式一般也就用在控制结构中,大体分为:</p>
+<p>表达式|说明
+&#8212;|&#8212;
+x &gt;/&lt;/===/&gt;=/&lt;= y|值判断表达式,返回bool值
+x in container |包含判断,如果in之前的 值包含在in后面的容器中,则返回true,否则为false
+exp? trueif:falseif | 三元判断表达式,返回值根据?之前的表达式结果来定,如果为真返回:前的,否则返回:后的</p>
+<p>逻辑表达式是控制语句的基础</p>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>控制结构<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>一般来说控制语句就是条件判断,循环,分支和try语句了</p>
+<div class="section" id="">
+<span id="id3"></span><h2>判断<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>JavaScript使用形如:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">()</span> <span class="p">{</span> 
+    <span class="p">...</span> 
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="p">...</span> 
+<span class="p">}</span> <span class="k">else</span><span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>这样的条件分支来实现判断语句</p>
+<p>练习: 计算一个年份是否是闰年(能被4或者400整除,但被100整除不算)</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Leap</span><span class="p">(</span><span class="nx">year</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">year</span><span class="o">%</span><span class="mi">100</span> <span class="o">!==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">year</span><span class="o">%</span><span class="mi">4</span> <span class="o">===</span><span class="mi">0</span> <span class="p">){</span>
+       <span class="k">return</span> <span class="kc">true</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">year</span><span class="o">%</span><span class="mi">400</span> <span class="o">===</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="k">return</span> <span class="kc">true</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">Leap</span><span class="p">(</span><span class="mi">2421</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">false</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>循环<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<div class="section" id="for">
+<span id="for"></span><h3>for循环<a class="headerlink" href="#for" title="永久链接至标题">¶</a></h3>
+<p>for循环形如:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="nx">临时变量</span><span class="p">;</span> <span class="nx">判断条件</span><span class="p">;</span><span class="nx">改变临时变量</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="for-of">
+<span id="for-of"></span><h4>for ... of 循环<a class="headerlink" href="#for-of" title="永久链接至标题">¶</a></h4>
+<p>这个是for循环最常用最好用的方法了,在之前的数据结构部分已经有相对详细的讲解了</p>
+<p>形如:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="nx">temp</span> <span class="k">of</span> <span class="nx">容器</span><span class="p">){</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>注意</strong>:js中也有for in循环,然而并不好用,所以我就不写了....</p>
+</div>
+</div>
+<div class="section" id="while">
+<span id="while"></span><h3>while循环<a class="headerlink" href="#while" title="永久链接至标题">¶</a></h3>
+<p>for循环在已知循环的初始和结束条件时非常有用。而while循环只有一个判断条件，条件满足，就不断循环，条件不满足时则退出循环。
+while循环形如:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>    <span class="k">while</span> <span class="p">(</span><span class="nx">exp</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">...</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="do-while">
+<span id="do-while"></span><h4>do ... while循环<a class="headerlink" href="#do-while" title="永久链接至标题">¶</a></h4>
+<p>do ... while循环和while类似,只是它是先执行再判断.</p>
+<p>do ... while形如:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>    <span class="k">do</span> <span class="p">{</span>
+        <span class="p">...</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nx">exp</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="breakcontinu">
+<span id="breakcontinu"></span><h3>break和continu<a class="headerlink" href="#breakcontinu" title="永久链接至标题">¶</a></h3>
+<p>和c类似,break和continu还是一样的语义,分别代表跳出循环和跳过当次循环</p>
+</div>
+</div>
+<div class="section" id="switch">
+<span id="switch"></span><h2>分支switch<a class="headerlink" href="#switch" title="永久链接至标题">¶</a></h2>
+<p>switch语句依然沿用c风格,形如:</p>
+<div class="highlight-Javascript"><div class="highlight"><pre><span></span><span class="k">switch</span> <span class="p">(</span><span class="nx">exp</span><span class="p">){</span>
+    <span class="k">case</span> <span class="nx">value</span><span class="o">:</span> 
+        <span class="nx">block</span>
+        <span class="k">break</span>
+    <span class="k">case</span> <span class="nx">value</span><span class="o">:</span> 
+        <span class="nx">block</span>
+        <span class="k">break</span>
+    <span class="k">default</span><span class="o">:</span>
+        <span class="nx">block</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>千万不要忘了break!</p>
+</div>
+<div class="section" id="try">
+<span id="try"></span><h2>try<a class="headerlink" href="#try" title="永久链接至标题">¶</a></h2>
+<p>try语句一般用于错误处理,标准格式是</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">try</span>
+  <span class="p">{</span>
+  <span class="c1">//在这里运行代码</span>
+  <span class="p">}</span>
+<span class="k">catch</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+  <span class="p">{</span>
+  <span class="c1">//在这里处理错误</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>try 语句测试代码块的错误。</li>
+<li>catch 语句处理错误。</li>
+</ul>
+<div class="section" id="throw">
+<span id="throw"></span><h3>throw语句<a class="headerlink" href="#throw" title="永久链接至标题">¶</a></h3>
+<p>throw 语句用于抛出自定义异常。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;cuowu&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Error: cuowu
+
+    at evalmachine.&lt;anonymous&gt;:3:7
+
+    at Object.exports.runInThisContext (vm.js:54:17)
+
+    at run ([eval]:192:19)
+
+    at onMessage ([eval]:63:41)
+
+    at emitTwo (events.js:87:13)
+
+    at process.emit (events.js:172:7)
+
+    at handleMessage (internal/child_process.js:686:10)
+
+    at Pipe.channel.onread (internal/child_process.js:440:11)
+</pre></div>
+</div>
+<p>Error具有下面一些主要属性：</p>
+<ul class="simple">
+<li>message: 错误信息</li>
+<li>name: 错误类型.</li>
+</ul>
+<p>因此我们可以在catch语句段中使用它们</p>
+<p>事实上throw可以抛出任意对象</p>
+<p>目前我们可能得到的系统异常主要包含以下6种:</p>
+<ul class="simple">
+<li>EvalError: raised when an error occurs executing code in eval()</li>
+<li>RangeError: raised when a numeric variable or parameter is outside of its valid range</li>
+<li>ReferenceError: raised when de-referencing an invalid reference</li>
+<li>SyntaxError: raised when a syntax error occurs while parsing code in eval()</li>
+<li>TypeError: raised when a variable or parameter is not a valid type</li>
+<li>URIError: raised when encodeURI() or decodeURI() are passed invalid parameters</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+<span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">d</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">())</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>2016-04-11 12:53:41
+
+
+
+
+
+undefined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="function">
+<span id="function"></span><h1>Function<a class="headerlink" href="#function" title="永久链接至标题">¶</a></h1>
+<p>函数是对象,因此它也有属性和方法</p>
+<p>属性|说明
+&#8212;|&#8212;
+this|指使用时所在的对象(注意)
+arguments|函数的参数存放处,一个类数组对象
+length|希望接收参数的个数
+prototype|保存实例方法的对象
+name|函数的名字</p>
+<p>方法|说明
+&#8212;|&#8212;
+toString()|返回字面量
+valueOf()|返回functin的值</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">a</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">){</span>
+    
+    <span class="k">return</span> <span class="nx">x</span><span class="o">+</span><span class="nx">y</span>
+    
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">()</span><span class="o">=&gt;</span><span class="p">{</span><span class="k">return</span> <span class="mi">1</span><span class="p">}.</span><span class="nx">name</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;&#39;</span>
+</pre></div>
+</div>
+<p>像python中一样,fucntion是对象,定义一个function可以有4种方式:</p>
+<ul>
+<li><p class="first">使用<code class="docutils literal"><span class="pre">function</span></code>关键字</p>
+<p>这种方式类似python中的define</p>
+</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">a</span><span class="p">(...</span><span class="nx">args</span><span class="p">){</span>
+    <span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<p>最标准的fucntion写法,没啥花头~</p>
+<ul class="simple">
+<li>通过new关键字开辟一个新的Function对象</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">func</span> <span class="o">=</span><span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="s2">&quot;param1&quot;</span><span class="p">,</span><span class="s2">&quot;param2&quot;</span><span class="p">,...</span><span class="s2">&quot;function body&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="s2">&quot;y&quot;</span><span class="p">,</span><span class="s2">&quot;var a = 10 ;return a+x+y&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">13</span>
+</pre></div>
+</div>
+<p>这个就有花头了,function既然是一个对象,那当然可以用new关键字构建了,但不建议这样写,因为你也看到了,代码段成了字符串不好维护,而且显而易见的一定会有二次解析影响性能</p>
+<ul class="simple">
+<li>匿名函数</li>
+</ul>
+<p>function不定义函数名就是匿名函数了</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">n</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">x</span><span class="o">+</span><span class="nx">y</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">3</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>箭头函数</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">s</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">)</span><span class="o">=&gt;</span><span class="p">{</span>
+    <span class="k">return</span> <span class="nx">x</span><span class="o">+</span><span class="nx">y</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">s</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">)</span><span class="o">=&gt;</span><span class="p">{</span>
+    <span class="k">return</span> <span class="nx">x</span><span class="o">+</span><span class="nx">y</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">s</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">3</span>
+</pre></div>
+</div>
+<p>这是ES6中新增的方式,主要好处在于简化函数的使用,不过需要注意的是:</p>
+<p>（1）函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。</p>
+<p>（2）不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。</p>
+<p>（3）不可以使用arguments对象，该对象在函数体内不存在。如果要用，可以用Rest参数代替。</p>
+<p>（4）不可以使用yield命令，因此箭头函数不能用作Generator函数。</p>
+<p>上面四点中，第一点尤其值得注意。this对象的指向是可变的，但是在箭头函数中，它是固定的。</p>
+<div class="section" id="">
+<span id="id5"></span><h2>函数的参数<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<div class="section" id="arguments">
+<span id="arguments"></span><h3>arguments<a class="headerlink" href="#arguments" title="永久链接至标题">¶</a></h3>
+<p>定义function后,Js实际上会默认将所有参数传入一个内部变量<code class="docutils literal"><span class="pre">arguments</span></code>,它类似一个<code class="docutils literal"><span class="pre">array</span></code>,因此即便你定义的参数数目和实际使用给的参数数目不同也没关系,用<code class="docutils literal"><span class="pre">arguments</span></code>就可以了,有点类似python中的<code class="docutils literal"><span class="pre">*args</span></code>.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">sum</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">arguments</span><span class="p">)</span>
+    <span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">args</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nx">x</span><span class="o">+</span><span class="nx">y</span>
+    <span class="p">})</span> 
+    <span class="k">return</span> <span class="nx">sum</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">6</span>
+</pre></div>
+</div>
+<p>使用arguments也可以实现参数默认值的设定</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">defaultArgs</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">?</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">:</span> <span class="mi">1</span><span class="c1">//设置参数a的默认值为1</span>
+    <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">?</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">:</span> <span class="mi">9</span><span class="c1">//设置参数b的默认值为9</span>
+    <span class="k">return</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">,</span><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">arguments</span><span class="p">)]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">defaultArgs</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">]</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h3>变长参数<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>我们可以使用扩展运算符来实现边长参数的使用,这个就真的有点像python中的<code class="docutils literal"><span class="pre">*args</span></code>了</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;a = &#39;</span> <span class="o">+</span> <span class="nx">a</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;b = &#39;</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rest</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">foo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="p">[</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">]</span>
+
+
+
+
+
+<span class="n">undefined</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h3>默认参数<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">bar</span><span class="p">(</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">a</span><span class="o">+</span><span class="nx">b</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">bar</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id8"></span><h3>闭包<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>js支持高阶函数,当然也就支持闭包了</p>
+<p>所谓闭包就是返回值是一个函数</p>
+<blockquote>
+<div>例 一个自加器</div></blockquote>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">counter</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">flag</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span><span class="p">{</span>
+        <span class="nx">flag</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="nx">flag</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">count</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">c1</span> <span class="o">=</span> <span class="nx">counter</span><span class="p">()</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c1</span><span class="p">())</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c1</span><span class="p">())</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c1</span><span class="p">())</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c1</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+
+
+
+
+
+<span class="n">undefined</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/ES6语法/逻辑表达式,控制结构和特殊对象function.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; 版权所有 2016, hsz.<br/>
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5 创建。<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

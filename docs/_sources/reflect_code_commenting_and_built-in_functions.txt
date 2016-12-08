@@ -1,0 +1,263 @@
+
+自省,注释和内置函数
+===================
+
+自省
+----
+
+python的自省是指这种能力：检查某些事物以确定它是什么、它知道什么以及它能做什么.
+
+python的自省也算是这门语言的一个特色.python诞生之初就是作为脚本语言而存在的,它鼓励边试边写的工作模式.
+因此,它设计了几个方法来实现随时查看对象信息.
+
+python之禅
+~~~~~~~~~~
+
+在交互界面输入:
+
+.. code:: python
+
+    import this
+
+
+.. parsed-literal::
+
+    The Zen of Python, by Tim Peters
+    
+    Beautiful is better than ugly.
+    Explicit is better than implicit.
+    Simple is better than complex.
+    Complex is better than complicated.
+    Flat is better than nested.
+    Sparse is better than dense.
+    Readability counts.
+    Special cases aren't special enough to break the rules.
+    Although practicality beats purity.
+    Errors should never pass silently.
+    Unless explicitly silenced.
+    In the face of ambiguity, refuse the temptation to guess.
+    There should be one-- and preferably only one --obvious way to do it.
+    Although that way may not be obvious at first unless you're Dutch.
+    Now is better than never.
+    Although never is often better than *right* now.
+    If the implementation is hard to explain, it's a bad idea.
+    If the implementation is easy to explain, it may be a good idea.
+    Namespaces are one honking great idea -- let's do more of those!
+
+
+可以看到一段小诗(姑且算是诗).这个是Tim
+Peters写的.用来阐述python的理念.也算是对python语言的一种自省吧
+
+--------------
+
+    Python之禅 by Tim Peters
+
+    优美胜于丑陋（Python 以编写优美的代码为目标）
+
+    明了胜于晦涩（优美的代码应当是明了的，命名规范，风格相似）
+
+    简洁胜于复杂（优美的代码应当是简洁的，不要有复杂的内部实现）
+
+    复杂胜于凌乱（如果复杂不可避免，那代码间也不能有难懂的关系，要保持接口简洁）
+
+    扁平胜于嵌套（优美的代码应当是扁平的，不能有太多的嵌套）
+
+    间隔胜于紧凑（优美的代码有适当的间隔，不要奢望一行代码解决问题）
+
+    可读性很重要（优美的代码是可读的）
+
+    即便假借特例的实用性之名，也不可违背这些规则（这些规则至高无上）
+
+    不要包容所有错误，除非你确定需要这样做（精准地捕获异常，不写
+    except:pass 风格的代码）
+
+    当存在多种可能，不要尝试去猜测
+
+    而是尽量找一种，最好是唯一一种明显的解决方案（如果不确定，就用穷举法）
+
+    虽然这并不容易，因为你不是 Python 之父（这里的 Dutch 是指 Guido ）
+
+    做也许好过不做，但不假思索就动手还不如不做（动手之前要细思量）
+
+    如果你无法向人描述你的方案，那肯定不是一个好方案；反之亦然（方案测评标准）
+
+    命名空间是一种绝妙的理念，我们应当多加利用（倡导与号召)
+
+--------------
+
+help()命令
+~~~~~~~~~~
+
+在交互环境中输入这个指令可以呼出一个新的交互框,你可以在其中输入
+"modules", "keywords", "symbols", 或者 "topics"来查看各个方面包含的内容
+
+除此之外,help()同样可以让你查看对象的属性,结构,以及说明文档,如,想查看字符串的具体用法和包含的方法可以用:
+
+::
+
+       >>>help(str)
+
+dir()命令
+~~~~~~~~~
+
+可以使用内置的 dir()
+函数来检查模块（以及其它对象）的内容.包括影藏的内容也可看到.
+
+常用内置函数(不用import就可以直接使用)
+--------------------------------------
+
+一些内置函数我们已经在之前看到过了,这边我们来看看还有哪些
+
+自省函数
+~~~~~~~~
+
+-  help(obj)
+   在线帮助, obj可是任何类型
+-  callable(obj)
+   查看一个obj是不是可以像函数一样调用
+-  repr(obj)
+   得到obj的表示字符串，可以利用这个字符串eval重建该对象的一个拷贝
+-  eval\_r(str)
+   表示合法的python表达式，返回这个表达式
+-  dir(obj)
+   查看obj的name space中可见的name
+-  hasattr(obj,name)
+   查看一个obj的name space中是否有name
+-  getattr(obj,name)
+   得到一个obj的name space中的一个name
+-  setattr(obj,name,value)
+   为一个obj的name space中的一个name指向vale这个object
+-  delattr(obj,name)
+   从obj的name space中删除一个name
+-  vars(obj)
+   返回一个object的name space。用dictionary表示
+-  locals()
+   返回一个局部name space,用dictionary表示
+-  globals()
+   返回一个全局name space,用dictionary表示
+-  type(obj)
+   查看一个obj的类型
+-  isinstance(obj,cls)
+   查看obj是不是cls的instance
+-  issubclass(subcls,supcls)
+   查看subcls是不是supcls的子类
+
+类型转换函数:
+~~~~~~~~~~~~~
+
+-  chr(i) 把一个ASCII数值,变成字符
+-  ord(i) 把一个字符或者unicode字符,变成ASCII数值
+-  oct(x) 把整数x变成八进制表示的字符串
+-  hex(x) 把整数x变成十六进制表示的字符串
+-  int(x) 转换成一个integer
+-  long(x) 转换成一个long interger
+-  float(x) 转换成一个浮点数
+-  complex(x) 转换成复数
+-  str(obj) 得到obj的字符串描述
+-  list(seq) 把一个sequence转换成一个list
+-  tuple(seq) 把一个sequence转换成一个tuple
+-  dict(),dict(list) 转换成一个dictionary
+
+数学运算
+~~~~~~~~
+
+-  abs(number) 返回一个数的绝对值。
+-  pow(x, y[, z]) 求幂(z为取模的可选项)
+-  divmod(num1, num2) 求出商和余数，返回一个tuple. divmod(10,3)=(3,1)
+-  round(number, ndigits) 把浮点数转变成指定小数位数的数
+
+序列和无序序列操作
+~~~~~~~~~~~~~~~~~~
+
+-  len(object) 求一个对象的子项的个数
+-  max(sq) 求最大值
+-  min(sq) 求最小值
+-  sum(list) 求序列所有值的和
+-  filter(function or None, list)
+   将list的每项按照function进行筛选。function中，如果需要某个值继续存在，返回值为True，反之用False。
+-  range(start,stop, step) 左开右闭。生成一个由数组成的列表
+-  map(function, iterable\_objects)
+   接收一个函数和一个可迭代对象（如列表）作为参数，用函数处理每个元素，然后返回新的列表。
+-  sorted(iterable[, cmp[, key[, reverse]]]) 队集合排序
+-  enumerate(sequence [, start = 0])
+   返回一个可枚举的对象,该对象的next()方法将返回一个tuple
+-  iter(o[, sentinel])
+   生成一个对象的迭代器，第二个参数表示分隔符
+
+特殊操作
+~~~~~~~~
+
+-  repr(object)
+   把对象转换为字符串，很多时候可以通过eval(repr(object))还原对象
+-  eval(source[, globals[, locals]]) 求表达式的值
+-  excefile(object[, globals[, locals]])
+   exec语句用来执行储存在字符串或文件中的Python语句.例：exec('print("abc")')
+   输出'abc'
+
+逻辑判断
+~~~~~~~~
+
+-  all(iterable)
+
+   1. 集合中的元素都为真的时候为真
+   2. 特别的，若为空串返回为True
+
+-  any(iterable)
+
+   1. 集合中的元素有一个为真的时候为真
+   2. 特别的，若为空串返回为False
+
+-  cmp(x, y) 如果x < y ,返回负数；x == y, 返回0；x > y,返回正数
+
+IO操作
+~~~~~~
+
+-  open(filename [, mode [, bufsize]])
+   打开一个文件，如果文件不存在且mode为写或追加时，文件将被创建。添加‘b’到mode参数中，将对文件以二进制形式操作。添加‘+’到mode参数中，将允许对文件同时进行读写操作
+
+   1. 参数filename：文件名称。
+   2. 参数mode：'r'（读）、'w'（写）、'a'(追加).
+   3. 参数bufsize：如果为0表示不进行缓冲，如果为1表示进行行缓冲，如果是一个大于1的数表示缓冲区的大小.
+
+-  input(["提示信息") 获取用户输入,返回一个字符串
+
+-  print(object) 打印函数
+
+行注释
+------
+
+python中如果要注释一行,可以用\ ``#``.下面还有两个特殊的注释语句.
+
+coding:utf-8声明
+~~~~~~~~~~~~~~~~
+
+在文件的头两行中写下
+
+.. code:: python
+
+
+    #coding:utf-8
+
+则声明了该模块默认编码为utf-8格式,这样就可以愉快的使用中文了,这句在python3中并不需要,因为python3已经默认是unicode了,至于2中为啥要,这是历史遗留问题
+
+!/usr/bin/env python
+~~~~~~~~~~~~~~~~~~~~
+
+在入口文件第一行写下
+
+.. code:: python
+
+
+    #!/usr/bin/env python
+
+如此一来只要给文件赋予运行权限他就可以自己调用系统中的python运行了
+
+段注释
+------
+
+如果我们希望整段的注释一些内容,那么可以用\ ``"""``\ 包裹的字符串.他的行为和长字符串一样.但有一种段注释的特殊用法,就是放在对象的开头(文件,类,方法,函数等)用来作为对象的说明,也就是所谓的docstring.在Python中,对象会将它保存在\ ``__doc__``\ 字段下,可以用来做doctest,也可以用来生成文档.
+
+google风格的注释
+~~~~~~~~~~~~~~~~
+
+关于用来给对象做说明,我们常常需要用固定的格式来写.这里推荐使用\ `谷歌风格的注释 <http://blog.hszofficial.site/Python_Environment_Tools/Coding_Style.html#id9>`__.

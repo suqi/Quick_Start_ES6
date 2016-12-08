@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>变量,对象与运算 &mdash; Python_Quick_Start mit 文档</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.6/lumen/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'mit',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Python_Quick_Start mit 文档" href="index.html" />
+    <link rel="next" title="内置容器" href="container.html" />
+    <link rel="prev" title="Python快速入门" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><span><img src="_static/my_logo.png"></span>
+          Python_Quick_Start</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="http://blog.hszofficial.site/">Home</a></li>
+                <li><a href="http://blog.hszofficial.site/about/">About</a></li>
+                <li><a href="http://blog.hszofficial.site/series/">Series</a></li>
+                <li><a href="http://blog.hszofficial.site/collection/">Collections</a></li>
+                <li><a href="http://blog.hszofficial.site/tags/">Tags</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Python_Quick_Start <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">变量,对象与运算</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">变量</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="container.html">内置容器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="container.html#id2">容器的通用操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container.html#id4">序列&#8211;字符串，列表，元组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container.html#id14">无序序列&#8211;字典和集合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container.html#id18">关于容器的小技巧</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Logic_control_statement_and_Error_handler.html">控制语句和异常处理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Logic_control_statement_and_Error_handler.html#id2">判断语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Logic_control_statement_and_Error_handler.html#id3">循环语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Logic_control_statement_and_Error_handler.html#id4">异常处理语句</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html">自省,注释和内置函数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html#id2">自省</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html#import">常用内置函数(不用import就可以直接使用)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html#id9">行注释</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html#id10">段注释</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="function.html">函数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id2">定义和使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id3">参数传递</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id4">多返回</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id5">递归</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id6">函数注解</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class_and_object-oriented_programming.html">类和面向对象编程</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_and_object-oriented_programming.html#id2">定义类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_and_object-oriented_programming.html#id3">继承</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_and_object-oriented_programming.html#id7">封装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_and_object-oriented_programming.html#id8">多态</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module_and_package.html">模块和包</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id2">模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id3">模块的标准写法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id4">包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#import">import 的相对引用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id6">循环引用和循环依赖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id7">模块的载入行为(科普)</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="id1">
+<h1>变量,对象与运算<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>对象<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>Python是典型的面向对象语言,在其中万物皆对象,数是对象,字符串是对象,函数是对象,类是对象,一切都是对象.</p>
+<blockquote>
+<div>看个例子</div></blockquote>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">4330961024</span>
+</pre></div>
+</div>
+<p>这些id就是python中的对象id,也可以看做是一块内存</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">id</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">4355774088</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">4355783808</span>
+</pre></div>
+</div>
+<div class="section" id="id3">
+<h3>对象间的交互<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>对象间往往通过对象内部定义的方法来交互,比如最典型的数学运算</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>其中的<code class="docutils literal"><span class="pre">+</span></code>符号是数对象的一个运算符(一种方法,这个在后面进阶里会有讲解)</p>
+</div>
+<div class="section" id="id4">
+<h3>不可变对象&#8211;整型数,浮点数,复数, 字符串,元组等<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>python中一类数据是不可变的,不可变意味着一旦生成(开辟空间-&gt;赋值)就是固定大小值不能改变,最典型的就是字符串了.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;asdfg&quot;</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sid1</span> <span class="o">=</span> <span class="nb">id</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="n">string</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;ASDFG&#39;</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sid2</span> <span class="o">=</span> <span class="nb">id</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sid1</span> <span class="o">==</span> <span class="n">sid2</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="bp">False</span>
+</pre></div>
+</div>
+<p>可以看到两个id并不相同,即虽然变量名都是string,但实际指向的并不是同一个空间了</p>
+</div>
+<div class="section" id="id5">
+<h3>可变对象&#8211;列表,字典,集合等<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>这类是可变数据,拿list来举例:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">l</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">4553239560</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">l</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">4553239560</span>
+</pre></div>
+</div>
+<p>可见虽然内部改变了,但实际指向的空间并没有变.</p>
+<p>这些字符串,元祖,列表,字典等可以装下独立内容的结构化数据统称为容器,这里不深入讲解他们的内部,下一节将会详细研究.</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>变量<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>python是动态强类型语言，这就意味着变量不用提前定义类型，而不同类型变量也不能混杂操作。
+不过不像c这样必须先声明后赋值,python在变量被赋值后会根据赋值确定类型,因此写起来很方便.</p>
+<p>本文只对变量部分常用方法和特殊用法做简单介绍,不会深入到过于细节,
+变量的具体方法可以用<code class="docutils literal"><span class="pre">help()</span></code>函数查看,不会具体阐述.</p>
+<div class="section" id="id7">
+<h3>关于变量的运作机制<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>python中的变量只是对对象的引用</p>
+<p>假设定义一个变量a:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>这意味着python会为你的1开辟一个空间(可以用<code class="docutils literal"><span class="pre">id()</span></code>查看)然后用a来指向这个空间.
+因此,如果你将a重新赋值,在用<code class="docutils literal"><span class="pre">id()</span></code>查看你会发现id号改变了.这是因为python并没有改变原本内容为1的空间中的值,
+而是重新开辟了一个空间,放入新的值,然后将变量名字a修改为指向了新的值的空间.之后由于原本内容为1的空间没有指向它的变量名了,
+利用python的垃圾回收机制,原本内容为1空间将会被python回收.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">4528207840</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">4532956944</span>
+</pre></div>
+</div>
+<p>因为这一性质,当你有两个变量指向同一个值的地址时,只要对其中一个变量进行了修改,那另一个也会改变.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">i</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">j</span><span class="o">=</span><span class="n">i</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="ow">is</span> <span class="n">j</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="bp">True</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>特例<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>在python内部有对小内存对象的优化,比如一个小整型数,无论声明多少次它的id都不变,而对于浮点数这种占用大内存的则每次都是一个新对象</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">int_a</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">int_b</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">float_a</span> <span class="o">=</span> <span class="mf">1.001</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">float_b</span> <span class="o">=</span> <span class="mf">1.001</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">int_a</span> <span class="ow">is</span> <span class="n">int_b</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="bp">True</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">float_a</span> <span class="ow">is</span> <span class="n">float_b</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="bp">False</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>数(整型数，浮点数，复数)及其运算符<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>整型相当于C里面的int了,浮点数相当于double,复数就是<code class="docutils literal"><span class="pre">a+bj</span></code>这种.
+复数有两个属性&#8211;{real:实部,imag:虚部}以及一个方法&#8211;{conjugat():返回该复数的共轭复数}
+这3种可以混合计算所以放一起讲.<strong>在python2中整型和整型运算结果依然是整型,整型和浮点型运算结果才是浮点型.
+而在python3中整型和整型做除运算结果可以是浮点数了.</strong></p>
+<blockquote>
+<div>数值计算运算符</div></blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">符号</th>
+<th class="head">功能</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>加号</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>减号</td>
+</tr>
+<tr class="row-even"><td>*</td>
+<td>乘号</td>
+</tr>
+<tr class="row-odd"><td>/</td>
+<td>除号</td>
+</tr>
+<tr class="row-even"><td>//</td>
+<td>地板除&#8211;结果去掉小数部分</td>
+</tr>
+<tr class="row-odd"><td>%</td>
+<td>取余</td>
+</tr>
+<tr class="row-even"><td>**</td>
+<td>乘方(幂)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div>进制运算</div></blockquote>
+<p>定义一个X进制数 int(&#8220;num&#8221;,X)</p>
+<p>整型书转X进制输出:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">符号</th>
+<th class="head">功能</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>bin(num)</td>
+<td>10进制转2进制</td>
+</tr>
+<tr class="row-odd"><td>hex(num)</td>
+<td>10进制转16进制</td>
+</tr>
+<tr class="row-even"><td>oct(num)</td>
+<td>10进制转8进制</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div>位运算(只能针对整形数)</div></blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">符号</th>
+<th class="head">功能</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>~num</td>
+<td>取每一位的反(-(num+1))</td>
+</tr>
+<tr class="row-odd"><td>num&lt;&gt;a</td>
+<td>右移a位(2进制)</td>
+</tr>
+<tr class="row-even"><td>num1 &amp;num2</td>
+<td>安位求与</td>
+</tr>
+<tr class="row-odd"><td>num1 ^ num2</td>
+<td>异或</td>
+</tr>
+<tr class="row-even"><td>num1Inum2</td>
+<td>安位或</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id10">
+<h3>布尔值和逻辑运算符<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>就是 <code class="docutils literal"><span class="pre">True</span></code>和<code class="docutils literal"><span class="pre">False</span></code>
+数字0，空的字符串，列表，元组，字典，集合也是False，其他都算True</p>
+<blockquote>
+<div>逻辑运算符</div></blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">符号</th>
+<th class="head">功能</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>and</td>
+<td>与</td>
+</tr>
+<tr class="row-odd"><td>or</td>
+<td>或</td>
+</tr>
+<tr class="row-even"><td>not</td>
+<td>非</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div>比较表达式</div></blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">符号</th>
+<th class="head">功能</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr class="row-odd"><td>&gt;=</td>
+<td>大于等于</td>
+</tr>
+<tr class="row-even"><td>&lt;</td>
+<td>小于</td>
+</tr>
+<tr class="row-odd"><td>&lt;=</td>
+<td>小于等于</td>
+</tr>
+<tr class="row-even"><td>==</td>
+<td>等于</td>
+</tr>
+<tr class="row-odd"><td>!=</td>
+<td>不等于</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id11">
+<h3><strong>练习:</strong><a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<p>计算0xA73F与0x4893每位异或后所得结果除以3所得整数解和真实解</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">plus</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;A73F&quot;</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span><span class="o">^</span><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;4893&quot;</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">plus</span><span class="o">/</span><span class="mi">3</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mf">20452.0</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">plus</span><span class="o">//</span><span class="mi">3</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">20452</span>
+</pre></div>
+</div>
+<p><strong>注:</strong>python2和python3在除法上有很大不同,python2的<code class="docutils literal"><span class="pre">/</span></code>相当于python3的<code class="docutils literal"><span class="pre">//</span></code>,而python3的<code class="docutils literal"><span class="pre">x/y</span></code>相当于python2的<code class="docutils literal"><span class="pre">float(x)/y</span></code></p>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/variable_object_and_op.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; 版权所有 2016, hsz.<br/>
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5 创建。<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

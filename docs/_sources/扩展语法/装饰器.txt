@@ -1,0 +1,25 @@
+
+在python中一种元编程的方式是装饰器(一种闭包的语法糖),通过它可以实现用清晰的类似注释一样的文字实现功能,ES7中将会实现这一特性,现在babel可以通过第三放插件实现:
+
+    npm install babel-plugin-transform-decorators-legacy
+    
+    
+babel设置
+
+    {
+      "plugins": ["transform-decorators"]
+    }
+
+
+
+```js
+function testable(target) {
+  target.isTestable = true;
+}
+
+@testable
+class MyTestableClass {}
+
+console.log(MyTestableClass.isTestable)
+
+```

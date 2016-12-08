@@ -1,0 +1,450 @@
+
+Async函数是ES7标准,它的出现使得异步操作变得更加方便。async函数是什么？一句话，async函数就是Generator函数的语法糖。
+
+
+```javascript
+import * as fs from "fs"
+import 'babel-polyfill'
+```
+
+
+
+
+    {}
+
+
+
+
+```javascript
+var readFile = function (fileName){
+  return new Promise(function (resolve, reject){
+    fs.readFile(fileName, function(error, data){
+      if (error) reject(error)
+      resolve(data)
+    })
+  })
+}
+```
+
+
+
+
+    'use strict'
+
+
+
+生成器写法:
+
+
+```javascript
+var gen = function* (){
+  var f1 = yield readFile('/etc/fstab')
+  var f2 = yield readFile('/etc/shells')
+  console.log(f1.toString())
+  console.log(f2.toString())
+}
+```
+
+
+
+
+    'use strict'
+
+
+
+Async写法:
+
+
+```javascript
+var asyncReadFile = async function (){
+  var f1 = await readFile('./README.md');
+  var f2 = await readFile('./package.json');
+  console.log(f1.toString());
+  console.log(f2.toString());
+};
+```
+
+
+
+
+    'use strict'
+
+
+
+一比较就会发现，async函数就是将Generator函数的星号（\*）替换成async，将yield替换成await，仅此而已。
+
+async函数对 Generator 函数的改进，体现在以下四点。
+
++ 内置执行器。Generator函数的执行必须靠执行器，所以才有了co模块，而async函数自带执行器。也就是说，async函数的执行，与普通函数一模一样，只要一行。
+
+
+```javascript
+var result = asyncReadFile()
+```
+
+
+
+
+    'use strict'
+
+
+
+    # ES6快速入门
+    
+    本文主要是为已经学过python的人而写的攻略文,数据科学家除了要会收集分析数据,同样需要掌握一些web技术,
+    这样才可以做数据可视化.Js作为web技术的标志和基础自然是不可能不学习的.直接从ES6标准入手的好处是:
+    
+    + 语法糖丰富
+    
+        低版本的Js语法简单而且坑多,使用起来各种不方便,会给习惯python的数据科学研究人员造成学习困难,
+        ES6新增了大量语法糖.在使用上可以给被python惯坏了的人一定程度上减少学习成本.
+    
+    + 接近Python的开发习惯
+    
+        Python是模块化编程的语言,而Js在设计初期就没考虑太多模块化的问题,低版本的js在编写时模块化方面
+        会让被python惯坏了的人非常不喜欢,ES6使用类似python的`import`语句,相对容易接受.
+    
+    + 可以顺利过渡学习JSX和react
+    
+        前端开发框架react使用组件化思路构建web前端应用,相对更加接近python等语言中编写GUI的方式,而且
+        该框架比较程序员思维,类似搭积木式的编写方式也更加接近python用户习惯
+    
+    事实上Js语言是比python有活力的多的一门编程语言,它充分体现着开源的魅力和模块化的威力,在google v8引擎的
+    性能保证下,Js语言是当今最受欢迎并且发展最快的语言没有之一,作为一个pythoner我们也确实该看看它有些什么可取之处.
+    
+    在后面的几部分中我们会从分以下几个步骤与python对比着快速入门ES6
+    
+    1. 环境与基本工具链:
+    
+        + node.js,npm包管理工具与babel转换器
+        + 文档,代码风格检验与测试框架
+        + 工作流工具链
+    
+    2. 基本语法
+    
+        + 值与运算
+        + 基本容器
+        + 逻辑表达式,控制结构与特殊对象Fuction
+        + 生成器对象
+        + 特殊对象RegExp和Date
+        + 变量,声明与作用域
+        + 对象,类与面向对象编程
+        + 异步操作
+        + 二进制数组
+        + 代理与反射
+        + 模块化编程
+    
+    3. ES7新特性
+    
+        + 装饰器
+        
+    本文主要参考自阮一峰大大的书`<ECMAScript 6 入门>`,这本书讲解ES6语法相当好,评论中也有不少有用的知识,只是ES6标准事实上
+    基本上得靠babel转换器实现,而它又是一个高度模块化的项目,加上js资源非常丰富,同样的功能有大量的实现,部署环境就已经是一个非
+    常不容易的工程了,相比而言反而ES6语法部分学起来反而没啥太大难度.简单说就是这本书并不适用于我所面向的对象.所以只能在大量参
+    考的基础上加上具体的使用方式和环境配置方面的文字了.
+    {
+      "name": "quick_start",
+      "version": "1.0.0",
+      "description": "ES6快速入门",
+      "main": "index.js",
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "author": "",
+      "license": "ISC",
+      "devDependencies": {
+        "babel-cli": "^6.7.5",
+        "babel-core": "^6.7.6",
+        "babel-plugin-syntax-decorators": "^6.3.13",
+        "babel-plugin-transform-decorators-legacy": "^1.3.4",
+        "babel-plugin-transform-runtime": "^6.7.5",
+        "babel-polyfill": "^6.7.4",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-stage-0": "^6.5.0",
+        "babel-preset-stage-1": "^6.5.0",
+        "babel-preset-stage-2": "^6.5.0",
+        "babel-preset-stage-3": "^6.5.0",
+        "babel-register": "^6.7.2",
+        "co": "^4.6.0",
+        "eslint": "^2.7.0",
+        "node-fetch": "^1.5.1",
+        "thunkify": "^2.1.2"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "syntax-decorators",
+          "transform-runtime"
+        ]
+      },
+      "dependencies": {
+        "babel-runtime": "^6.6.1"
+      }
+    }
+    
+
+
+上面的代码调用了asyncReadFile函数，然后它就会自动执行，输出最后结果。这完全不像Generator函数，需要调用next方法，或者用co模块，才能得到真正执行，得到最后结果。
+
++ 更好的语义。async和await，比起星号和yield，语义更清楚了。async表示函数里有异步操作，await表示紧跟在后面的表达式需要等待结果。
+
++ 更广的适用性。 co模块约定，yield命令后面只能是Thunk函数或Promise对象，而async函数的await命令后面，可以是Promise对象和原始类型的值（数值、字符串和布尔值，但这时等同于同步操作）。
+
++ 返回值是Promise。async函数的返回值是Promise对象，这比Generator函数的返回值是Iterator对象方便多了。你可以用then方法指定下一步的操作。
+
+进一步说，async函数完全可以看作多个异步操作，包装成的一个Promise对象，而await命令就是内部then命令的语法糖。
+
+正常情况下，await命令后面是一个Promise对象，否则会被转成Promise。
+
+async函数是非常新的语法功能，新到都不属于 ES6，而是属于 ES7。目前，它仍处于提案阶段，但是转码器Babel和regenerator都已经支持，转码后就能使用。
+
+## async 函数的用法
+
+同Generator函数一样，async函数返回一个Promise对象，可以使用then方法添加回调函数。当函数执行的时候，一旦遇到await就会先返回，等到触发的异步操作完成，再接着执行函数体内后面的语句。
+
+下面是一个例子。
+
+```js
+async function getStockPriceByName(name) {
+  var symbol = await getStockSymbol(name)
+  var stockPrice = await getStockPrice(symbol)
+  return stockPrice
+}
+
+getStockPriceByName('goog').then(function (result) {
+  console.log(result)
+})
+```
+上面代码是一个获取股票报价的函数，函数前面的async关键字，表明该函数内部有异步操作。调用该函数时，会立即返回一个Promise对象。
+
+下面的例子，指定多少毫秒后输出一个值。
+
+```js
+function timeout(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms)
+  })
+}
+
+async function asyncPrint(value, ms) {
+  await timeout(ms)
+  console.log(value)
+}
+
+asyncPrint('hello world', 50)
+```
+上面代码指定50毫秒以后，输出"hello world"。
+
+Async函数有多种使用形式。
+
+```js
+// 函数声明
+async function foo() {}
+```
+
+```js
+// 函数表达式
+const foo = async function () {};
+```
+
+```js
+// 对象的方法
+let obj = { async foo() {} }
+```
+
+```js
+// 箭头函数
+const foo = async () => {};
+```
+
+注意:
+
+
++ 第一点，await命令后面的Promise对象，运行结果可能是rejected，所以最好把await命令放在try...catch代码块中。
+
+```js
+async function myFunction() {
+  try {
+    await somethingThatReturnsAPromise();
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+// 另一种写法
+
+async function myFunction() {
+  await somethingThatReturnsAPromise().catch(function (err){
+    console.log(err);
+  };
+}
+```
+
++ 第二点，多个await命令后面的异步操作，如果不存在继发关系，最好让它们同时触发。
+
+```js
+let foo = await getFoo()
+let bar = await getBar()
+```
+
+上面代码中，getFoo和getBar是两个独立的异步操作（即互不依赖），被写成继发关系。这样比较耗时，因为只有getFoo完成以后，才会执行getBar，完全可以让它们同时触发。
+```js
+// 写法一
+let [foo, bar] = await Promise.all([getFoo(), getBar()])
+
+// 写法二
+let fooPromise = getFoo()
+let barPromise = getBar()
+let foo = await fooPromise
+let bar = await barPromise
+```
+
+上面两种写法，getFoo和getBar都是同时触发，这样就会缩短程序的执行时间。
+
++ 第三点，await命令只能用在async函数之中，如果用在普通函数，就会报错。
+
+```js
+async function dbFuc(db) {
+  let docs = [{}, {}, {}]
+
+  // 报错
+  docs.forEach(function (doc) {
+    await db.post(doc)
+  })
+}
+```
+
+上面代码会报错，因为await用在普通函数之中了。但是，如果将forEach方法的参数改成async函数，也有问题。
+
+```js
+async function dbFuc(db) {
+  let docs = [{}, {}, {}]
+
+  // 可能得到错误结果
+  docs.forEach(async function (doc) {
+    await db.post(doc)
+  });
+}
+```
+
+上面代码可能不会正常工作，原因是这时三个db.post操作将是并发执行，也就是同时执行，而不是继发执行。正确的写法是采用for循环。
+
+```js
+async function dbFuc(db) {
+  let docs = [{}, {}, {}]
+
+  for (let doc of docs) {
+    await db.post(doc)
+  }
+}
+```
+如果确实希望多个请求并发执行，可以使用Promise.all方法。
+
+```js
+async function dbFuc(db) {
+  let docs = [{}, {}, {}]
+  let promises = docs.map((doc) => db.post(doc))
+
+  let results = await Promise.all(promises)
+  console.log(results)
+}
+
+// 或者使用下面的写法
+
+async function dbFuc(db) {
+  let docs = [{}, {}, {}]
+  let promises = docs.map((doc) => db.post(doc))
+
+  let results = []
+  for (let promise of promises) {
+    results.push(await promise)
+  }
+  console.log(results)
+}
+```
+ES6将await增加为保留字。使用这个词作为标识符，在ES5是合法的，在ES6将抛出SyntaxError。
+
+# 与Promise、Generator的比较
+
+我们通过一个例子，来看Async函数与Promise、Generator函数的区别。
+
+假定某个DOM元素上面，部署了一系列的动画，前一个动画结束，才能开始后一个。如果当中有一个动画出错，就不再往下执行，返回上一个成功执行的动画的返回值。
+
+首先是Promise的写法。
+
+```js
+function chainAnimationsPromise(elem, animations) {
+
+  // 变量ret用来保存上一个动画的返回值
+  var ret = null
+
+  // 新建一个空的Promise
+  var p = Promise.resolve()
+
+  // 使用then方法，添加所有动画
+  for(var anim in animations) {
+    p = p.then(function(val) {
+      ret = val
+      return anim(elem)
+    })
+  }
+
+  // 返回一个部署了错误捕捉机制的Promise
+  return p.catch(function(e) {
+    /* 忽略错误，继续执行 */
+  }).then(function() {
+    return ret
+  })
+
+}
+```
+
+虽然Promise的写法比回调函数的写法大大改进，但是一眼看上去，代码完全都是Promise的API（then、catch等等），操作本身的语义反而不容易看出来。
+
+接着是Generator函数的写法。
+
+```js
+function chainAnimationsGenerator(elem, animations) {
+
+  return spawn(function*() {
+    var ret = null
+    try {
+      for(var anim of animations) {
+        ret = yield anim(elem)
+      }
+    } catch(e) {
+      /* 忽略错误，继续执行 */
+    }
+      return ret
+  })
+
+}
+```
+
+上面代码使用Generator函数遍历了每个动画，语义比Promise写法更清晰，用户定义的操作全部都出现在spawn函数的内部。这个写法的问题在于，必须有一个任务运行器，自动执行Generator函数，上面代码的spawn函数就是自动执行器，它返回一个Promise对象，而且必须保证yield语句后面的表达式，必须返回一个Promise。
+
+最后是Async函数的写法。
+
+```js
+async function chainAnimationsAsync(elem, animations) {
+  var ret = null
+  try {
+    for(var anim of animations) {
+      ret = await anim(elem)
+    }
+  } catch(e) {
+    /* 忽略错误，继续执行 */
+  }
+  return ret
+}
+```
+
+可以看到Async函数的实现最简洁，最符合语义，几乎没有语义不相关的代码。它将Generator写法中的自动执行器，改在语言层面提供，不暴露给用户，因此代码量最少。如果使用Generator写法，自动执行器需要用户自己提供。
+
+
+```javascript
+
+```

@@ -1,0 +1,540 @@
+
+类和面向对象编程
+================
+
+提到类就不得不提面向对象编程(oop)了,类可以理解为是C中结构体的扩展,通过定义字段实现对事物的抽象达到复用的效果
+python是动态语言,它的类模型和一般的静态语言有不小得差别.这些会\ `我的这篇合集 <>`__\ 中讨论.
+首先我们来看看怎么用类:
+
+定义类
+------
+
+基本结构:
+
+::
+
+    class 类名(父类1,父类2...):
+        x = 0 #定义变量
+
+        def y(self):#定义方法
+            代码段
+
+如此这样.
+
+    例:
+
+.. code:: python
+
+    class Animal:
+        def __init__(self,sex):
+            self.sex=sex
+            
+        def run(self):
+            print('Animal is running...')
+
+.. code:: python
+
+    ani00 = Animal("male")
+
+继承
+----
+
+继承会继承父类的属性和方法.
+
+构造函数的继承
+~~~~~~~~~~~~~~
+
+如果子类没有定义构造函数,父类中只有一个定义了构造函数,那么父类的构造函数会被子类继承
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    例
+
+.. code:: python
+
+    class 动物:
+        def __init__(self,性别):
+            self.性别 = 性别
+            
+        def 跑(self):
+            print("动物跑")
+        def 吃什么(self):
+            pass
+    
+    class 吃肉:
+        def 吃什么(self):
+            print("吃肉")
+            
+    class 狼(吃肉,动物):
+        pass
+
+.. code:: python
+
+    wolf = 狼("公")
+
+.. code:: python
+
+    wolf.吃什么()
+
+
+.. parsed-literal::
+
+    吃肉
+
+
+继承的父类中有很多有构造函数
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+如果默认的继承方式那么
+
+.. code:: python
+
+    class A:
+        def __init__(self):
+            print("A")
+            
+    class B:
+        def __init__(self):
+            print("B")
+            
+    class C(A,B):
+        pass
+    class D(B,A):
+        pass
+
+.. code:: python
+
+    c = C()
+
+
+.. parsed-literal::
+
+    A
+
+
+.. code:: python
+
+    d = D()
+
+
+.. parsed-literal::
+
+    B
+
+
+如果俩都想被继承,那么:
+
+.. code:: python
+
+    class E(A,B):
+        def __init__(self):
+            A.__init__(self)
+            B.__init__(self)
+
+.. code:: python
+
+    e = E()
+
+
+.. parsed-literal::
+
+    A
+    B
+
+
+多重继承与Mixin
+~~~~~~~~~~~~~~~
+
+python支持多重继承,但多重继承会出现法理问题(钻石调用、MRO
+查找顺序等,括弧笑),这就需要有个规范来对多重继承产生约束,一般来说python常用的规范就是一个主脉络+多个插件的Mixin方式.
+
+***必须注意继承的时候是从最右的类开始的,而如果碰到同名的类,前面的会被后面的覆盖,正如对构造函数的继承机制一样,因此最好把主要继承的父类放最后,描述特点的插件放在前面,越重要的放在越前面***
+
+所谓的Mixin可以理解为一个主要的父类+多个功能插件类,有点像java的接口,差别在于接口没有实现,强调的是"我是XXX",而Mixin强调的是"我能XXX"
+
+举个例子: 如果要描述水果
+
+那很简单,父类就是水果了:
+
+.. code:: python
+
+    class 水果:
+        def __init__(self,单价,产地):
+            self.单价 = 单价 #float
+            self.产地 = 产地 #str
+
+.. code:: python
+
+    class 苹果(水果):
+        pass
+    
+    class 橘子(水果):
+        pass
+    
+    class 香蕉(水果):
+        pass
+    
+    class 开心果(水果):
+        pass
+    
+    class 蛤蟆瓜(水果):
+        pass
+
+
+我们要描述它能不能送人,告诉别人怎么吃它,怎么办呢,可以定义一个方法叫可以送人,定义一个方法叫吃法咨询,然后定义不同的类对这些方法实现,作为插件让水果继承,如下:
+
+.. code:: python
+
+    class 可以送人:
+        def 可以送人嘛(self):
+            return "可以送人"
+       
+    class 不可以送人:
+        def 可以送人嘛(self):
+            return "不可以送人"
+        
+    class 剥皮儿吃:
+        def 吃法(self):
+            return "剥皮儿吃"
+       
+    class 敲开壳儿吃仁儿:
+        def 吃法(self):
+            return "敲开壳儿吃仁儿"
+    
+    class 去皮儿吃肉核儿别吃:
+        def 吃法(self):
+            return "去皮儿吃肉核儿别吃"
+        
+
+.. code:: python
+
+    class 苹果(可以送人,去皮儿吃肉核儿别吃,水果):
+        pass
+    
+    class 橘子(可以送人,去皮儿吃肉核儿别吃,水果):
+        pass
+    
+    class 香蕉(可以送人,剥皮儿吃,水果):
+        pass
+    
+    class 开心果(可以送人,敲开壳儿吃仁儿,水果):
+        pass
+    
+    class 蛤蟆瓜(不可以送人,去皮儿吃肉核儿别吃,水果):
+        pass
+
+这种就是python的Mixin了.当然了看起来还是有点复杂的
+
+封装
+----
+
+封装指的是设定可访问的权限,python对它的有多种支持方式:
+
+    通过命名隐藏
+
+这种方式比较原始了,就是在定义的时候使用\ ``__``\ 来隐藏.
+
+.. code:: python
+
+    class CA:
+        def __init__(self,a):
+            self.__a = a
+
+.. code:: python
+
+    ca = CA("10")
+
+.. code:: python
+
+    ca.__a
+
+
+::
+
+
+    ---------------------------------------------------------------------------
+
+    AttributeError                            Traceback (most recent call last)
+
+    <ipython-input-26-c727d2c7cc0d> in <module>()
+    ----> 1 ca.__a
+    
+
+    AttributeError: 'CA' object has no attribute '__a'
+
+
+这样你就无法随便的访问变量了,但我们连读都度不了了呀,咋办
+
+.. code:: python
+
+    ca._CA__a
+
+
+
+
+.. parsed-literal::
+
+    '10'
+
+
+
+事实上只是转换了下名字,在变量名前增加了\ ``_+类名``\ 而已.
+显然这种封装是不完全而且也很粗糙的.
+
+    用\ ``@property``\ 封装属性
+
+这也是常用的封装,也相当于是声明实例变量了
+
+.. code:: python
+
+    class Student:
+    
+        @property
+        def birth(self):
+            return self._birth
+    
+        @birth.setter
+        def birth(self, value):
+            self._birth = value
+    
+        @property
+        def age(self):
+            return 2015 - self._birth
+        
+        def __init__(self,birth):
+            self.birth = birth
+
+.. code:: python
+
+    s2=Student(1998) 
+
+.. code:: python
+
+    s2.birth =2000
+
+.. code:: python
+
+    s2.birth
+
+
+
+
+.. parsed-literal::
+
+    2000
+
+
+
+.. code:: python
+
+    s2.age
+
+
+
+
+.. parsed-literal::
+
+    15
+
+
+
+.. code:: python
+
+    s2.age = 16
+
+
+::
+
+
+    ---------------------------------------------------------------------------
+
+    AttributeError                            Traceback (most recent call last)
+
+    <ipython-input-56-d6da85212657> in <module>()
+    ----> 1 s2.age = 16
+    
+
+    AttributeError: can't set attribute
+
+
+这样也只是给定义了的变量设了保护,如果有人往对象中添加新的属性咋办
+
+这时候就用\ ``__slot__``\ 限定可定义的属性
+
+    ``__slot__``\ 限定可定义的属性
+
+这个也是动态语言才会有的特征,类被定义好后是允许添加新属性的.\ ``__slot__``\ 方法也就是为了限制这一特性才设计的.
+
+注意\ ``__slot__``\ 只能对当前类有效,对子类是无效的
+
+.. code:: python
+
+    class Teacher:
+        __slots__=("name","age")
+
+.. code:: python
+
+    tea1 = Teacher()
+
+.. code:: python
+
+    tea1.name="郝老师"
+
+.. code:: python
+
+    tea1.sex = "男"
+
+
+::
+
+
+    ---------------------------------------------------------------------------
+
+    AttributeError                            Traceback (most recent call last)
+
+    <ipython-input-61-fcac4f918012> in <module>()
+    ----> 1 tea1.sex = "男"
+    
+
+    AttributeError: 'Teacher' object has no attribute 'sex'
+
+
+.. code:: python
+
+    class 数学老师(Teacher):
+        pass
+
+.. code:: python
+
+    数学老师.sex = "男"
+
+那怎么继承呢
+
+.. code:: python
+
+    class 语文老师(Teacher):
+        __slots__ = ()
+
+.. code:: python
+
+    tea2 = 语文老师()
+
+.. code:: python
+
+    tea2.sex = "女"
+
+
+::
+
+
+    ---------------------------------------------------------------------------
+
+    AttributeError                            Traceback (most recent call last)
+
+    <ipython-input-80-f0f7539fb460> in <module>()
+    ----> 1 tea2.sex = "女"
+    
+
+    AttributeError: '语文老师' object has no attribute 'sex'
+
+
+如果子类中定义了\ ``__slots__``,那么实际的slots就是父类和子类的和
+
+多态
+----
+
+什么是多态? 多态来源自希腊文字(polymorphism),意思是多种形式,在java,
+C++这些静态类型语言中一般是指父类型变量可以引用子类型对象,或一个接口，多种方法,一个接口多个类实现.而python并不关心类型,
+而是关注接口(或者说协议),因此python的多态和他们的多态区别很大.
+
+python中的多态可以自动的适用于所有类别的对象类型,只要对象支持所预设的接口即可.
+当传递的对象不支持这种预期的接口,python会再运行时检测到并抛出错误.
+
+这种模式就是所谓的"Duck type"鸭子类型,即是说,一个对象有效的语义，
+不是由继承自特定的类或实现特定的接口，而是由当前方法和属性的集合决定.
+
+    例:
+
+.. code:: python
+
+    class V:
+        def __init__(self,x,y):
+            self.x = x
+            self.y = y
+        def __repr__(self):
+            return str(self.x)+","+str(self.y)
+        def __add__(self,other):
+            result = V(self.x+other.x,self.y+other.y)
+            return result
+    
+    class C:
+        def __init__(self,x,y,z):
+            self.x = x
+            self.y = y
+            self.z = z
+        def __repr__(self):
+            return str(self.x)+","+str(self.y)+","+str(self.z)
+        def __add__(self,other):
+            result = C(self.x+other.x,self.y+other.y,other.z)
+            return result
+
+
+.. code:: python
+
+    c = C(1,2,4)
+    v = V(3,5)
+    
+    print(v+c)#4,7
+    print(c+v)#会报错
+
+
+
+.. parsed-literal::
+
+    4,7
+
+
+::
+
+
+    ---------------------------------------------------------------------------
+
+    AttributeError                            Traceback (most recent call last)
+
+    <ipython-input-82-3afafbbf057c> in <module>()
+          3 
+          4 print(v+c)#4,7
+    ----> 5 print(c+v)#会报错
+    
+
+    <ipython-input-81-ab79601830da> in __add__(self, other)
+         17         return str(self.x)+","+str(self.y)+","+str(self.z)
+         18     def __add__(self,other):
+    ---> 19         result = C(self.x+other.x,self.y+other.y,other.z)
+         20         return result
+
+
+    AttributeError: 'V' object has no attribute 'z'
+
+
+.. code:: python
+
+    cs = C("a","b","c")
+    vs = V("d","e")
+    print(vs+cs)#da,eb
+
+
+
+.. parsed-literal::
+
+    da,eb
+
+
+可见当v+c时,v看到c中有x,y这两个参数,满足与其相加的要求,因此可以计算,
+而c+v时,c的加法方法需要相加对象v的z属性,明显v没有该属性,所以会报错.
+
+同时,多态也体现在vs+cs时,因为字符串也有\ ``+``\ 操作,所以vs+cs也可以进行,准确的说所有可\ ``+``\ 的类型都可以作为输入.
+动态语言的魅力也在于此,因为对参数的类型没有要求所以灵活性非常高,当然代价就是安全性了.
+
+Python没有方法重载,所谓重载是指可以定义重名方法,由输入参数的类型或者数量来作为区别
+python是动态语言,对输入参数类型没有要求而对于数量,因为有\ ``*args``\ 可以作为参数,也可以设定默认值,
+所以对数量也可以看做是没有要求.因为这一点python没有必要存在重载.如果有两个同名方法,那后一个会替掉前一个.

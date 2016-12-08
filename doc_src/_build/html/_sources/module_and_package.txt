@@ -1,0 +1,485 @@
+
+模块和包
+========
+
+模块
+----
+
+每个python文件就是一个所谓的模块
+
+如果要引用一个模块 只用import
+
+后面也可以加个\ ``as`` 来修改引入后的模块名
+
+.. code:: python
+
+    !cat mymodule.py
+
+
+.. parsed-literal::
+
+    HELLO = "Hello world!"
+    def say_hello():
+        print("say hello")
+    
+    class MyHello:
+        def hello_myhello(self):
+            print("say myhello")
+
+
+.. code:: python
+
+    import mymodule
+
+.. code:: python
+
+    mymodule.HELLO
+
+
+
+
+.. parsed-literal::
+
+    'Hello world!'
+
+
+
+.. code:: python
+
+    a = mymodule.MyHello()
+
+.. code:: python
+
+    a.hello_myhello()
+
+
+.. parsed-literal::
+
+    say myhello
+
+
+.. code:: python
+
+    mymodule.say_hello()
+
+
+.. parsed-literal::
+
+    say hello
+
+
+也可以用from xxx import XXX直接调用其中的值或者方法
+
+.. code:: python
+
+    !cat myModule2.py
+
+
+.. parsed-literal::
+
+    HELLO = "Hello world 2!"
+    def say_hello():
+        print("say hello 2")
+    
+    class MyHello:
+        def hello_myhello(self):
+            print("say myhello 2")
+
+
+.. code:: python
+
+    from myModule2 import HELLO,MyHello,say_hello
+
+.. code:: python
+
+    HELLO
+
+
+
+
+.. parsed-literal::
+
+    'Hello world 2!'
+
+
+
+.. code:: python
+
+    b = MyHello()
+
+.. code:: python
+
+    b.hello_myhello()
+
+
+.. parsed-literal::
+
+    say myhello 2
+
+
+.. code:: python
+
+    say_hello()
+
+
+.. parsed-literal::
+
+    say hello 2
+
+
+模块的标准写法
+--------------
+
+::
+
+    #!/usr/bin/env python
+
+    # -*- codeing:utf-8 -*-
+
+    """模块说明
+    """
+    __author__ = 'python' 
+    __version__= '1.0'
+    __nonsense__ = 'aaaabbbbccc'
+
+    import xxx#导入模块
+
+    Pi=3.14#全局变量
+
+    class MyClass: 
+        pass
+
+    def MyFunction():
+        pass
+
+    if __name__ == '__main__':
+        test()
+
+包
+--
+
+当一个模块(文件)无法满足需要,比如希望模块化的管理app,或者代码太长需要拆分时,我们就需要一种文件组织形式了,也就是包
+
+包结构
+~~~~~~
+
+::
+
+    APP-|-__init__.py
+        |-A.py
+        |-B.py
+        
+        
+
+其中\ ``__init__.py``\ 是告诉python的解释器这是一个包.它可以为空,也可以定义一些约束
+
+::
+
+    __all__  指定的是指此包被import * 的时候, 哪些模块会被import进来
+    __path__: __init__.py的常用变量__path__, 默认情况下只有一个元素, 就是当前包的路径, 修改__path__, 可以修改此包内的搜索路径. 
+
+import 的相对引用
+-----------------
+
+::
+
+    from . import echo
+    from .. import formats
+    from ..filters import equalizer
+
+循环引用和循环依赖
+------------------
+
+在写包的过程中,往往我们会希望像写java一样一个类一个文件或者相关的类放在一个文件中,当类关系比较复杂的时候就会出现循环引用和循环依赖的问题
+
+如上包结构中类关系如下:
+
+::
+
+    APP-|-__init__.py
+        |-A.py
+        |    |-class a 
+        |-B.py
+             |-class b
+             
+
+A中要引用B中的b,B又要引用A中的a,这样就是一个典型的循环引用了,如果用相对引用,那会报错,如何解决呢?
+
+-  使用绝对引用
+
+-  不在文件头部引用,而在需要用的地方引用
+
+模块的载入行为(科普)
+--------------------
+
+当一个模块被载入的时候它会完成这些行为:
+
+-  首先在sys.modules中注册,这样以后再次载入的时候就是从这个dict里面找了
+-  之后将模块对象的名字加到对应导入位置的作用域中,也就是说如果它在全局引入,它会变成一个全局变量
+
+.. code:: python
+
+    def a():
+        import random
+        print(random.random())
+    a()
+    print(random.random())
+
+
+
+.. parsed-literal::
+
+    0.28183311101853326
+
+
+::
+
+
+    ---------------------------------------------------------------------------
+
+    NameError                                 Traceback (most recent call last)
+
+    <ipython-input-8-c29a32d3f823> in <module>()
+          3     print(random.random())
+          4 a()
+    ----> 5 print(random.random())
+    
+
+    NameError: name 'random' is not defined
+
+
+模块中的引用
+~~~~~~~~~~~~
+
+我们来看看import在模块中的行为:
+
+.. code:: python
+
+    !mkdir pack1
+
+.. code:: python
+
+    !mkdir pack1/pack2
+
+.. code:: python
+
+    %%writefile pack1/__init__.py
+    # coding:utf-8
+    from __future__ import division,absolute_import,print_function,unicode_literals
+
+
+.. parsed-literal::
+
+    Writing pack1/__init__.py
+
+
+.. code:: python
+
+    %%writefile pack1/test_print.py
+    def test_print():
+        a = lambda x:print(x)
+        a(1)
+
+
+.. parsed-literal::
+
+    Overwriting pack1/test_print.py
+
+
+.. code:: python
+
+    %%writefile pack1/test_uincode.py
+    def test_uincode():
+        l="模块和包"
+        print(type(l))
+
+
+.. parsed-literal::
+
+    Overwriting pack1/test_uincode.py
+
+
+.. code:: python
+
+    %%writefile pack1/test_div.py
+    def test_div():
+        print(3/2)
+        
+
+
+.. parsed-literal::
+
+    Writing pack1/test_div.py
+
+
+.. code:: python
+
+    %%writefile pack1/pack2/__init__.py
+    from ..test_div import test_div
+    def test_abi():
+        test_div()
+
+
+.. parsed-literal::
+
+    Overwriting pack1/pack2/__init__.py
+
+
+.. code:: python
+
+    import pack1
+
+.. code:: python
+
+    pack1.test_uincode()
+
+
+::
+
+
+    ---------------------------------------------------------------------------
+
+    AttributeError                            Traceback (most recent call last)
+
+    <ipython-input-7-6014f23ecd90> in <module>()
+    ----> 1 pack1.test_uincode()
+    
+
+    AttributeError: 'module' object has no attribute 'test_uincode'
+
+
+可见\ ``__init__``\ 中必须要引入需要的方法
+
+.. code:: python
+
+    %%writefile pack1/__init__.py
+    # coding:utf-8
+    from __future__ import division,absolute_import,print_function,unicode_literals
+    from .test_uincode import test_uincode
+    from .test_print import test_print
+    from .test_div import test_div
+    from .pack2 import test_abi
+
+
+.. parsed-literal::
+
+    Overwriting pack1/__init__.py
+
+
+.. code:: python
+
+    import pack1
+    pack1.test_uincode()
+
+
+::
+
+
+      File "pack1/test_uincode.py", line 2
+        l="模块和包"
+                ^
+    SyntaxError: Non-ASCII character '\xe6' in file pack1/test_uincode.py on line 2, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+
+
+
+可见\ ``# coding:utf-8``\ 这句并不能在全模块中使用
+
+.. code:: python
+
+    %%writefile pack1/test_uincode.py
+    # coding:utf-8
+    def test_uincode():
+        l="模块和包"
+        print(type(l))
+
+
+.. parsed-literal::
+
+    Overwriting pack1/test_uincode.py
+
+
+.. code:: python
+
+    import pack1
+    pack1.test_uincode()
+
+
+.. parsed-literal::
+
+    <type 'str'>
+
+
+可见from ``__future__ import unicode_literals``,这句并没有作用
+
+.. code:: python
+
+    %%writefile pack1/test_uincode.py
+    # coding:utf-8
+    from __future__ import unicode_literals
+    def test_uincode():
+        l="模块和包"
+        print(type(l))
+
+
+.. parsed-literal::
+
+    Overwriting pack1/test_uincode.py
+
+
+.. code:: python
+
+    import pack1
+    pack1.test_uincode()
+
+
+.. parsed-literal::
+
+    <type 'unicode'>
+
+
+.. code:: python
+
+    import pack1
+    pack1.test_print()
+
+
+::
+
+
+      File "pack1/test_print.py", line 2
+        a = lambda x:print(x)
+                         ^
+    SyntaxError: invalid syntax
+
+
+
+可见print也没有被加载
+
+.. code:: python
+
+    %%writefile pack1/test_print.py
+    from __future__ import print_function
+    def test_print():
+        a = lambda x:print(x)
+        a(1)
+
+
+.. parsed-literal::
+
+    Overwriting pack1/test_print.py
+
+
+.. code:: python
+
+    import pack1
+    pack1.test_div()
+
+
+.. parsed-literal::
+
+    1
+
+
+可见乘法也没有生效
+
+基本可以确定了,import 并不能让模块全局的被加载

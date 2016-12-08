@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>import/export方式 &mdash; Python_Quick_Start mit 文档</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/lumen/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'mit',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Python_Quick_Start mit 文档" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/my_logo.png"></span>
+          Python_Quick_Start</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="http://blog.hszofficial.site/">Home</a></li>
+                <li><a href="http://blog.hszofficial.site/about/">About</a></li>
+                <li><a href="http://blog.hszofficial.site/series/">Series</a></li>
+                <li><a href="http://blog.hszofficial.site/collection/">Collections</a></li>
+                <li><a href="http://blog.hszofficial.site/tags/">Tags</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Python_Quick_Start <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="simple">
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <p>ES6的模块功能并没有被node.js原生支持,因此我们会讲两种模块化的方式</p>
+<ul>
+<li><p class="first">一种是ES6的import/export方式</p>
+<p>这种方式只能依靠babel转码实现</p>
+</li>
+<li><p class="first">一种是node.js原生支持的commonjs方式</p>
+<p>node.js原生支持的方式,在浏览器中需要使用使用babel转码y也可以用webpack来实现</p>
+</li>
+</ul>
+<div class="section" id="import-export">
+<span id="import-export"></span><h1>import/export方式<a class="headerlink" href="#import-export" title="永久链接至标题">¶</a></h1>
+<p>ES6模块功能主要由两个命令构成：export和import。</p>
+<ul class="simple">
+<li>export命令用于规定模块的对外接口</li>
+<li>import命令用于输入其他模块提供的功能。</li>
+</ul>
+<p>ES6模块不是对象，而是通过export命令显式指定输出的代码，输入时也采用静态命令的形式。</p>
+<p>ES6采用的是编译时加载,即可以在编译时就完成模块加载，效率要比CommonJS模块的加载方式高。当然，这也导致了没法引用ES6模块本身，因为它不是对象。</p>
+<p>由于ES6模块是编译时加载，使得静态分析成为可能。有了它，就能进一步拓宽JavaScript的语法，比如引入宏（macro）和类型检验（type system）这些只能靠静态分析实现的功能。</p>
+<p>除了静态加载带来的各种好处，ES6模块还有以下好处。</p>
+<p>不再需要UMD模块格式了，将来服务器和浏览器都会支持ES6模块格式。目前，通过各种工具库，其实已经做到了这一点。
+将来浏览器的新API就能用模块格式提供，不再必要做成全局变量或者navigator对象的属性。
+不再需要对象作为命名空间（比如Math对象），未来这些功能可以通过模块提供。</p>
+<p>从本质来讲,ES6模块加载的机制其实是&#8211;模块输出值的引用。</p>
+</div>
+<div class="section" id="export">
+<span id="export"></span><h1>export<a class="headerlink" href="#export" title="永久链接至标题">¶</a></h1>
+<p>一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。如果你希望外部能够读取模块内部的某个变量，就必须使用export关键字输出该变量。下面是一个JS文件，里面使用export命令输出变量。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// profile.js</span>
+<span class="kr">export</span> <span class="kd">var</span> <span class="nx">firstName</span> <span class="o">=</span> <span class="s1">&#39;Michael&#39;</span>
+<span class="kr">export</span> <span class="kd">var</span> <span class="nx">lastName</span> <span class="o">=</span> <span class="s1">&#39;Jackson&#39;</span>
+<span class="kr">export</span> <span class="kd">var</span> <span class="nx">year</span> <span class="o">=</span> <span class="mi">1958</span>
+</pre></div>
+</div>
+<p>上面代码是profile.js文件，保存了用户信息。ES6将其视为一个模块，里面用export命令对外部输出了三个变量。</p>
+<p>export的写法，除了像上面这样，还有另外一种。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// profile.js</span>
+<span class="kd">var</span> <span class="nx">firstName</span> <span class="o">=</span> <span class="s1">&#39;Michael&#39;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">lastName</span> <span class="o">=</span> <span class="s1">&#39;Jackson&#39;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">year</span> <span class="o">=</span> <span class="mi">1958</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="p">{</span><span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">,</span> <span class="nx">year</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>个人更加喜欢第一种,并且比较推荐把要export的内容写在最后需要的写在前面</p>
+<p>export命令除了输出变量，还可以输出函数或类(class),简单说对象都可以作为输出</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">export</span> <span class="kd">function</span> <span class="nx">multiply</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>另外export输出的值是动态绑定的,即通过该接口，可以取到模块内部实时的值。
+export命令可以出现在模块的任何位置，只要处于模块顶层就可以。如果处于块级作用域内，就会报错，import命令也是如此。这是因为处于条件代码块之中，就没法做静态优化了，违背了ES6模块的设计初衷。</p>
+<div class="section" id="export-default">
+<span id="export-default"></span><h2>export default<a class="headerlink" href="#export-default" title="永久链接至标题">¶</a></h2>
+<p>从前面的例子可以看出，使用import命令的时候，用户需要知道所要加载的变量名或函数名，否则无法加载。但是，用户肯定希望快速上手，未必愿意阅读文档，去了解模块有哪些属性和方法。</p>
+<p>为了给用户提供方便，让他们不用阅读文档就能加载模块，就要用到export default命令，为模块指定默认输出。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>其他模块加载该模块时，import命令可以为该匿名函数指定任意名字。</p>
+<p>本质上，export default就是输出一个叫做default的变量或方法，然后系统允许你为它取任意名字</p>
+<p>有了export default命令，输入模块时就非常直观了，以输入jQuery模块为例。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">$</span> <span class="nx">from</span> <span class="s1">&#39;jquery&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="import">
+<span id="import"></span><h1>import<a class="headerlink" href="#import" title="永久链接至标题">¶</a></h1>
+<p>import命令
+使用export命令定义了模块的对外接口以后，其他JS文件就可以通过import命令加载这个模块（文件）。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span><span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">,</span> <span class="nx">year</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./profile&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id1"></span><h1>模块的整体加载<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>除了指定加载某个输出值，还可以使用整体加载，即用星号（*）指定一个对象，所有输出值都加载在这个对象上面。</p>
+<p>下面是一个circle.js文件，它输出两个方法area和circumference。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// circle.js</span>
+
+<span class="kr">export</span> <span class="kd">function</span> <span class="nx">area</span><span class="p">(</span><span class="nx">radius</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="nx">radius</span> <span class="o">*</span> <span class="nx">radius</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="kd">function</span> <span class="nx">circumference</span><span class="p">(</span><span class="nx">radius</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="nx">radius</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>现在，加载这个模块。</p>
+<ul class="simple">
+<li>逐一加载</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">area</span><span class="p">,</span> <span class="nx">circumference</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./circle&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>整体加载</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">circle</span> <span class="nx">from</span> <span class="s1">&#39;./circle&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="as">
+<span id="as"></span><h1>as关键字<a class="headerlink" href="#as" title="永久链接至标题">¶</a></h1>
+<p>和python一样,js允许在模块输入或者输出时使用as关键字修改名字</p>
+<p>输入:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">circle</span> <span class="nx">from</span> <span class="s1">&#39;./circle&#39;</span>
+</pre></div>
+</div>
+<p>输出:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kr">export</span> <span class="p">{</span><span class="nx">add</span> <span class="nx">as</span> <span class="nx">plus</span><span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>处理循环引用<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>循环引用意味着强耦合</p>
+<p>python中循环引用模块是不允许的,除非在local作用域中引用.而事实上一些复杂的问题循环引用不可避免,否则会多出大量的结构代码.</p>
+<p>ES6模块是动态引用(lazy)，遇到模块加载命令import时，不会去执行模块，只是生成一个指向被加载模块的引用，需要开发者自己保证，真正取值的时候能够取到值。
+因此,用好这个特性是可以循环引用的,但是当然,最好还是别循环引用</p>
+</div>
+<div class="section" id="commonjs">
+<span id="commonjs"></span><h1>CommonJs方式<a class="headerlink" href="#commonjs" title="永久链接至标题">¶</a></h1>
+<p>因为ES6标准太新,多数情况下可能还是要使用CommonJs的方式来完成团队协作</p>
+<div class="section" id="">
+<span id="id3"></span><h2>定义一个模块<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>在Node.js中,定义一个模块十分方便。我们以计算圆的面积和周长两个方法为例,来表现Node.js中模块的定义方式。</p>
+<p>code/c15/circle.js</p>
+<div class="highlight-js"><div class="highlight"><pre><span></span><span class="s2">&quot;use strict&quot;</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">area</span> <span class="o">=</span> <span class="p">(</span><span class="nx">r</span><span class="p">)</span><span class="o">=&gt;</span><span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">circumference</span> <span class="o">=</span> <span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="nx">r</span>
+<span class="p">}</span>
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">createpoint</span> <span class="o">=</span>  <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">){</span>
+    <span class="kd">let</span> <span class="nx">point</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">){</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">y</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">add</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">that</span><span class="p">){</span>
+            <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="o">+</span><span class="nx">that</span><span class="p">.</span><span class="nx">x</span>
+            <span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span><span class="o">+</span><span class="nx">that</span><span class="p">.</span><span class="nx">y</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nx">point</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="c1">//protopye中定义类方法和重载一些方法</span>
+    <span class="nx">point</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="s1">&#39;(&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">point</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>使用一个模块<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">circle</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./code/c15/circle.js&#39;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="s1">&#39;The area of a circle of radius 4 is&#39;</span><span class="o">+</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">area</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>The area of a circle of radius 4 is50.26548245743669
+
+
+
+
+
+undefined
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">circle</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./code/c15/circle.js&#39;</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">createpoint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">a</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="n">add</span><span class="p">:</span> <span class="p">[</span><span class="n">Function</span><span class="p">]</span> <span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">r</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>TypeError: r is not a function
+
+    at evalmachine.&lt;anonymous&gt;:3:1
+
+    at Object.exports.runInThisContext (vm.js:54:17)
+
+    at run ([eval]:192:19)
+
+    at onMessage ([eval]:63:41)
+
+    at emitTwo (events.js:87:13)
+
+    at process.emit (events.js:172:7)
+
+    at handleMessage (internal/child_process.js:695:10)
+
+    at Pipe.channel.onread (internal/child_process.js:440:11)
+</pre></div>
+</div>
+<p>注意,定义模块的时候&#8221;类&#8221;是无法被定义的,所以必须使用在面向对象那节讲的ES6之前的那种写法,将类包在方法中</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/ES6语法/模块化编程.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; 版权所有 2016, hsz.<br/>
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5 创建。<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

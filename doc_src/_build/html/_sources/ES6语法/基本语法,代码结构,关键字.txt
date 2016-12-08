@@ -1,0 +1,100 @@
+
+# 注释
+
+
+Js沿用C和Java的注释风格,
+
++ 单行注释
+
+    ```javascript
+    //这是单行注释
+    ```
+    
++ 块注释
+
+    ```js
+    /*
+    这是块注释
+    */
+    ```
+    
+为了更好的输出文档,建议块注释使用EsDoc的规范写
+
+```js
+/**
+*这是块注释
+*/
+```
+
+
+# 代码结构
+
+Js的代码结构类似C和java
+
++ 使用`;`或者换行表示语句结束
++ 使用`{}`包裹代码块
+
+
+
+
+# 关键字
+
+关键字|说明|关键字|说明|关键字|说明
+---|---|---|---|---|---
+break|循环跳出	|do|do..while|instanceof|识别类型
+typeof|识别类型(历史遗留)|case|switch...case...default|else|if...else	
+new	|创建新对象|var|创建变量(历史遗留)|catch|try...catch...finally
+finally	|try...catch...finally|return	|function的返回值|void|无论void后的表达式是什么，void操作符都会返回undefined. 
+continue|进入下次循环	|for	|for循环|switch|switch...case...default
+while|while和do...while循环|debugger|保留字|function|定义函数和方法	
+this|对象自身|with|with语句(历史遗留)|default|switch...case...default
+if|if...else语句|throw|抛出一个异常|delete|消除对象
+in	|for ...in|try	 |try...catch...finally|abstract|保留
+arguments|	函数中存放传入参数的对象|boolean|布尔值|byte|字节
+char|字符(保留字)|class|	类|const|常数
+double|双精度浮点数	(保留字)	|enum|保留|eval|字符串做代码运行
+export|模块对外暴露|extends|继承|false|布尔值中的假
+final	|保留字|float|浮点数(保留字)|goto	|跳转	
+implements |保留字|import	|模块导入|int	|整型数(保留字)
+interface|保留字|let	|定义变量|long	|长整型(保留字)
+native	|保留字|null|空对象|package	|保留字
+private	|保留字|protected|保留字	|public	|保留字
+short	|短整型(保留字)|static	|静态声明|super |父类实例化
+synchronized|保留字|throws	|保留字|transient	|保留字
+true|真值|volatile|保留字|yield|生成器用关键字
+function\*|生成器用关键字|async function|async关键字|await |async关键字
+
+## 控制台输出
+
+在Chrome或者node.js中还有一个常用的对象就是控制台对象
+
++ 显示log信息console.log(x)
++ 一般信息console.info(x)
++ 除错信息console.debug(x)
++ 警告提示console.warn(x) 
++ 错误提示console.error(x)
+
+
+这个就像python中的print差不多,多用于调试
+
+> 一个典型的ES6代码例子:
+
+
+```javascript
+
+function main(){
+    let x = "hello world"
+    console.log(x)
+}
+main()
+```
+
+    hello world
+
+
+
+
+
+    undefined
+
+

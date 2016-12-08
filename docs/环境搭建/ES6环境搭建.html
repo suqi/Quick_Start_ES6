@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>npm &mdash; Python_Quick_Start mit 文档</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/lumen/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'mit',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Python_Quick_Start mit 文档" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/my_logo.png"></span>
+          Python_Quick_Start</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="http://blog.hszofficial.site/">Home</a></li>
+                <li><a href="http://blog.hszofficial.site/about/">About</a></li>
+                <li><a href="http://blog.hszofficial.site/series/">Series</a></li>
+                <li><a href="http://blog.hszofficial.site/collection/">Collections</a></li>
+                <li><a href="http://blog.hszofficial.site/tags/">Tags</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Python_Quick_Start <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="simple">
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <p>Javascript是当今最火的编程语言之一,而最新标准ES6则因为加入了大量语法糖以跳过语言设计时留下的坑而大大增加了js代码的可维护性和入门难度,在有python语言的学习经验之下,入门ES6是非常简单的一个过程.</p>
+<p>由于历史原因Javascript的运行环境有两种:</p>
+<ul>
+<li><p class="first">浏览器</p>
+<p>浏览器环境复杂,一般通过babel转码的形式间接地使用ES6特性</p>
+</li>
+<li><p class="first">node.js(v8虚拟机)</p>
+<p>v8引擎原生的支持一些ES6特性,但在有的时候也不得不通过使用Babel转码来实现一些特定的语法.使用node.js的原生ES6支持需要在使用node命令时后面带上<code class="docutils literal"><span class="pre">--harmony</span></code>参数,方便起见可以在环境变量中直接使用<code class="docutils literal"><span class="pre">alias</span> <span class="pre">node=node</span> <span class="pre">--harmony</span></code>语句,这样就可以在repl中使用ES6支持了,但如果要执行脚本,必须开启js的严格模式,也就是在每个脚本头上写上<code class="docutils literal"><span class="pre">&quot;use</span> <span class="pre">strict&quot;</span></code></p>
+</li>
+</ul>
+<p>他们之间多数时候编程语言是通的,而且默认都最高支持到ES5标准,要使用ES6标准我们还必须使用babel编译器将ES6标准的代码编译成浏览器和node.js支持的低版本js代码才可以顺利执行.</p>
+<p>这一篇和之后两篇主要就是讲的ES6的运行环境搭建配置和工具链</p>
+<div class="section" id="npm">
+<span id="npm"></span><h1>npm<a class="headerlink" href="#npm" title="永久链接至标题">¶</a></h1>
+<p>npm是node.js的官方包管理工具,它可以用于全局环境的搭建,也可以用于单独项目的环境搭建,全局环境可以理解为python中的pip工具的功能,而单独项目管理可以理解为python中的虚拟环境类似概念,只是一个虚拟环境对应一个项目</p>
+<p>npm的工具的操作有:</p>
+<div class="section" id="">
+<span id="id1"></span><h2>通用操作<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>操作|说明
+&#8212;|&#8212;
+npm search <package> |查找包
+npm view <package> dependencies|查看包的依赖关系
+npm view <package> repository.url|查看包的源文件地址
+npm view <package> engines|查看包所依赖的Node的版本
+npm root| 查看项目路径,可以加<code class="docutils literal"><span class="pre">-g</span></code>表示全局的package存储位置
+npm install <package>|安装包,可以加<code class="docutils literal"><span class="pre">-g</span></code>表示全局,<code class="docutils literal"><span class="pre">--save</span></code>表示计入配置文件的<code class="docutils literal"><span class="pre">Dependencies</span></code>,<code class="docutils literal"><span class="pre">--save-dev</span></code>表示计入配置文件的<code class="docutils literal"><span class="pre">devDependencies</span></code>
+npm uninstall <package>|卸载包,可以加<code class="docutils literal"><span class="pre">-g</span></code>表示全局
+npm update <package> |更新包,可以加<code class="docutils literal"><span class="pre">-g</span></code>表示全局
+npm outdated |检查过时的包,可以加<code class="docutils literal"><span class="pre">-g</span></code>表示全局
+npm list| 查看当前目录下已安装的node包<br>注意事项：Node模块搜索是从代码执行的当前目录开始的，搜索结果取决于当前使用的目录中<br>node_modules下的内容。<code class="docutils literal"><span class="pre">$</span> <span class="pre">npm</span> <span class="pre">list</span> <span class="pre">parseable=true</span></code>可以目录的形式来展现当前安装的所有node包,可以加<code class="docutils literal"><span class="pre">-g</span></code>表示全局</p>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h2>全局环境设置专用操作<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>操作|说明
+&#8212;|&#8212;
+npm adduser|创建npm的用户
+npm config ls|查看npm在机器上的设置</p>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>单独项目专用操作<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>操作|说明
+&#8212;|&#8212;
+npm init|初始化一个项目,会生成一个<code class="docutils literal"><span class="pre">package.json</span></code>作为配置文件来管理该项目</p>
+</div>
+<div class="section" id="package-json">
+<span id="package-json"></span><h2>package.json配置文件<a class="headerlink" href="#package-json" title="永久链接至标题">¶</a></h2>
+<p>package.json是一个node.js项目的配置文件,它大约是这样的:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span>{
+  &quot;name&quot;: &quot;ex3&quot;,    //项目名
+  &quot;version&quot;: &quot;1.0.0&quot;, //版本
+  &quot;description&quot;: &quot;&quot;, //描述
+  &quot;main&quot;: &quot;index.js&quot;, //入口文件
+  &quot;scripts&quot;: {  //可运行的脚本
+    &quot;docs&quot;: &quot;esdoc -c esdoc.json&quot;,
+    &quot;start&quot;: &quot;gulp&quot;,
+    &quot;lint&quot;: &quot;gulp lint&quot;,
+    &quot;test&quot;:&quot;./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover --report html ./node_modules/.bin/_mocha &quot;
+  },
+  &quot;author&quot;: &quot;hsz&quot;,//作者
+  &quot;license&quot;: &quot;ISC&quot;,//版权声明
+  &quot;devDependencies&quot;: {//开发用的依赖
+    &quot;babel-cli&quot;: &quot;^6.6.5&quot;,
+    &quot;babel-core&quot;: &quot;^6.7.4&quot;,
+    &quot;babel-eslint&quot;: &quot;^6.0.2&quot;,
+    &quot;babel-loader&quot;: &quot;^6.2.4&quot;,
+    &quot;babel-polyfill&quot;: &quot;^6.7.4&quot;,
+    &quot;babel-preset-es2015&quot;: &quot;^6.6.0&quot;,
+    &quot;babel-register&quot;: &quot;^6.7.2&quot;,
+    &quot;chai&quot;: &quot;^3.5.0&quot;,
+    &quot;esdoc&quot;: &quot;^0.4.6&quot;,
+    &quot;eslint&quot;: &quot;^2.7.0&quot;,
+    &quot;gulp&quot;: &quot;^3.9.1&quot;,
+    &quot;gulp-clean&quot;: &quot;^0.3.2&quot;,
+    &quot;gulp-eslint&quot;: &quot;^2.0.0&quot;,
+    &quot;gulp-minify-html&quot;: &quot;^1.0.6&quot;,
+    &quot;gulp-notify&quot;: &quot;^2.2.0&quot;,
+    &quot;gulp-rename&quot;: &quot;^1.2.2&quot;,
+    &quot;gulp-uglify&quot;: &quot;^1.5.3&quot;,
+    &quot;gulp-util&quot;: &quot;^3.0.7&quot;,
+    &quot;isparta&quot;: &quot;^4.0.0&quot;,
+    &quot;mocha&quot;: &quot;^2.4.5&quot;,
+    &quot;mochawesome&quot;: &quot;^1.3.2&quot;,
+    &quot;webpack&quot;: &quot;^1.12.14&quot;
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>依赖的版本声明<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>使用NPM下载和发布代码时都会接触到版本号。NPM使用语义版本号来管理代码，这里简单介绍一下。
+语义版本号分为X.Y.Z三位，分别代表主版本号、次版本号和补丁版本号。当代码变更时，版本号按以下原则更新。
+如果只是修复bug，需要更新Z位。
+如果是新增了功能，但是向下兼容，需要更新Y位。
+如果有大变动，向下不兼容，需要更新X位。
+版本号有了这个保证后，在申明第三方包依赖时，除了可依赖于一个固定版本号外，还可依赖于某个范围的版本号。例如&#8221;argv&#8221;: &#8220;0.0.x&#8221;表示依赖于0.0.x系列的最新版argv。</p>
+<p>版本控制同样支持通配符</p>
+<ul class="simple">
+<li>*: 任意版本</li>
+<li>1.1.0: 指定版本</li>
+<li>~1.1.0: &gt;=1.1.0 &amp;&amp; &lt; 1.2.0</li>
+<li>^1.1.0: &gt;=1.1.0 &amp;&amp; &lt; 2.0.0</li>
+<li>其中 ~ 和 ^ 两个前缀让人比较迷惑，简单的来说：</li>
+<li>~ 前缀表示，安装大于指定的这个版本，并且匹配到 x.y.z 中 z 最新的版本。</li>
+<li>^ 前缀在 ^0.y.z 时的表现和 ~0.y.z 是一样的，然而 ^1.y.z 的时候，就会 匹配到 y 和 z 都是最新的版本。</li>
+</ul>
+<p>特殊的是，当版本号为 ^0.0.z 或者 ~0.0.z 的时候，考虑到 0.0.z 是一个不稳定版本， 所以它们都相当于 =0.0.z。</p>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h2>墙内换源<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>npm虽好,但无奈天朝有墙,我们只能用国内镜像作为源了</p>
+<p>在你的home目录下,编辑<code class="docutils literal"><span class="pre">~/.npmrc</span></code>,</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span><span class="nv">registry</span> <span class="o">=</span>https://registry.npm.taobao.org
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="babel">
+<span id="babel"></span><h1>babel安装:<a class="headerlink" href="#babel" title="永久链接至标题">¶</a></h1>
+<p>主流的babel版本是5和6,这边以6为标准,如果要使用babel6,那么你需要用npm安装以下几个包</p>
+<ul>
+<li><p class="first">babel-core             编译器核心</p>
+</li>
+<li><p class="first">babel-cli              包含一个repl和一个叫babel-node的程序,用来代替node先编译再执行程序</p>
+</li>
+<li><p class="first">babel-preset-es2015    es6的语法特性包</p>
+<p>主要是:</p>
+<ul class="simple">
+<li>Arrow functions</li>
+<li>Async functions</li>
+<li>Async generator functions</li>
+<li>Block scoping</li>
+<li>Block scoped functions</li>
+<li>Classes</li>
+<li>Class properties</li>
+<li>Computed property names</li>
+<li>Constants</li>
+<li>Decorators</li>
+<li>Default parameters</li>
+<li>Destructuring</li>
+<li>Do expressions</li>
+<li>Exponentiation operator</li>
+<li>For-of</li>
+<li>Function bind</li>
+<li>Generators</li>
+<li>Modules</li>
+<li>Module export extensions</li>
+<li>New literals</li>
+<li>Object rest/spread</li>
+<li>Property method assignment</li>
+<li>Property name shorthand</li>
+<li>Rest parameters</li>
+<li>Spread</li>
+<li>Sticky regex</li>
+<li>Template literals</li>
+<li>Trailing function commas</li>
+<li>Type annotations</li>
+<li>Unicode regex</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p class="first">babel-polyfill         es6的运行时支持,包括数据结构的新增api和一些其他需要运行时操作的语法</p>
+<p>主要是:</p>
+<ul class="simple">
+<li>ArrayBuffer</li>
+<li>Array.from</li>
+<li>Array.of</li>
+<li>Array#copyWithin</li>
+<li>Array#fill</li>
+<li>Array#find</li>
+<li>Array#findIndex</li>
+<li>Function#name</li>
+<li>Map</li>
+<li>Math.acosh</li>
+<li>Math.hypot</li>
+<li>Math.imul</li>
+<li>Number.isNaN</li>
+<li>Number.isInteger</li>
+<li>Object.assign</li>
+<li>Object.is</li>
+<li>Object#entries</li>
+<li>Object.setPrototypeOf</li>
+<li>Promise</li>
+<li>Reflect</li>
+<li>RegExp#flags</li>
+<li>Set</li>
+<li>String#codePointAt</li>
+<li>String#endsWith</li>
+<li>String.fromCodePoint</li>
+<li>String#includes</li>
+<li>String.raw</li>
+<li>String#repeat</li>
+<li>String#startsWith</li>
+<li>Symbol</li>
+<li>WeakMap</li>
+<li>WeakSet</li>
+</ul>
+</li>
+<li><p class="first">babel-register         es6的import特性支持包</p>
+</li>
+<li><p class="first">babel-runtime          es6的运行时帮助</p>
+</li>
+<li><p class="first">babel-plugin-transform-runtime     es6的运行时帮助插件</p>
+</li>
+</ul>
+<p>装好这些以后,如果要在当前目录中可以使用es6,那么需要在<code class="docutils literal"><span class="pre">package.json</span></code>中配置:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;babel&quot;:{
+        &quot;presets&quot;: [&quot;es2015&quot;],                //语法包
+        &quot;plugins&quot;: [&quot;transform-decorators&quot;]   //插件
+    }
+</pre></div>
+</div>
+<p>这样就可以了</p>
+<p>值得一提的是babel支持模块化的新怎语法特性,只要安装插件并配置到<code class="docutils literal"><span class="pre">babel</span></code>字段即可</p>
+<p>要在node环境下使用ES6,那么已经可以了~</p>
+<blockquote>
+<div>例1 第一个babel-node程序:</div></blockquote>
+<ol>
+<li><p class="first">在项目下安装依赖包:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>npm init
+npm install babel-core babel-cli babel-preset-es2015 babel-polyfill babel-register --save-dev
+</pre></div>
+</div>
+</li>
+<li><p class="first">修改<code class="docutils literal"><span class="pre">package.json</span></code></p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ex1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;main&quot;</span><span class="p">:</span> <span class="s2">&quot;index.js&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;scripts&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;./node_modules/.bin/babel-node index.js&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="s2">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;license&quot;</span><span class="p">:</span> <span class="s2">&quot;ISC&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;devDependencies&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;babel-cli&quot;</span><span class="p">:</span> <span class="s2">&quot;^6.7.5&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;babel-core&quot;</span><span class="p">:</span> <span class="s2">&quot;^6.7.6&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;babel-polyfill&quot;</span><span class="p">:</span> <span class="s2">&quot;^6.7.4&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;babel-preset-es2015&quot;</span><span class="p">:</span> <span class="s2">&quot;^6.6.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;babel-register&quot;</span><span class="p">:</span> <span class="s2">&quot;^6.7.2&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;babel&quot;</span><span class="p">:{</span>
+    <span class="nt">&quot;presets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;es2015&quot;</span><span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">新建一个入口文件<code class="docutils literal"><span class="pre">index.js</span></code></p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">http</span> <span class="nx">from</span> <span class="s1">&#39;http&#39;</span>
+<span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">((</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="cm">/**</span>
+<span class="cm">    *发送 HTTP 头部</span>
+<span class="cm">    * HTTP 状态值: 200 : OK</span>
+<span class="cm">    * 内容类型: text/plain</span>
+<span class="cm">    */</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;text/plain&#39;</span>
+    <span class="p">})</span>
+    <span class="c1">// 发送响应数据 &quot;Hello World&quot;</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s1">&#39;Hello World\n&#39;</span><span class="p">)</span>
+<span class="p">}).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8899</span><span class="p">)</span>
+
+<span class="c1">// 终端打印如下信息</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Server running at http://127.0.0.1:8899/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">运行<code class="docutils literal"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">start</span></code></p>
+</li>
+</ol>
+<p>这样打开<code class="docutils literal"><span class="pre">localhost:8899</span></code>就可以看到第一个helloworld了</p>
+<p>要在浏览器端使用babel需要先编译(其实babel-node也是先编译再执行而已)成浏览器可用的脚本,之后再运行那个脚本即可</p>
+<blockquote>
+<div>例2 第一个浏览器端的ES6脚本</div></blockquote>
+<p>我们的项目目录是这个样子:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>ex2\
+   |-js\
+   |   |-src\
+   |   |    |-hello.js
+   |   |
+   |   |-bin\
+   |
+   |-html\
+   |     |-src\
+   |     |    |-index.html
+</pre></div>
+</div>
+<p>我们要让它实现脚本渲染helloworld出来</p>
+<ol>
+<li><p class="first">依然是安装各种依赖</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>npm init
+npm install babel-core babel-cli babel-preset-es2015 babel-polyfill babel-register --save-dev
+</pre></div>
+</div>
+</li>
+<li><p class="first">修改<code class="docutils literal"><span class="pre">package.json</span></code></p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ex2&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;main&quot;</span><span class="p">:</span> <span class="s2">&quot;index.js&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;scripts&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;build&quot;</span><span class="p">:</span> <span class="s2">&quot;babel js/src -d js/bin&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="s2">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;license&quot;</span><span class="p">:</span> <span class="s2">&quot;ISC&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;devDependencies&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;babel-cli&quot;</span><span class="p">:</span> <span class="s2">&quot;^6.7.5&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;babel-core&quot;</span><span class="p">:</span> <span class="s2">&quot;^6.7.6&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;babel-polyfill&quot;</span><span class="p">:</span> <span class="s2">&quot;^6.7.4&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;babel-preset-es2015&quot;</span><span class="p">:</span> <span class="s2">&quot;^6.6.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;babel-register&quot;</span><span class="p">:</span> <span class="s2">&quot;^6.7.2&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;babel&quot;</span><span class="p">:{</span>
+    <span class="nt">&quot;presets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;es2015&quot;</span><span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">编辑<code class="docutils literal"><span class="pre">index.html</span></code></p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!--</span>
+<span class="c">@Author: HSZ &lt;huangsizhe&gt;</span>
+<span class="c">@Date:   2016-04-05T14:19:46+08:00</span>
+<span class="c">@Email:  hsz1273327@gmail.com</span>
+<span class="c">@Last modified by:   huangsizhe</span>
+<span class="c">@Last modified time: 2016-04-05T15:35:58+08:00</span>
+<span class="c">@License: MIT</span>
+<span class="c">--&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">h1</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;hello&quot;</span><span class="p">&gt;</span>hello|world<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../../js/bin/hello.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>4 . 编辑<code class="docutils literal"><span class="pre">hello.js</span></code></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>```Javascript
+let node = document.getElementById(&#39;hello&#39;)
+node.innerHTML=&quot;hello babel&quot;
+```
+</pre></div>
+</div>
+<ol class="simple">
+<li>运行<code class="docutils literal"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">build</span></code></li>
+</ol>
+<p>6.打开html文件,结果就可看到啦</p>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/环境搭建/ES6环境搭建.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; 版权所有 2016, hsz.<br/>
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5 创建。<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

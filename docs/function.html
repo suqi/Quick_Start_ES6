@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>函数 &mdash; Python_Quick_Start mit 文档</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.6/lumen/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'mit',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Python_Quick_Start mit 文档" href="index.html" />
+    <link rel="next" title="类和面向对象编程" href="class_and_object-oriented_programming.html" />
+    <link rel="prev" title="自省,注释和内置函数" href="reflect_code_commenting_and_built-in_functions.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><span><img src="_static/my_logo.png"></span>
+          Python_Quick_Start</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="http://blog.hszofficial.site/">Home</a></li>
+                <li><a href="http://blog.hszofficial.site/about/">About</a></li>
+                <li><a href="http://blog.hszofficial.site/series/">Series</a></li>
+                <li><a href="http://blog.hszofficial.site/collection/">Collections</a></li>
+                <li><a href="http://blog.hszofficial.site/tags/">Tags</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Python_Quick_Start <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="variable_object_and_op.html">变量,对象与运算</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_object_and_op.html#id2">对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_object_and_op.html#id6">变量</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="container.html">内置容器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="container.html#id2">容器的通用操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container.html#id4">序列&#8211;字符串，列表，元组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container.html#id14">无序序列&#8211;字典和集合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container.html#id18">关于容器的小技巧</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Logic_control_statement_and_Error_handler.html">控制语句和异常处理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Logic_control_statement_and_Error_handler.html#id2">判断语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Logic_control_statement_and_Error_handler.html#id3">循环语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Logic_control_statement_and_Error_handler.html#id4">异常处理语句</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html">自省,注释和内置函数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html#id2">自省</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html#import">常用内置函数(不用import就可以直接使用)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html#id9">行注释</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html#id10">段注释</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">函数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">定义和使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">参数传递</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">多返回</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">递归</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">函数注解</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class_and_object-oriented_programming.html">类和面向对象编程</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_and_object-oriented_programming.html#id2">定义类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_and_object-oriented_programming.html#id3">继承</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_and_object-oriented_programming.html#id7">封装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_and_object-oriented_programming.html#id8">多态</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module_and_package.html">模块和包</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id2">模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id3">模块的标准写法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id4">包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#import">import 的相对引用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id6">循环引用和循环依赖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id7">模块的载入行为(科普)</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="id1">
+<h1>函数<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>从这节开始我们将会学习python3的组织形式,第一块便是函数,因为代码可以被组织起来了,python3的基础编程也就正式开始了.</p>
+<p>函数可以理解为一个打包的方法,主要作用有:</p>
+<ul class="simple">
+<li>最大化的代码重用</li>
+<li>流程分解</li>
+</ul>
+<div class="section" id="id2">
+<h2>定义和使用<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div>基本形式</div></blockquote>
+<div class="highlight-python"><div class="highlight"><pre><span></span>def 函数名(参数1,参数2..):
+    代码
+    return 返回值 #可以没有
+
+例: 写一个函数,实现求两个数的和
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x1</span><span class="o">+</span><span class="n">x2</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>参数传递<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>函数的传递参数有多种方式可以相互组合使用.</p>
+<p>函数内变量有独立的命名空间,而传递参数的变量名同样也只在函数内部有效,那参数是如何传递的呢?</p>
+<p>看这个例子:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">4547226832</span>
+<span class="mi">4547226864</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">c</span><span class="p">,</span><span class="n">d</span> <span class="o">=</span> <span class="s2">&quot;asd&quot;</span><span class="p">,</span><span class="s2">&quot;fgh&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">4582293040</span>
+<span class="mi">4582292760</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">x1</span><span class="o">+</span><span class="n">x2</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">4547226832</span>
+<span class="mi">4547226864</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">3</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">add</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">4582293040</span>
+<span class="mi">4582292760</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;asdfgh&#39;</span>
+</pre></div>
+</div>
+<p>看的出其实参数传递传递的是值而不是变量</p>
+<blockquote>
+<div>默认参数</div></blockquote>
+<p>python3支持默认传递参数.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x1</span><span class="o">+</span><span class="n">x2</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">20</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">add</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>27
+
+
+
+可变参数
+</pre></div>
+</div>
+<p>python3可以定义不定数量的参数,</p>
+<p>其实原理很简单,实际传入的是一个元组.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>21
+
+
+
+关键字参数
+</pre></div>
+</div>
+<p>python3中同样支持关键字</p>
+<p>实现上来说,其实就是传入的一个字典</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">people</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="o">**</span><span class="n">kws</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">kws</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="s2">&quot;:&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">people</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;JoJo&quot;</span><span class="p">,</span><span class="n">age</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span><span class="n">city</span> <span class="o">=</span> <span class="s2">&quot;new york&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>JoJo
+city:new york
+age:30
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>多返回<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>python可以多返回,但实质是返回一个包含着全部值的元组.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">addAndMult</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="nb">reduce</span>
+    <span class="n">add</span> <span class="o">=</span> <span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span><span class="n">args</span><span class="p">)</span>
+    <span class="n">mult</span> <span class="o">=</span> <span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">,</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">add</span><span class="p">,</span><span class="n">mult</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">addAndMult</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>递归<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>所谓递归就是自己调用自己求值</p>
+<p>比如递归的求和:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>def add(*args):
+    if len(args) == 1:
+        return args[0]
+    else:
+        h,*t = args
+        rt = add(*t)
+
+        return h+rt
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">16</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>函数注解<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>python3支持函数注解,同时官方也正在完善函数注解,以方便类型检测</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>from typing import List
+def f(x:List[int],y:(int,(10,20)) = 15)-&gt;int:
+    return x+y
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">__annotations__</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;return&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">))}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/function.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; 版权所有 2016, hsz.<br/>
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5 创建。<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

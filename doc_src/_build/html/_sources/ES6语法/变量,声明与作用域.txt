@@ -1,0 +1,211 @@
+
+# 作用域
+
+js中作用域分为
+
++ 块作用域    `{}`包裹,或者是逻辑表达式中定义的变量就属于这个
++ 函数作用域
++ 上层函数作用域(闭包)
++ 全局作用域
+
+类似python,js的变量查找规则也是由里到外一层一层查找的
+
+> 例子:
+
+
+```javascript
+let a = "a"
+
+function func(){
+    let b = "b"
+    return function(){
+        let c = "c" 
+        {
+          let d = "d"  
+          
+        }
+        let d = "e"
+        return a+b+c+d
+    }
+    
+}
+```
+
+
+
+
+    'use strict'
+
+
+
+
+```javascript
+func()()
+```
+
+
+
+
+    'abce'
+
+
+
+# 变量声明
+
+js中有3种声明关键字
+
++ var
+
+    这是以前js的遗留,它没有块级概念,在全局定义就是全局变量,在function中定义就是局部变量,但在块内它并不会在快运行完后消失,因此最好别用
+
++ let
+
+    取代var的声明关键字,有块概念,建议都用它,你必须在用到它之前先声明,这也是和var不同的地方
+
++ const
+
+    常数,和scala中的val差不多,就是所谓的不变量,它和let的作用域特点相同
+
+# 变量的特殊操作
+
+## 解构赋值
+
+解构赋值是指将数据结构中的内容提取出来的一个操作
+
+### 解构数组
+
+
+```javascript
+let [a,b,c] = [1,2,4]
+```
+
+
+
+
+    'use strict'
+
+
+
+
+```javascript
+a
+```
+
+
+
+
+    1
+
+
+
+
+```javascript
+b
+```
+
+
+
+
+    2
+
+
+
+
+```javascript
+c
+```
+
+
+
+
+    4
+
+
+
+
+```javascript
+let [x,...y]=[1,2,3,4]
+```
+
+
+
+
+    'use strict'
+
+
+
+
+```javascript
+x
+```
+
+
+
+
+    1
+
+
+
+
+```javascript
+y
+```
+
+
+
+
+    [ 2, 3, 4 ]
+
+
+
+### 解构对象
+
+对象依靠字段辨识,所以解构只能靠同名字段
+
+
+```javascript
+let {a,b,c}={a:1,b:2,c:3}
+```
+
+
+
+
+    'use strict'
+
+
+
+
+```javascript
+a
+```
+
+
+
+
+    1
+
+
+
+
+```javascript
+b
+```
+
+
+
+
+    2
+
+
+
+
+```javascript
+c
+```
+
+
+
+
+    3
+
+

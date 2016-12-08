@@ -1,0 +1,296 @@
+
+函数
+====
+
+从这节开始我们将会学习python3的组织形式,第一块便是函数,因为代码可以被组织起来了,python3的基础编程也就正式开始了.
+
+函数可以理解为一个打包的方法,主要作用有:
+
+-  最大化的代码重用
+-  流程分解
+
+定义和使用
+----------
+
+    基本形式
+
+::
+
+    def 函数名(参数1,参数2..):
+        代码
+        return 返回值 #可以没有
+
+    例: 写一个函数,实现求两个数的和
+
+.. code:: python
+
+    def add(x1,x2):
+        return x1+x2
+
+.. code:: python
+
+    add(1,2)
+
+
+
+
+.. parsed-literal::
+
+    3
+
+
+
+参数传递
+--------
+
+函数的传递参数有多种方式可以相互组合使用.
+
+函数内变量有独立的命名空间,而传递参数的变量名同样也只在函数内部有效,那参数是如何传递的呢?
+
+看这个例子:
+
+.. code:: python
+
+    a,b =1,2
+    print(id(a))
+    print(id(b))
+
+
+.. parsed-literal::
+
+    4547226832
+    4547226864
+
+
+.. code:: python
+
+    c,d = "asd","fgh"
+    print(id(c))
+    print(id(d))
+
+
+.. parsed-literal::
+
+    4582293040
+    4582292760
+
+
+.. code:: python
+
+    def add(x1,x2):
+        print(id(x1))
+        print(id(x2))
+        return x1+x2
+
+.. code:: python
+
+    add(a,b)
+
+
+
+.. parsed-literal::
+
+    4547226832
+    4547226864
+
+
+
+
+.. parsed-literal::
+
+    3
+
+
+
+.. code:: python
+
+    add(c,d)
+
+
+.. parsed-literal::
+
+    4582293040
+    4582292760
+
+
+
+
+.. parsed-literal::
+
+    'asdfgh'
+
+
+
+看的出其实参数传递传递的是值而不是变量
+
+    默认参数
+
+python3支持默认传递参数.
+
+.. code:: python
+
+    def add(x1,x2=10):
+        return x1+x2
+
+.. code:: python
+
+    add(10)
+
+
+
+
+.. parsed-literal::
+
+    20
+
+
+
+.. code:: python
+
+    add(12,15)
+
+
+
+
+.. parsed-literal::
+
+    27
+
+
+
+    可变参数
+
+python3可以定义不定数量的参数,
+
+其实原理很简单,实际传入的是一个元组.
+
+.. code:: python
+
+    def add(*args):
+        result = 0
+        for i in args:
+            result += i
+        return result
+
+.. code:: python
+
+    add(1,2,3,4,5,6)
+
+
+
+
+.. parsed-literal::
+
+    21
+
+
+
+    关键字参数
+
+python3中同样支持关键字
+
+实现上来说,其实就是传入的一个字典
+
+.. code:: python
+
+    def people(name,**kws):
+        print(name)
+        for k,v in kws.items():
+            print(k+":"+str(v))
+
+.. code:: python
+
+    people(name = "JoJo",age = 30,city = "new york")
+
+
+.. parsed-literal::
+
+    JoJo
+    city:new york
+    age:30
+
+
+多返回
+------
+
+python可以多返回,但实质是返回一个包含着全部值的元组.
+
+.. code:: python
+
+    def addAndMult(*args):
+        from functools import reduce
+        add = reduce(lambda x,y: x+y,args)
+        mult = reduce(lambda x,y: x*y,args)
+        return add,mult
+
+.. code:: python
+
+    x,y = addAndMult(1,2,3,4)
+
+.. code:: python
+
+    x,y
+
+
+
+
+.. parsed-literal::
+
+    (10, 24)
+
+
+
+递归
+----
+
+所谓递归就是自己调用自己求值
+
+比如递归的求和:
+
+.. code:: python
+
+    def add(*args):
+        if len(args) == 1:
+            return args[0]
+        else:
+            h,*t = args
+            rt = add(*t)
+            
+            return h+rt
+
+.. code:: python
+
+    add(1,2,3,4,6)
+
+
+
+
+.. parsed-literal::
+
+    16
+
+
+
+函数注解
+--------
+
+python3支持函数注解,同时官方也正在完善函数注解,以方便类型检测
+
+.. code:: python
+
+    from typing import List
+    def f(x:List[int],y:(int,(10,20)) = 15)->int:
+        return x+y
+
+.. code:: python
+
+    f.__annotations__
+
+
+
+
+.. parsed-literal::
+
+    {'return': int, 'x': typing.List[int], 'y': (int, (10, 20))}
+
+

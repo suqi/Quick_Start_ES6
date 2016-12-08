@@ -1,0 +1,770 @@
+
+内置容器
+========
+
+python的自带容器非常简单基础,按是否有序可以分为序列和无序序列两种
+
+容器之所以是容器,就是因为他们可以存放单独的数据或者结构化数据,我们来看看他们内部的样子,以字典为例:
+
+.. code:: python
+
+    dic1 = {1:"a",2:"b"}
+
+.. code:: python
+
+    id(dic1[1])
+
+
+
+
+.. parsed-literal::
+
+    4297979304
+
+
+
+.. code:: python
+
+    dic1[1]="c"
+
+.. code:: python
+
+    id(dic1[1])
+
+
+
+
+.. parsed-literal::
+
+    4297980944
+
+
+
+可见其实这些容器内存放的也是引用而已.
+
+容器的通用操作
+--------------
+
+对于容器,有些操作是通用的,比如: + ### 取长度(容量)
+
+.. code:: python
+
+    len({1:"a",2:"b"})
+
+
+
+
+.. parsed-literal::
+
+    2
+
+
+
+-  .. rubric:: 函数式编程工具
+      :name: 函数式编程工具
+
+函数式编程工具往往都是对容器中的数据操作,这些操作包括\ ``map``,\ ``reduce``,\ ``filter``\ 等,这些工具在\ `我的这个合集中 <>`__\ 有详细讲解,这里暂不细讲.
+
+.. code:: python
+
+    list(map(lambda x:x+1,{1:"a",2:"b"}))
+
+
+
+
+.. parsed-literal::
+
+    [2, 3]
+
+
+
+序列--字符串，列表，元组
+------------------------
+
+序列除了字符串外都是非常灵活的容器,内容可以是任何类型,并且内部元素类型并不需要一样.
+这一组都有一个共性,就是内容有顺序,可以切片或者按位获取内容
+
+通用操作
+~~~~~~~~
+
+-  .. rubric:: 取值和切片
+      :name: 取值和切片
+
+python 用\ ``[]``\ 来取值和切片
+
+比如\ ``[1]``\ 代表取第一位的值(序列中为第2个元素).\ ``[-1]``\ 代表最后一个元素,而当\ ``[]``\ 中有两个被\ ``:``\ 分割开得数时就成了切片,比如\ ``[2:4]``\ 代表取从第2位到第3位的元素组成一个与原来序列相同类型的新序列
+
+**练习:**
+
+从矩阵[[1,2,3,4,5],[0,9,8,7,6]]中取出前两位组成的2x2矩阵
+
+.. code:: python
+
+    a = [[1,2,3,4,5],[0,9,8,7,6]]
+    a
+
+
+
+
+.. parsed-literal::
+
+    [[1, 2, 3, 4, 5], [0, 9, 8, 7, 6]]
+
+
+
+.. code:: python
+
+    [a[0][:2],a[1][:2]]
+
+
+
+
+.. parsed-literal::
+
+    [[1, 2], [0, 9]]
+
+
+
+-  .. rubric:: 使用enumerate遍历序列
+      :name: 使用enumerate遍历序列
+
+可以用
+
+::
+
+    for i,v in enumerate(s):
+
+来遍历一个序列,i为序号,v为值,这种方式长用于挑选数据,这也是最推荐的方式
+
+例:
+
+.. code:: python
+
+    a = enumerate("asdf")
+
+.. code:: python
+
+    for i,v in enumerate("asdf"):
+        print(i,v)
+
+
+.. parsed-literal::
+
+    (0, 'a')
+    (1, 's')
+    (2, 'd')
+    (3, 'f')
+
+
+-  .. rubric:: 使用\ ``reversed``\ 翻转序列
+      :name: 使用reversed翻转序列
+
+事实上\ ``reversed``\ 除了针对序列,还可以操作等差数列生成器xrange
+
+.. code:: python
+
+    list(reversed(range(10)))
+
+
+
+
+.. parsed-literal::
+
+    [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+
+
+.. code:: python
+
+    list(reversed(xrange(10)))
+
+
+
+
+.. parsed-literal::
+
+    [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+
+
+字符串
+~~~~~~
+
+字符串就是把字符按顺序串联.不过和C不同,事实上python没有字符char这个类型,
+所以python中所谓字符就是只有一位的字符串啦.
+
+字符串可以用\ ``""``\ 或者\ ``''``\ 来定义.如果字符串很长要跨行也可以用\ ``""" """``\ 或者\ ``''' '''``\ 来定义.
+
+字符串一旦赋值就无法更改.
+
+    字符串的方法:
+
+字符串处理算是python强项,除了自带方法和自带String模块外,还可以用正则表达式处理.
+这边先看前两种,正则表达式会作为番外篇
+
+-  字符串中字符大小写的变换： S.lower() #小写 S.upper() #大写
+   S.swapcase() #大小写互换 S.capitalize() #首字母大写
+   String.capwords(S)
+   #这是模块中的方法。它把S用split()函数分开，然后用capitalize()把首字母变成大写，最后用join()合并到一起
+   S.title() #只有首字母大写，其余为小写，模块中没有这个方法
+
+-  字符串在输出时的对齐：
+
+   ::
+
+       S.ljust(width,[fillchar])    #输出width个字符，S左对齐，不足部分用fillchar填充，默认的为空格。
+       S.rjust(width,[fillchar]) #右对齐
+       S.center(width, [fillchar]) #中间对齐
+       S.zfill(width) #把S变成width长，并在右对齐，不足部分用0补足
+
+-  字符串中的搜索和替换：
+
+   ::
+
+       S.find(substr, [start, [end]]) #返回S中出现substr的第一个字母的标号，如果S中没有substr则返回-1。start和end作用就相当于在S[start:end]中搜索
+       S.index(substr, [start, [end]]) #与find()相同，只是在S中没有substr时，会返回一个运行时错误
+       S.rfind(substr, [start, [end]]) #返回S中最后出现的substr的第一个字母的标号，如果S中没有substr则返回-1，也就是说从右边算起的第一次出现的substr的首字母标号
+       S.rindex(substr, [start, [end]])
+       S.count(substr, [start, [end]]) #计算substr在S中出现的次数
+       S.replace(oldstr, newstr, [count]) #把S中的oldstar替换为newstr，count为替换次数。这是替换的通用形式，还有一些函数进行特殊字符的替换
+       S.strip([chars]) #把S中前后chars中有的字符全部去掉，可以理解为把S前后chars替换为None
+       S.lstrip([chars])
+       S.rstrip([chars])
+       S.expandtabs([tabsize]) #把S中的tab字符替换没空格，每个tab替换为tabsize个空格，默认是8个
+
+-  字符串的分割和组合：
+
+   ::
+
+       S.split([sep, [maxsplit]]) #以sep为分隔符，把S分成一个list。maxsplit表示分割的次数。默认的分割符为空白字符
+       S.rsplit([sep, [maxsplit]])
+       S.splitlines([keepends]) #把S按照行分割符分为一个list，keepends是一个bool值，如果为真每行后而会保留行分割符。
+       S.join(seq) #把seq代表的序列──字符串序列，用S连接起来
+
+-  字符串的mapping，这一功能包含两个函数：
+
+   ::
+
+       String.maketrans(from, to) #返回一个256个字符组成的翻译表，其中from中的字符被一一对应地转换成to，所以from和to必须是等长的。
+       S.translate(table[,deletechars]) # 使用上面的函数产后的翻译表，把S进行翻译，并把deletechars中有的字符删掉。需要注意的是，如果S为unicode字符串，那么就不支持 deletechars参数，可以使用把某个字符翻译为None的方式实现相同的功能。此外还可以使用codecs模块的功能来创建更加功能强大的翻译表。
+
+-  字符串还有一对编码和解码的函数：
+
+   ::
+
+       S.encode([encoding,[errors]]) # 其中encoding可以有多种值，比如gb2312 gbk gb18030 bz2 zlib big5 bzse64等都支持。errors默认值为"strict"，意思是UnicodeError。可能的值还有'ignore', 'replace', 'xmlcharrefreplace', 'backslashreplace' 和所有的通过codecs.register_error注册的值。这一部分内容涉及codecs模块，不是特明白
+
+       S.decode([encoding,[errors]]) #字符串的测试函数，这一类函数在string模块中没有，这些函数返回的都是bool值：
+
+       S.startwith(prefix[,start[,end]]) #是否以prefix开头
+       S.endwith(suffix[,start[,end]]) #以suffix结尾
+       S.isalnum() #是否全是字母和数字，并至少有一个字符
+       S.isalpha() #是否全是字母，并至少有一个字符
+       S.isdigit() #是否全是数字，并至少有一个字符
+       S.isspace() #是否全是空白字符，并至少有一个字符
+       S.islower() #S中的字母是否全是小写
+       S.isupper() #S中的字母是否便是大写
+       S.istitle() #S是否是首字母大写的
+
+-  字符串类型转换函数，这几个函数只在string模块中有：
+
+   ::
+
+       string.atoi(s[,base]) #base默认为10，如果为0,那么s就可以是012或0x23这种形式的字符串，如果是16那么s就只能是0x23或0X12这种形式的字符串
+       string.atol(s[,base]) #转成long
+       string.atof(s[,base]) #转成float
+
+字符串拼接
+^^^^^^^^^^
+
+字符串有两种拼接方式,\ ``+``\ 和\ ``join``\ 方法,一般来说是join方法更加推荐,因为它的效率比\ ``+``\ 高很多,而且语义更加明确
+
+格式化字符串
+^^^^^^^^^^^^
+
+格式化字符串更加推荐的是用format方法,\ ``format()``\ 方法是用来代替\ ``%d``\ 这种格式化字符串方法的(后者在python3中已经无法使用了).它的好处是更加直观好理解.而且它还要记许多的格式化标记
+
+format方法有4种使用方法:
+
+-  位置占位符
+
+.. code:: python
+
+    "{}是{}".format("一",1)
+
+
+
+
+.. parsed-literal::
+
+    '一是1'
+
+
+
+-  使用键值对
+
+.. code:: python
+
+    "{a:}是{b:}".format(a="一",b=1)
+
+
+
+
+.. parsed-literal::
+
+    '一是1'
+
+
+
+看到:后面是可以使用格式化标识的
+
+.. code:: python
+
+    import math
+
+.. code:: python
+
+    "{a:}是{b:0.3f}".format(a="pi",b=math.pi)
+
+
+
+
+.. parsed-literal::
+
+    'pi是3.142'
+
+
+
+-  使用属性
+
+.. code:: python
+
+    class Person:
+        def __init__(self,name,age):
+            self.name=name
+            self.age=age
+            
+        def toString(self):
+            return "{self.name}今年{self.age}岁".format(self=self)
+
+.. code:: python
+
+    xiaoming = Person("XM",18)
+
+.. code:: python
+
+    xiaoming.toString()
+
+
+
+
+.. parsed-literal::
+
+    'XM今年18岁'
+
+
+
+-  使用元组
+
+.. code:: python
+
+    point = (1,3)
+
+.. code:: python
+
+    "X={0[0]};Y={0[1]}".format(point)
+
+
+
+
+.. parsed-literal::
+
+    'X=1;Y=3'
+
+
+
+列表
+~~~~
+
+列表实际就是动态数组,他的内部元素不定类型,不定长度,可以随时天删改查,所以用起来灵活方便,但效率不高,定义方式有两种:
+
+::
+
+    a=[]
+    b=list()
+
+列表属于可变数据类型,它的内部其实
+
+列表的方法:
+^^^^^^^^^^^
+
+-  cmp(list1, list2) 比较两个列表的元素
+-  len(list) 列表元素个数
+-  max(list) 返回列表元素最大值
+-  min(list) 返回列表元素最小值
+-  list(seq) 将元组转换为列表
+
+列表的常用方法:
+^^^^^^^^^^^^^^^
+
+-  list.append(obj) 在列表末尾添加新的对象
+-  list.count(obj) 统计某个元素在列表中出现的次数
+-  list.extend(seq)
+   在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表）
+-  list.index(obj) 从列表中找出某个值第一个匹配项的索引位置
+-  list.insert(index, obj) 将对象插入列表
+-  list.pop(obj=list[-1])
+   移除列表中的一个元素（默认最后一个元素），并且返回该元素的值
+-  list.remove(obj) 移除列表中某个值的第一个匹配项
+-  list.reverse() 反向列表中元素
+-  list.sort([func]) 对原列表进行排序
+
+    黑科技 列表解析
+
+所谓列表解析就是在列表中写入代码段,吧代码段生成的结果放入列表中.
+
+例:
+
+.. code:: python
+
+    [i for i in range(10)]
+
+
+
+
+.. parsed-literal::
+
+    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+
+    range()等差数列生成器
+
+::
+
+    range(start,end,step)
+
+等差数列生成器在2.7返回的是一个真的等差"数列",然而\ ``xrange()``\ 和3.0+的\ ``range()``\ 返回的是一个等差数列生成器这点需要注意
+
+事实上python中字典,集合,列表都有解析,同时还有生成器,以及相关的\ ``map``\ 函数,\ ``filter``\ 内容过滤器等.
+这块内容很多,所以后面会单独拿出来讲
+
+元组
+~~~~
+
+元祖是不可变的列表,它的定义比较奇怪,它用\ ``,``\ 来辨识
+
+.. code:: python
+
+    a = 12,4
+    type(a)
+
+
+
+
+.. parsed-literal::
+
+    tuple
+
+
+
+当然也可以用更加优雅的方式定义(虽然我觉得这没啥必要):
+
+.. code:: python
+
+    b=tuple((11,"sf"))
+
+    元组内置函数
+
+-  cmp(tuple1, tuple2) 比较两个元组元素。
+-  len(tuple) 计算元组元素个数。
+-  max(tuple) 返回元组中元素最大值。
+-  min(tuple) 返回元组中元素最小值。
+-  tuple(seq) 将列表转换为元组。
+
+无序序列--字典和集合
+--------------------
+
+无序序列内容同样可以是任何类型,并且内部元素类型并不需要一样.
+无序序列自然内部没有有序的索引,但同样可以用\ ``for ... in ...``\ 语句来遍历
+
+字典
+~~~~
+
+字典是python中唯一的映射类型,其中的每个元素都由key,value两部分组成
+
+::
+
+    d1 = {1:"a",2:"b"}
+    d1[3]="c"
+
+字典的方法:
+^^^^^^^^^^^
+
+-  adict.clear() 删除字典中的所有项或元素；
+-  adict.copy() 返回一个字典浅拷贝的副本；
+-  adict.fromkeys(seq, val=None)
+   创建并返回一个新字典，以seq中的元素做该字典的键，val做该字典中所有键对应的初始值（默认为None）；
+-  adict.get(key, default = None)
+   返回字典中key对应的值，若key不存在字典中，则返回default的值（default默认为None）；
+-  adict.has\_key(key) 如果key在字典中，返回True，否则返回False。 现在用
+   in 、 not in；
+-  adict.items() 返回一个包含所有（键，值）元祖的列表；
+-  adict.keys() 返回所有的keys形成的列表
+-  adict.pop(key[,default])
+   和get方法相似。如果字典中存在key，删除并返回key对应的vuale；如果key不存在，且没有给出default的值，则引发keyerror异常；
+-  adict.popitem() 和pop类似,只是返回一个(key,value)的元组
+-  adict.setdefault(key, default=None)
+   和set()方法相似，但如果字典中不存在Key键，由 adict[key] = default
+   为它赋值；
+-  adict.update(bdict) 将字典bdict的键值对添加到字典adict中。
+-  adict.values() 返回一个包含字典所有value的列表；
+
+集合
+~~~~
+
+集合可以看做是字典的特例(只有键没有值的字典)
+
+集合的特性是内容中不会有重复,利用这一特性可以为列表去重
+
+::
+
+    > a = ["a","b","a","c"]
+    > b = set(a)
+    > print b
+
+关于容器的小技巧
+----------------
+
+    解压序列赋值给多个变量
+
+.. code:: python
+
+    data = [ 'ACME', 50, 91.1, (2012, 12, 21) ]
+
+.. code:: python
+
+    name, shares, price, date = data
+
+.. code:: python
+
+    name, shares, price, date
+
+
+
+
+.. parsed-literal::
+
+    ('ACME', 50, 91.1, (2012, 12, 21))
+
+
+
+    解压可迭代对象赋值给多个变量(python2不支持)
+
+.. code:: python
+
+    record = ('Dave', 'dave@example.com', '773-555-1212', '847-555-1212')
+    name, email, *phone_numbers = record
+
+.. code:: python
+
+    name, email, phone_numbers
+
+
+
+
+.. parsed-literal::
+
+    ('Dave', 'dave@example.com', ['773-555-1212', '847-555-1212'])
+
+
+
+    匿名通配符\ ``_``
+
+有的时候我们并不关心一些变量是什么,那么,可以用\ ``_``\ 将其值丢弃
+
+.. code:: python
+
+    s=[1,2,3,4,5]
+    a,b,_,_,_ = s
+    a,b
+
+
+
+
+.. parsed-literal::
+
+    (1, 2)
+
+
+
+**练习:**
+
+利用列表的解压求列表[2,3,4,5,6,7]各个元素的积
+
+.. code:: python
+
+    l = [2,3,4,5,6,7]
+
+.. code:: python
+
+    def mul(l):
+        a,*lnext=l
+        if lnext:
+            return a*mul(lnext)
+        else:
+            return a
+
+
+.. code:: python
+
+    mul(l)
+
+
+
+
+.. parsed-literal::
+
+    5040
+
+
+
+.. code:: python
+
+    2*3*4*5*6*7
+
+
+
+
+.. parsed-literal::
+
+    5040
+
+
+
+这道题利用了递归的思想,后面也会讲到
+
+    字典的运算
+
+**问题**
+怎样在数据字典中执行一些计算操作(比如求最小值、最大值、排序等等)？
+
+.. code:: python
+
+     prices = {
+        'ACME': 45.23,
+        'AAPL': 612.78,
+        'IBM': 205.55,
+        'HPQ': 37.20,
+        'FB': 10.75
+        }
+
+.. code:: python
+
+    min_price = min(zip(prices.values(), prices.keys()))
+    # min_price is (10.75, 'FB')
+    max_price = max(zip(prices.values(), prices.keys()))
+    # max_price is (612.78, 'AAPL')
+    prices_sorted = sorted(zip(prices.values(), prices.keys()))
+
+.. code:: python
+
+    min_price
+
+
+
+
+.. parsed-literal::
+
+    (10.75, 'FB')
+
+
+
+.. code:: python
+
+    max_price
+
+
+
+
+.. parsed-literal::
+
+    (612.78, 'AAPL')
+
+
+
+.. code:: python
+
+    prices_sorted
+
+
+
+
+.. parsed-literal::
+
+    [(10.75, 'FB'),
+     (37.2, 'HPQ'),
+     (45.23, 'ACME'),
+     (205.55, 'IBM'),
+     (612.78, 'AAPL')]
+
+
+
+这题利用了\ ``min``,\ ``max``,\ ``sort``\ 对键值对元组默认排序比较只看第一个元素的特点
+
+    查找两字典的相同点
+
+**问题** 怎样在两个字典中寻寻找相同点(比如相同的键、相同的值等等)？
+
+.. code:: python
+
+    a = {
+            'x' : 1,
+            'y' : 2,
+            'z' : 3
+        }
+    
+    b = {
+            'w' : 10,
+            'x' : 11,
+            'y' : 2
+        }
+
+.. code:: python
+
+    a.keys() & b.keys()#相同的key
+
+
+
+
+.. parsed-literal::
+
+    {'x', 'y'}
+
+
+
+.. code:: python
+
+    a.keys() - b.keys()#a中有b中没有的
+
+
+
+
+.. parsed-literal::
+
+    {'z'}
+
+
+
+.. code:: python
+
+    a.items() & b.items()#找到健值都相同的
+
+
+
+
+.. parsed-literal::
+
+    {('y', 2)}
+
+

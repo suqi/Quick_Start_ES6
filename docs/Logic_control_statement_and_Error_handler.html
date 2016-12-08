@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>控制语句和异常处理 &mdash; Python_Quick_Start mit 文档</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.6/lumen/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'mit',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Python_Quick_Start mit 文档" href="index.html" />
+    <link rel="next" title="自省,注释和内置函数" href="reflect_code_commenting_and_built-in_functions.html" />
+    <link rel="prev" title="内置容器" href="container.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><span><img src="_static/my_logo.png"></span>
+          Python_Quick_Start</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="http://blog.hszofficial.site/">Home</a></li>
+                <li><a href="http://blog.hszofficial.site/about/">About</a></li>
+                <li><a href="http://blog.hszofficial.site/series/">Series</a></li>
+                <li><a href="http://blog.hszofficial.site/collection/">Collections</a></li>
+                <li><a href="http://blog.hszofficial.site/tags/">Tags</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Python_Quick_Start <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="variable_object_and_op.html">变量,对象与运算</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_object_and_op.html#id2">对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_object_and_op.html#id6">变量</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="container.html">内置容器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="container.html#id2">容器的通用操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container.html#id4">序列&#8211;字符串，列表，元组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container.html#id14">无序序列&#8211;字典和集合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container.html#id18">关于容器的小技巧</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">控制语句和异常处理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">判断语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">循环语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">异常处理语句</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html">自省,注释和内置函数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html#id2">自省</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html#import">常用内置函数(不用import就可以直接使用)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html#id9">行注释</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reflect_code_commenting_and_built-in_functions.html#id10">段注释</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="function.html">函数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id2">定义和使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id3">参数传递</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id4">多返回</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id5">递归</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id6">函数注解</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class_and_object-oriented_programming.html">类和面向对象编程</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class_and_object-oriented_programming.html#id2">定义类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_and_object-oriented_programming.html#id3">继承</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_and_object-oriented_programming.html#id7">封装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_and_object-oriented_programming.html#id8">多态</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module_and_package.html">模块和包</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id2">模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id3">模块的标准写法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id4">包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#import">import 的相对引用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id6">循环引用和循环依赖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_and_package.html#id7">模块的载入行为(科普)</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="id1">
+<h1>控制语句和异常处理<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>python的控制语句力求精简,所以只有判断语句，循环语句，异常处理语句三种。</p>
+<p>python的语法以缩进代表代码段,因此需要注意对缩进的理解,
+相同的代码,缩进不同可能意义完全不同.这也是许多学过其他语言的人难以适应python的原因之一,
+但一旦接受了这种设定,其实还是很带感的.</p>
+<div class="section" id="id2">
+<h2>判断语句<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>python只有if语句没有switch,这也是与c与java最大的区别之一. ###
+if...elif...else &gt; 例1.判断一个数是奇数还是偶数</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;输入一个整数&quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">a</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;偶数&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;奇数&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>输入一个整数12
+偶数
+
+
+例2:不同缩进的不同效果,例子为计算一个整数是不是3,5,15的倍数
+</pre></div>
+</div>
+<p>正确一:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;输入一个整数&quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">a</span><span class="o">%</span><span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">a</span><span class="o">%</span><span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;15的倍数&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;3的倍数&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">a</span><span class="o">%</span><span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;5的倍数&quot;</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;不是3或5的倍数&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>输入一个整数34
+不是3或5的倍数
+</pre></div>
+</div>
+<p>正确二:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;输入一个整数&quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">a</span><span class="o">%</span><span class="mi">15</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;15的倍数&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">a</span><span class="o">%</span><span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;3的倍数&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">a</span><span class="o">%</span><span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;5的倍数&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;不是3或5的倍数&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>输入一个整数34
+不是3或5的倍数
+</pre></div>
+</div>
+<div class="section" id="swtch">
+<h3>实现分支swtch的功能<a class="headerlink" href="#swtch" title="永久链接至标题">¶</a></h3>
+<p>大道至简,话是这么说,但如果纯用if...else来实现switch其实很繁琐并不优雅,有没有什么办法可以实现优雅高效的switch操作呢?有的,就是用字典+lambda函数</p>
+<p>判断一个变量的类型,是</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>def which_type(x):
+    values = {
+        int:lambda x:print(x,&quot;is int&quot;),
+        float:lambda x:print(x,&quot;is float&quot;),
+        list:lambda x:print(x,&quot;is list&quot;)
+    }
+    return values.get(type(x),lambda x:print(&quot;i dont know&quot;))(x)
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">which_type</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">10</span> <span class="ow">is</span> <span class="nb">int</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">which_type</span><span class="p">(</span><span class="s2">&quot;10&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>i dont know
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>循环语句<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>和C和Java一样,python有for循环和while循环</p>
+<div class="section" id="for">
+<h3>for循环<a class="headerlink" href="#for" title="永久链接至标题">¶</a></h3>
+<p>for循环一般是用来遍历一个序列变量或无序序列变量</p>
+<blockquote>
+<div>例子:</div></blockquote>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">0</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+<span class="mi">6</span>
+<span class="mi">7</span>
+<span class="mi">8</span>
+<span class="mi">9</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="while">
+<h3>while循环<a class="headerlink" href="#while" title="永久链接至标题">¶</a></h3>
+<blockquote>
+<div>例:</div></blockquote>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">0</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+<span class="mi">6</span>
+<span class="mi">7</span>
+<span class="mi">8</span>
+<span class="mi">9</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="breakcontinue">
+<h3>打断语句<code class="docutils literal"><span class="pre">break</span></code>和<code class="docutils literal"><span class="pre">continue</span></code><a class="headerlink" href="#breakcontinue" title="永久链接至标题">¶</a></h3>
+<blockquote>
+<div>例:</div></blockquote>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="p">:</span>
+        <span class="k">break</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="p">:</span>
+        <span class="k">break</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">1</span>
+<span class="mi">3</span>
+<span class="mi">5</span>
+<span class="mi">7</span>
+<span class="mi">9</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="else">
+<h3>循环+else<a class="headerlink" href="#else" title="永久链接至标题">¶</a></h3>
+<p>你可能不相信,但这是真的...
+for循环和while循环都有else分支,它的语义是如果正常跳出,则进入else分支,否则跳过
+&gt; 例子</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
+        <span class="k">break</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;正常跳出&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
+        <span class="k">break</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;正常跳出&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>正常跳出
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">continue</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;正常跳出&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>正常跳出
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>异常处理语句<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div>什么是异常？</div></blockquote>
+<p>异常即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。
+一般情况下，在Python无法正常处理程序时就会发生一个异常。
+异常是Python对象，表示一个错误。
+当Python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。</p>
+<blockquote>
+<div>python标准异常</div></blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">异常名称</th>
+<th class="head">描述</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>BaseException</td>
+<td>所有异常的基类</td>
+</tr>
+<tr class="row-odd"><td>SystemExit</td>
+<td>解释器请求退出</td>
+</tr>
+<tr class="row-even"><td>KeyboardInterrupt</td>
+<td>用户中断执行(通常是输入^C)</td>
+</tr>
+<tr class="row-odd"><td>Exception</td>
+<td>常规错误的基类</td>
+</tr>
+<tr class="row-even"><td>StopIteration</td>
+<td>迭代器没有更多的值</td>
+</tr>
+<tr class="row-odd"><td>GeneratorExit</td>
+<td>生成器(generator)发生异常来通知退出</td>
+</tr>
+<tr class="row-even"><td>StandardError</td>
+<td>所有的内建标准异常的基类</td>
+</tr>
+<tr class="row-odd"><td>ArithmeticError</td>
+<td>所有数值计算错误的基类</td>
+</tr>
+<tr class="row-even"><td>FloatingPointError</td>
+<td>浮点计算错误</td>
+</tr>
+<tr class="row-odd"><td>OverflowError</td>
+<td>数值运算超出最大限制</td>
+</tr>
+<tr class="row-even"><td>ZeroDivisionError</td>
+<td>除(或取模)零 (所有数据类型)</td>
+</tr>
+<tr class="row-odd"><td>AssertionError</td>
+<td>断言语句失败</td>
+</tr>
+<tr class="row-even"><td>AttributeError</td>
+<td>对象没有这个属性</td>
+</tr>
+<tr class="row-odd"><td>EOFError</td>
+<td>没有内建输入,到达EOF 标记</td>
+</tr>
+<tr class="row-even"><td>EnvironmentError</td>
+<td>操作系统错误的基类</td>
+</tr>
+<tr class="row-odd"><td>IOError</td>
+<td>输入/输出操作失败</td>
+</tr>
+<tr class="row-even"><td>OSError</td>
+<td>操作系统错误</td>
+</tr>
+<tr class="row-odd"><td>WindowsError</td>
+<td>系统调用失败</td>
+</tr>
+<tr class="row-even"><td>ImportError</td>
+<td>导入模块/对象失败</td>
+</tr>
+<tr class="row-odd"><td>LookupError</td>
+<td>无效数据查询的基类</td>
+</tr>
+<tr class="row-even"><td>IndexError</td>
+<td>序列中没有此索引(index)</td>
+</tr>
+<tr class="row-odd"><td>KeyError</td>
+<td>映射中没有这个键</td>
+</tr>
+<tr class="row-even"><td>MemoryError</td>
+<td>内存溢出错误(对于Python 解释器不是致命的)</td>
+</tr>
+<tr class="row-odd"><td>NameError</td>
+<td>未声明/初始化对象 (没有属性)</td>
+</tr>
+<tr class="row-even"><td>UnboundLocalError</td>
+<td>访问未初始化的本地变量</td>
+</tr>
+<tr class="row-odd"><td>ReferenceError</td>
+<td>弱引用(Weak reference)试图访问已经垃圾回收了的对象</td>
+</tr>
+<tr class="row-even"><td>RuntimeError</td>
+<td>一般的运行时错误</td>
+</tr>
+<tr class="row-odd"><td>NotImplementedError</td>
+<td>尚未实现的方法</td>
+</tr>
+<tr class="row-even"><td>SyntaxError</td>
+<td>Python 语法错误</td>
+</tr>
+<tr class="row-odd"><td>IndentationError</td>
+<td>缩进错误</td>
+</tr>
+<tr class="row-even"><td>TabError</td>
+<td>Tab 和空格混用</td>
+</tr>
+<tr class="row-odd"><td>SystemError</td>
+<td>一般的解释器系统错误</td>
+</tr>
+<tr class="row-even"><td>TypeError</td>
+<td>对类型无效的操作</td>
+</tr>
+<tr class="row-odd"><td>ValueError</td>
+<td>传入无效的参数</td>
+</tr>
+<tr class="row-even"><td>UnicodeError</td>
+<td>Unicode 相关的错误</td>
+</tr>
+<tr class="row-odd"><td>UnicodeDecodeError</td>
+<td>Unicode 解码时的错误</td>
+</tr>
+<tr class="row-even"><td>UnicodeEncodeError</td>
+<td>Unicode 编码时错误</td>
+</tr>
+<tr class="row-odd"><td>UnicodeTranslateError</td>
+<td>Unicode 转换时错误</td>
+</tr>
+<tr class="row-even"><td>Warning</td>
+<td>警告的基类</td>
+</tr>
+<tr class="row-odd"><td>DeprecationWarning</td>
+<td>关于被弃用的特征的警告</td>
+</tr>
+<tr class="row-even"><td>FutureWarning</td>
+<td>关于构造将来语义会有改变的警告</td>
+</tr>
+<tr class="row-odd"><td>OverflowWarning</td>
+<td>旧的关于自动提升为长整型(long)的警告</td>
+</tr>
+<tr class="row-even"><td>PendingDeprecationWarning</td>
+<td>关于特性将会被废弃的警告</td>
+</tr>
+<tr class="row-odd"><td>RuntimeWarning</td>
+<td>可疑的运行时行为(runtime behavior)的警告</td>
+</tr>
+<tr class="row-even"><td>SyntaxWarning</td>
+<td>可疑的语法的警告</td>
+</tr>
+<tr class="row-odd"><td>UserWarning</td>
+<td>用户代码生成的警告</td>
+</tr>
+</tbody>
+</table>
+<p>python提供了两个非常重要的功能来处理python程序在运行中出现的异常和错误。你可以使用该功能来调试python程序。
++ 异常处理。 + 断言(Assertions)</p>
+<div class="section" id="id5">
+<h3>异常处理<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<blockquote>
+<div>捕捉异常可以使用try/except语句。</div></blockquote>
+<p>try/except语句用来检测try语句块中的错误，从而让except语句捕获异常信息并处理。
+如果你不想在异常发生时结束你的程序，只需在try里捕获它。</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>try:
+    &lt;语句&gt;        #运行别的代码
+except &lt;名字&gt;：
+    &lt;语句&gt;        #如果在try部份引发了&#39;name&#39;异常
+except &lt;名字&gt;，&lt;数据&gt;:
+    &lt;语句&gt;        #如果引发了&#39;name&#39;异常，获得附加的数据
+else:
+    &lt;语句&gt;        #如果没有异常发生
+finally:
+    &lt;语句&gt;    #退出try时总会执行
+</pre></div>
+</div>
+<p>try的工作原理是，当开始一个try语句后，python就在当前程序的上下文中作标记，这样当异常出现时就可以回到这里，try子句先执行，接下来会发生什么依赖于执行时是否出现异常。</p>
+<ul>
+<li><p class="first">如果当try后的语句执行时发生异常，python就跳回到try并执行第一个匹配该异常的except子句，异常处理完毕，控制流就通过整个try语句（除非在处理异常时又引发新的异常）。</p>
+</li>
+<li><p class="first">如果在try后的语句里发生了异常，却没有匹配的except子句，异常将被递交到上层的try，或者到程序的最上层（这样将结束程序，并打印缺省的出错信息）。</p>
+</li>
+<li><p class="first">如果在try子句执行时没有发生异常，python将执行else语句后的语句（如果有else的话），然后控制流通过整个try语句。</p>
+</li>
+<li><p class="first">无论是否有异常,finally都将被执行,它一般作为存放收尾动作的地方,但是注意,finally有陷阱:
+如果主干上的错误分支中没有对应的捕捉,那么他将被保存在一个临时的位置,而如果同时finally中有错误,则这个临时的错误会被finally中的错误给替代</p>
+<blockquote>
+<div><p>触发异常</p>
+</div></blockquote>
+</li>
+</ul>
+<p>我们可以使用raise语句自己触发异常 raise语法格式如下：</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>raise [Exception [, args [, traceback]]]
+
+例子:
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">functionName</span><span class="p">(</span> <span class="n">level</span> <span class="p">):</span>
+    <span class="k">if</span> <span class="n">level</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid level! &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">level</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;ok&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">functionName</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ok</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">functionName</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+
+ValueError                                Traceback (most recent call last)
+
+&lt;ipython-input-10-385485286317&gt; in &lt;module&gt;()
+----&gt; 1 functionName(0)
+
+
+&lt;ipython-input-8-c7aff5bd58d1&gt; in functionName(level)
+      1 def functionName( level ):
+      2     if level &lt; 1:
+----&gt; 3         raise ValueError(&quot;Invalid level! &quot;+str(level))
+      4     else:
+      5         print(&quot;ok&quot;)
+
+
+ValueError: Invalid level! 0
+</pre></div>
+</div>
+<p><strong>注意:</strong>这块是和python2不同的地方之一,raise再python2中这么用:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>raise Exception,args
+
+用户自定义异常
+</pre></div>
+</div>
+<p>通过创建一个新的异常类，程序可以命名它们自己的异常。异常应该是典型的继承自Exception类，通过直接或间接的方式。
+以下为与RuntimeError相关的实例,实例中创建了一个类，基类为RuntimeError，用于在异常触发时输出更多的信息。
+在try语句块中，用户自定义的异常后执行except块语句，变量 e
+是用于创建Networkerror类的实例。</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Networkerror</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">arg</span>
+</pre></div>
+</div>
+<p>在你定义以上类后，你可以触发该异常，如下所示：</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="n">Networkerror</span><span class="p">(</span><span class="s2">&quot;Bad hostname&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">Networkerror</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>注意:</strong>这块和python2中也不一样,python2中except这样用:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>except NotImplementedError, error:
+
+断言
+</pre></div>
+</div>
+<p>assert语句用来断言某个条件是真的，并且在它非真的时候引发一个错误&#8211;AssertionError。</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">flag</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="k">assert</span> <span class="n">flag</span> <span class="o">==</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">flag</span> <span class="o">==</span> <span class="bp">False</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+
+AssertionError                            Traceback (most recent call last)
+
+&lt;ipython-input-13-64df29166d12&gt; in &lt;module&gt;()
+----&gt; 1 assert flag == False
+
+
+AssertionError:
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="n">flag</span> <span class="o">==</span> <span class="bp">False</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;failed&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;pass&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">failed</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/Logic_control_statement_and_Error_handler.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; 版权所有 2016, hsz.<br/>
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5 创建。<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
